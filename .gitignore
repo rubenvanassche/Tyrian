@@ -1,0 +1,17 @@
+
+.cproject
+
+.project
+
+cmake_install.cmake
+
+.settings/
+
+.idea/
+
+CMakeFiles/
+CMakeCache.txt
+
+Makefile
+
+Tyrian

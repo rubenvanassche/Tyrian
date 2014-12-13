@@ -12,4 +12,6 @@ INCLUDE_DIRECTORIES(${SFML_INCLUDE_DIR})
 
 add_executable(Tyrian ${SOURCE_FILES})
 
+add_library(TyrianLib SHARED Library/Entity.cpp)
+
 TARGET_LINK_LIBRARIES(Tyrian ${SFML_LIBRARIES})
