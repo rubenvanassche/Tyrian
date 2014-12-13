@@ -9,6 +9,8 @@ set(CONTROLLERS_FILES Controllers/HAL9000.cpp)
 
 set(TEST_FILES Tests/test.cpp Tests/direction.cpp)
 
-set(LIBRARIES_FILES Lib/Catch.hpp Lib/Point.cpp Lib/Size.cpp Lib/Direction.cpp)
+set(LIBRARIES_FILES Lib/Point.cpp Lib/Size.cpp Lib/Direction.cpp)
 
-add_executable(LibTests ${TEST_FILES} ${MODELS_FILES} ${CONTROLLERS_FILES} ${LIBRARIES_FILES})
+set(EXTERNAL_FILES External/Catch.hpp External/Jsoncpp.hpp )
+
+add_executable(LibTests ${TEST_FILES} ${MODELS_FILES} ${CONTROLLERS_FILES} ${LIBRARIES_FILES} ${EXTERNAL_FILES})

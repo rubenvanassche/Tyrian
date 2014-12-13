@@ -1,4 +1,4 @@
-#include "../Lib/Catch.hpp"
+#include "../External/Catch.hpp"
 #include "../Lib/Direction.h"
 
 TEST_CASE( "Direction can be Left", "[Direction]" ){
