@@ -32,7 +32,7 @@ public:
 	Size getSize() const;
 
 	virtual ~Entity();
-private:
+protected:
     Point fPoint;
     Size fSize;
 };
