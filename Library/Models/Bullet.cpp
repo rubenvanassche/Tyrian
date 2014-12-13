@@ -12,6 +12,24 @@ Bullet::Bullet() {
 
 }
 
+void Bullet::move(Direction const direction){
+	if(direction.isLeft()){
+		this->fPoint.x -= this->fSpeed;
+	}
+
+	if(direction.isRight()){
+		this->fPoint.x += this->fSpeed;
+	}
+
+	if(direction.isUp()){
+		this->fPoint.y += this->fSpeed;
+	}
+
+	if(direction.isDown()){
+		this->fPoint.y -= this->fSpeed;
+	}
+}
+
 Bullet::~Bullet() {
 	// TODO Auto-generated destructor stub
 }

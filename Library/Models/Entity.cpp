@@ -5,6 +5,14 @@ Entity::Entity() {
 
 }
 
+Point Entity::getLocation() const{
+	return this->fPoint;
+}
+
+Size Entity::getSize() const{
+	return this->fSize;
+}
+
 Entity::~Entity() {
 	// TODO Auto-generated destructor stub
 }

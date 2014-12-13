@@ -31,14 +31,6 @@ void Ship::move(Direction const direction){
 
 }
 
-Point Ship::getLocation() const{
-	return this->fPoint;
-}
-
-Size Ship::getSize() const{
-	return this->fSize;
-}
-
 Ship::~Ship() {
 	// TODO Auto-generated destructor stub
 }

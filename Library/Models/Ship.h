@@ -11,14 +11,25 @@
 #include "Entity.h"
 
 /**
- * @brief Model representing a ship
+ * @brief Model representing a Ship
  */
 class Ship : public Entity {
 public:
+	/**
+	 * @brief Constructs a Ship
+	 */
 	Ship();
+
+	/**
+	 * @brief Moves a ship to a certain Direction
+	 */
 	void move(Direction const direction);
-	Point getLocation() const;
-	Size getSize() const;
+
+	/**
+	 * @brief Shoot a Bullet from the Ship
+	 */
+	void shoot() const;
+
 	virtual ~Ship();
 private:
 	// the amount of pixel a ship moves in a direction
