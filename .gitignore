@@ -17,3 +17,5 @@ Makefile
 Tyrian
 
 Library/LibTests
+
+Library/libTyLib.a
