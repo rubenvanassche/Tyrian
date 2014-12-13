@@ -4,11 +4,12 @@
 #include <iostream>
 #include "../Lib/Point.h"
 #include "../Lib/Size.h"
+#include "../Lib/Direction.h"
 
 class Entity{
 public:
 	Entity();
-	virtual void move()=0;
+	virtual void move(Direction const direction)=0;
 	virtual ~Entity();
 private:
     Point fPoint;

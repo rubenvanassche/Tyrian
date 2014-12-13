@@ -12,8 +12,31 @@ Ship::Ship() {
 
 }
 
-void Ship::move(){
+void Ship::move(Direction const direction){
+	if(direction.isLeft()){
+		this->fPoint.x -= this->fSpeed;
+	}
 
+	if(direction.isRight()){
+		this->fPoint.x += this->fSpeed;
+	}
+
+	if(direction.isUp()){
+		this->fPoint.y += this->fSpeed;
+	}
+
+	if(direction.isDown()){
+		this->fPoint.y -= this->fSpeed;
+	}
+
+}
+
+Point Ship::getLocation() const{
+	return this->fPoint;
+}
+
+Size Ship::getSize() const{
+	return this->fSize;
 }
 
 Ship::~Ship() {
