@@ -11,15 +11,15 @@ Direction::Direction(std::string direction) {
     // Set the string to lower characters
     std::transform(direction.begin(), direction.end(), direction.begin(), ::tolower);
 
-    if(direction == 'left' || direction == 'right' || direction == 'up' || direction == 'down'){
+    if(direction == "left" || direction == "right" || direction == "up" || direction == "down"){
         this->fDirection = direction;
     }else{
-        throw Exception('Not a valid direction!');
+        throw std::runtime_error("Not a valid direction!");
     }
 }
 
 bool Direction::isLeft() const {
-    if(this->fDirection == 'left'){
+    if(this->fDirection == "left"){
         return true;
     }else{
         return false;
@@ -27,7 +27,7 @@ bool Direction::isLeft() const {
 }
 
 bool Direction::isRight() const {
-    if(this->fDirection == 'right'){
+    if(this->fDirection == "right"){
         return true;
     }else{
         return false;
@@ -35,7 +35,7 @@ bool Direction::isRight() const {
 }
 
 bool Direction::isUp() const {
-    if(this->fDirection == 'up'){
+    if(this->fDirection == "up"){
         return true;
     }else{
         return false;
@@ -43,7 +43,7 @@ bool Direction::isUp() const {
 }
 
 bool Direction::isDown() const {
-    if(this->fDirection == 'down'){
+    if(this->fDirection == "down"){
         return true;
     }else{
         return false;

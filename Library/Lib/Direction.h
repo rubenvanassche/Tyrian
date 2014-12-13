@@ -10,6 +10,7 @@
 
 #include <string>
 #include <algorithm>
+#include <exception>
 
 /**
  * @brief Container for the direction an Entity should move to
