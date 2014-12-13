@@ -12,6 +12,10 @@ Ship::Ship() {
 
 }
 
+void Ship::move(){
+
+}
+
 Ship::~Ship() {
 	// TODO Auto-generated destructor stub
 }

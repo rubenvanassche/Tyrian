@@ -1,5 +1,10 @@
 #include "Entity.h"
 
-void Entity::test(){
-    std::cout << "test" << std::endl;
+Entity::Entity() {
+	// TODO Auto-generated constructor stub
+
+}
+
+Entity::~Entity() {
+	// TODO Auto-generated destructor stub
 }

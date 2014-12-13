@@ -8,9 +8,12 @@
 #ifndef LIBRARY_MODELS_SHIP_H_
 #define LIBRARY_MODELS_SHIP_H_
 
-class Ship {
+#include "Entity.h"
+
+class Ship : public Entity {
 public:
 	Ship();
+	void move();
 	virtual ~Ship();
 };
 
