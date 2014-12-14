@@ -11,8 +11,25 @@
 #include <string>
 #include <fstream>
 #include <streambuf>
-#include "../External/Jsoncpp.hpp"
+#include "../External/pugixml.hpp"
 
+/**
+ * @brief Structure to represent an XML Ship
+ */
+struct XMLShip{
+	std::string type;
+	std::string gun;
+	int x;
+	int y;
+};
+
+/**
+ * @brief Structure to represent an XML Stage
+ */
+struct XMLStage{
+	int start;
+	std::list<XMLShip> ships;
+};
 
 /**
  * @brief Loads a game file
@@ -24,28 +41,29 @@ public:
 	 */
 	FileLoader();
 
-	bool loadFile();
+	void loadFile(std::string const filename);
+
+	/**
+	 * @brief Generate a Stage Structure based upon an given Stage xml node
+	 */
+	XMLStage processStage(pugi::xml_node& doc);
+
+	/**
+	 * @brief Generate a Ship Structure based upon an given Ship xml node
+	 */
+	XMLShip processShip(pugi::xml_node& doc);
+
+	/**
+	 * @brief check if the xml structure is correct
+	 */
+	bool checkXML(pugi::xml_node& doc);
 
 	virtual ~FileLoader();
 private:
+	std::string fLevelName;
+	int fLevelDifficulty;
 
-	/**
-	 * @brief Read the file from the HDD
-	 */
-	void readFile();
-
-	/**
-	 * @brief Create a JSON object based upon the file contents
-	 */
-	void createJSON();
-
-	/**
-	 * @brief Check if the formatting of the JSON is correct
-	 */
-
-	std::string fFilename;
-	std::string fFileContents;
-	std::string fJSON;
+	std::list<XMLStage> fStages;
 };
 
 #endif /* LIBRARY_LIB_FILELOADER_H_ */
