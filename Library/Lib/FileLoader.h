@@ -9,8 +9,8 @@
 #define LIBRARY_LIB_FILELOADER_H_
 
 #include <string>
-#include <fstream>
-#include <streambuf>
+#include <list>
+#include <stdlib.h>
 #include "../External/pugixml.hpp"
 
 /**

@@ -21,7 +21,7 @@ void FileLoader::loadFile(std::string const filename){
 		// get the name of the level
 		this->fLevelName = doc.child("level").child_value("name");
 		// get the difficulty of the level
-		this->fLevelDifficulty = doc.child("level").child_value("difficulty");
+		this->fLevelDifficulty = atoi(doc.child("level").child_value("difficulty"));
 
 		// Let's get the stages
 		for (pugi::xml_node stage = doc.child("level").child("stages"); stage; stage = stage.next_sibling("stages")){
@@ -37,7 +37,7 @@ void FileLoader::loadFile(std::string const filename){
 XMLStage FileLoader::processStage(pugi::xml_node& doc){
 		XMLStage newstage;
 		// Get the start of the stage
-		newstage.start = doc.child_value("start");
+		newstage.start = atoi(doc.child_value("start"));
 		// parse the ships
 		for (pugi::xml_node ship = doc.child("ships"); ship; ship = ship.next_sibling("ships")){
 			XMLShip newship = this->processShip(ship);
@@ -51,10 +51,10 @@ XMLStage FileLoader::processStage(pugi::xml_node& doc){
 XMLShip FileLoader::processShip(pugi::xml_node& doc){
 	XMLShip newship;
 	// Get the type of the ship
-	newship.type = doc.child("type");
-	newship.gun = doc.child("gun");
-	newship.x = doc.child("x");
-	newship.y = doc.child("y");
+	newship.type = doc.child_value("type");
+	newship.gun = doc.child_value("gun");
+	newship.x = atoi(doc.child_value("x"));
+	newship.y = atoi(doc.child_value("y"));
 
 	return newship;
 }

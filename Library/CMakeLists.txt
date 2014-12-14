@@ -7,11 +7,11 @@ set(MODELS_FILES Models/Entity.cpp Models/Ship.cpp Models/Bullet.cpp Models/Worl
 
 set(CONTROLLERS_FILES Controllers/HAL9000.cpp)
 
-set(TEST_FILES Tests/test.cpp Tests/direction.cpp)
+set(TEST_FILES Tests/test.cpp Tests/direction.cpp Tests/fileloader.cpp)
 
-set(LIBRARIES_FILES Lib/Point.cpp Lib/Size.cpp Lib/Direction.cpp)
+set(LIBRARIES_FILES Lib/Point.cpp Lib/Size.cpp Lib/Direction.cpp lib/FileLoader.cpp)
 
-set(EXTERNAL_FILES External/Catch.hpp)
+set(EXTERNAL_FILES External/Catch.hpp External/pugixml.cpp)
 
 add_executable(LibTests ${TEST_FILES} ${MODELS_FILES} ${CONTROLLERS_FILES} ${LIBRARIES_FILES} ${EXTERNAL_FILES})
 
