@@ -25,12 +25,12 @@ TEST_CASE( "XMLShip processing", "[FileLoader]"){
 
 	FileLoader f;
 	XMLShip exampleship;
-	exampleship.type = "Standard";
-	exampleship.gun = "Basic";
+	exampleship.type = "standard";
+	exampleship.gun = "basic";
 	exampleship.x = 10;
 	exampleship.y = 10;
 
-	XMLShip generatedship =f.processShip(ship);
+	XMLShip generatedship = f.processShip(ship);
 
 	REQUIRE(exampleship.type == generatedship.type);
 	REQUIRE(exampleship.gun == generatedship.gun);
@@ -43,8 +43,8 @@ TEST_CASE( "XMLStage processing", "[FileLoader]"){
 	pugi::xml_parse_result result = doc.load_file("Tests/Levels/level1.xml");
 	pugi::xml_node stage = doc.child("level").child("stages").child("stage");
 	pugi::xml_node ship1node = doc.child("level").child("stages").child("stage").child("ships").child("ship");
-	pugi::xml_node ship2node = doc.child("level").child("stages").child("stage").child("ships").child("ship").next_sibling("Ship");
-	pugi::xml_node ship3node = doc.child("level").child("stages").child("stage").child("ships").child("ship").next_sibling("Ship").next_sibling("Ship");
+	pugi::xml_node ship2node = doc.child("level").child("stages").child("stage").child("ships").child("ship").next_sibling("ship");
+	pugi::xml_node ship3node = doc.child("level").child("stages").child("stage").child("ships").child("ship").next_sibling("ship").next_sibling("ship");
 
 
 	FileLoader f;
@@ -69,4 +69,12 @@ TEST_CASE( "XMLStage processing", "[FileLoader]"){
 		REQUIRE( i.y == exampleships.at(counter).y);
 		counter++;
 	}
+}
+
+TEST_CASE( "XMLFile processing", "[FileLoader]"){
+	// Todo
+}
+
+TEST_CASE( "CheckData", "[FileLoader]"){
+	// Todo
 }

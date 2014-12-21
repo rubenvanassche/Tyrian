@@ -11,6 +11,7 @@
 #include <string>
 #include <list>
 #include <stdlib.h>
+#include <iostream>
 #include "../External/pugixml.hpp"
 
 /**
@@ -54,12 +55,24 @@ public:
 	XMLShip processShip(pugi::xml_node& doc);
 
 	/**
-	 * @brief check if the xml structure is correct
+	 * @brief check if the Data is correct loaded from an xml document
 	 */
-	bool checkXML(pugi::xml_node& doc);
+	bool checkData();
+
+	/**
+	 * @brief Generate a visual representation of an XML file(using the IOStream)
+	 */
+	void visualize();
 
 	virtual ~FileLoader();
 private:
+	// List with all the valid shiptypes
+	std::list<std::string> const fValidShipTypes{"standard"};
+	// List with all the valid guntypes
+	std::list<std::string> const fValidGunTypes{"basic"};
+	// The width of the game
+	int const fGameWidth = 320;
+
 	std::string fLevelName;
 	int fLevelDifficulty;
 

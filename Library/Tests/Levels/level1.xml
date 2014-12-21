@@ -41,19 +41,19 @@
 				<ship>
 					<type>Standard</type>
 					<x>10</x>
-					<y>10</y>
+					<y>50</y>
 					<gun>Basic</gun>
 				</ship>
 				<ship>
 					<type>Standard</type>
 					<x>10</x>
-					<y>40</y>
+					<y>30</y>
 					<gun>Basic</gun>
 				</ship>
 				<ship>
 					<type>Standard</type>
 					<x>10</x>
-					<y>90</y>
+					<y>70</y>
 					<gun>Basic</gun>
 				</ship>								
 			</ships>
