@@ -33,6 +33,15 @@ struct XMLStage{
 };
 
 /**
+ * @brief Structure representing the whole game
+ */
+struct XMLGame{
+	std::string levelName;
+	int levelDifficulty;
+	std::list<XMLStage> stages;
+};
+
+/**
  * @brief Loads a game file
  */
 class FileLoader {
@@ -42,7 +51,10 @@ public:
 	 */
 	FileLoader();
 
-	void loadFile(std::string const filename);
+	/**
+	 * @brief Load a file by a given filename and return an XMLGame
+	 */
+	XMLGame loadFile(std::string const filename);
 
 	/**
 	 * @brief Generate a Stage Structure based upon an given Stage xml node

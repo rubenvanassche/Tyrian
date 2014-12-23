@@ -12,7 +12,7 @@ FileLoader::FileLoader() {
 
 }
 
-void FileLoader::loadFile(std::string const filename){
+XMLGame FileLoader::loadFile(std::string const filename){
 	// Load the xml file
 	pugi::xml_document doc;
 	pugi::xml_parse_result result = doc.load_file(filename.c_str());
@@ -33,6 +33,14 @@ void FileLoader::loadFile(std::string const filename){
 		if(this->checkData() == false){
 			throw std::runtime_error("Something is wrong with the XML data");
 		}
+
+		// Ok, we're ready to give the XMLGame
+		XMLGame game;
+		game.levelName = this->fLevelName;
+		game.levelDifficulty = this->fLevelDifficulty;
+		game.stages = this->fStages;
+
+		return game;
 	}else{
 		throw std::runtime_error("Something is wrong with the xml file, please correct it.");
 	}
