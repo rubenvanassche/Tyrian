@@ -8,6 +8,9 @@
 #ifndef LIBRARY_MODELS_WORLD_H_
 #define LIBRARY_MODELS_WORLD_H_
 
+class Ship;
+class Bullet;
+
 #include <list>
 #include "Bullet.h"
 #include "Ship.h"

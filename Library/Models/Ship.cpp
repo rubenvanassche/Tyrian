@@ -10,6 +10,7 @@
 Ship::Ship(Point location, Size size) {
 	this->fPoint = location;
 	this->fSize = size;
+	this->fGun = nullptr;
 }
 
 void Ship::move(Direction const direction){
@@ -29,6 +30,18 @@ void Ship::move(Direction const direction){
 		this->fPoint.y += this->fSpeed;
 	}
 
+}
+
+void Ship::shoot() const{
+	if(this->fGun == nullptr){
+		throw std::runtime_error("No gun was set");
+	}
+
+	this->fGun->shoot();
+}
+
+void Ship::setGun(Gun* gun){
+	this->fGun = gun;
 }
 
 Ship::~Ship() {

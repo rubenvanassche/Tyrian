@@ -7,16 +7,20 @@
 
 #include "Gun.h"
 
-Gun::Gun() {
-	// TODO Auto-generated constructor stub
-
+Gun::Gun(Point location, BulletFactory* bulletFactory, Ship* ship) {
+	this->fPoint = location;
+	this->fSize = Size(0,0);
+	this->fShip = ship;
+	this->fBulletFactory = bulletFactory;
 }
 
-void Gun::move(Direction const direction){
-
+void Gun::shoot(){
+	this->fBulletFactory->blue(this->fPoint);
 }
+
 
 Gun::~Gun() {
-	// TODO Auto-generated destructor stub
+	// Delete the bulletfactory
+	delete this->fBulletFactory;
 }
 

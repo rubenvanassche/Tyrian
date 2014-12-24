@@ -9,6 +9,7 @@
 #define LIBRARY_MODELS_BULLET_H_
 
 #include "Entity.h"
+#include "Ship.h"
 
 /**
  * @brief Model representing a Bullet
@@ -18,7 +19,7 @@ public:
 	/**
 	 * @brief Construct a Bullet
 	 */
-	Bullet();
+	Bullet(Point location, Size size, double speed, double damage, Ship* from);
 
 	/**
 	 * @brief Moves a Bullet to a certain Direction
@@ -27,7 +28,9 @@ public:
 
 	virtual ~Bullet();
 private:
-	int fSpeed = 2;
+	double fSpeed;
+	double fDamage;
+	Ship* fFrom;
 };
 
 #endif /* LIBRARY_MODELS_BULLET_H_ */

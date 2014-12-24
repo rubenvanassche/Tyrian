@@ -7,9 +7,12 @@
 
 #include "Bullet.h"
 
-Bullet::Bullet() {
-	// TODO Auto-generated constructor stub
-
+Bullet::Bullet(Point location, Size size, double speed, double damage, Ship* from) {
+	this->fPoint = location;
+	this->fSize = size;
+	this->fSpeed = speed;
+	this->fDamage = damage;
+	this->fFrom = from;
 }
 
 void Bullet::move(Direction const direction){

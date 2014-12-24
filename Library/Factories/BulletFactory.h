@@ -8,6 +8,8 @@
 #ifndef LIBRARY_FACTORIES_BULLETFACTORY_H_
 #define LIBRARY_FACTORIES_BULLETFACTORY_H_
 
+class World;
+
 #include "../Models/World.h"
 #include "../Models/Bullet.h"
 
@@ -19,7 +21,7 @@ public:
 	/**
 	 * @brief Construct a BulletFactory
 	 */
-	BulletFactory(World* worldPtr);
+	BulletFactory(World* worldPtr, Ship* from);
 
 	/**
 	 * @brief Build a blue bullet
@@ -29,6 +31,8 @@ public:
 	virtual ~BulletFactory();
 private:
 	World* fWorld;
+
+	Ship* fFrom;
 };
 
 #endif /* LIBRARY_FACTORIES_BULLETFACTORY_H_ */

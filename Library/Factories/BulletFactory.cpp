@@ -7,12 +7,18 @@
 
 #include "BulletFactory.h"
 
-BulletFactory::BulletFactory(World* worldPtr) {
+BulletFactory::BulletFactory(World* worldPtr, Ship* from) {
 	this->fWorld = worldPtr;
+	this->fFrom = from;
 }
 
 Bullet* BulletFactory::blue(Point location){
+	Size size(5,5);
+	Bullet* bullet = new Bullet(location, size, 0.5, 1, this->fFrom);
 
+	this->fWorld->bullets.push_back(bullet);
+
+	return bullet;
 }
 
 BulletFactory::~BulletFactory() {

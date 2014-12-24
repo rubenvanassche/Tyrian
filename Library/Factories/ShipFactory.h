@@ -45,6 +45,7 @@ private:
 	Ship* standard(XMLShip ship);
 
 	World *fWorld;
+
 };
 
 #endif /* LIBRARY_FACTORIES_SHIPFACTORY_H_ */
