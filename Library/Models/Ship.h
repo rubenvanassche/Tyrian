@@ -18,7 +18,7 @@ public:
 	/**
 	 * @brief Constructs a Ship
 	 */
-	Ship();
+	Ship(Point location, Size size);
 
 	/**
 	 * @brief Moves a ship to a certain Direction
@@ -33,7 +33,7 @@ public:
 	virtual ~Ship();
 private:
 	// the amount of pixel a ship moves in a direction
-	int fSpeed = 5;
+	double fSpeed = 5;
 };
 
 #endif /* LIBRARY_MODELS_SHIP_H_ */

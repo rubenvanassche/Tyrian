@@ -9,26 +9,42 @@
 #define LIBRARY_FACTORIES_SHIPFACTORY_H_
 
 #include "../Lib/FileLoader.h"
-#include "../Models/Ship.h"
+#include "../Models/World.h"
 #include <list>
 
+/**
+ * @brief A factory for constructing Ships
+ */
 class ShipFactory {
 public:
-	ShipFactory(std::list<Ship*> *shipsPtr);
+	/**
+	 * @brief Construct a ShipFactory to be used with the build function
+	 */
+	ShipFactory(World *worldPtr);
+
+	/**
+	 * @brief Construct a ShipFactory to be used to create seperate ships
+	 */
+	ShipFactory();
 
 	/**
 	 * @brief Build the ships based upon an xml stage
 	 */
 	void build(XMLStage stage);
 
+	/**
+	 * @brief build a standard ship with a given Point
+	 */
+	Ship* standard(Point location);
+
 	virtual ~ShipFactory();
 private:
-	std::list<Ship*> *fShips;
-
 	/**
-	 * @brief build a standard ship
+	 * @brief build a standard ship with a given XMLShip
 	 */
 	Ship* standard(XMLShip ship);
+
+	World *fWorld;
 };
 
 #endif /* LIBRARY_FACTORIES_SHIPFACTORY_H_ */

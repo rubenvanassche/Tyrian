@@ -19,3 +19,7 @@ Tyrian
 Library/LibTests
 
 Library/libTyLib.a
+
+Library/Testmain
+
+Library/testmain.cpp

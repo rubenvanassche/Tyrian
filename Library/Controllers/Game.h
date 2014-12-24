@@ -13,13 +13,14 @@
 #include "../Lib/FileLoader.h"
 #include "../Factories/ShipFactory.h"
 #include "../Models/World.h"
+#include "HAL9000.h"
 
 /**
  * @brief The master controller who controls the whole game
  */
 class Game {
 public:
-	Game();
+	Game(std::string const filename);
 
 	/**
 	 * @brief Play one iteration
@@ -27,14 +28,11 @@ public:
 	void play();
 
 	/**
-	 * @brief Setup a level with a given file
-	 */
-	void setup(std::string file);
-
-	/**
 	 * @brief Create a stage from an XMLStage object
 	 */
-	void createStage(XMLStage &stage);
+	void createStage(XMLStage const &stage);
+
+	void print();
 
 	virtual ~Game();
 private:
@@ -45,6 +43,7 @@ private:
 
 	// The class stuff
 	World* fWorld;
+	HAL9000* fHAL;
 };
 
 #endif /* LIBRARY_CONTROLLERS_GAME_H_ */

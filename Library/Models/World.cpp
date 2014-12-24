@@ -7,8 +7,14 @@
 
 #include "World.h"
 
-World::World() {
-	// TODO Auto-generated constructor stub
+World::World(int width, int height) {
+	this->fPoint = Point(0, 0);
+	this->fSize = Size(width, height);
+	this->width = width;
+	this->height = height;
+}
+
+void World::move(Direction const direction){
 
 }
 

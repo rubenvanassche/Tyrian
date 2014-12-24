@@ -2,6 +2,7 @@
 #define ENTITY_H
 
 #include <iostream>
+#include <list>
 #include "../Lib/Point.h"
 #include "../Lib/Size.h"
 #include "../Lib/Direction.h"
@@ -31,10 +32,15 @@ public:
 	 */
 	Size getSize() const;
 
+	/**
+	 * @brief Check if an Entity collides with this entity
+	 */
+	bool collides(Entity* entity);
+
 	virtual ~Entity();
 protected:
     Point fPoint;
     Size fSize;
 };
 
-#endif;
+#endif

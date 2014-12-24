@@ -7,31 +7,81 @@
 
 #include "Game.h"
 
-Game::Game() {
-	this->fWorld = new World;
-
-}
-
-void Game::play(){
-
-}
-
-void Game::setup(std::string filename){
+Game::Game(std::string const filename) {
 	// Load the xml file
 	FileLoader fileloader;
 	XMLGame game = fileloader.loadFile(filename);
 
 	this->fLevelName = game.levelName;
 	this->fLevelDifficulty = game.levelDifficulty;
-	this>fStages = game.stages;
+	this->fStages = game.stages;
+
+	// Create a world
+	this->fWorld = new World(320, 320);
+
+	// Create HAL9000 the A.I.
+	this->fHAL = new HAL9000(this->fWorld);
+
+	// Build the ship of the player
+	ShipFactory factory;
+	Point startPosition(100, 100);
+	Ship* playerPtr = factory.standard(startPosition);
+	this->fWorld->player = playerPtr;
+	this->fWorld->ships.push_back(playerPtr);
 }
 
-void Game::createStage(XMLStage &stage){
-	ShipFactory factory(this->fWorld->ships);
+void Game::play(){
+	// Have we won?
+	if(this->fStages.size() == 0){
+		if(this->fWorld->ships.size() == 1){
+			if(this->fWorld->ships.front() == this->fWorld->player){
+				// TODO you win
+				std::cout << "WON" << std::endl;
+				return;
+			}else{
+				// TODO you lose
+				std::cout << "LOSE" << std::endl;
+				return;
+			}
+		}
+	}
+
+	// Do we need to load other ships
+	if(this->fWorld->ships.size() == 1){
+		this->createStage(this->fStages.front());
+		this->fStages.pop_front();
+	}
+
+	// Let's move all the enemy ships
+	fHAL->move(fWorld->ships);
+}
+
+
+void Game::createStage(XMLStage const &stage){
+	ShipFactory factory(this->fWorld);
 	factory.build(stage);
 }
 
+void Game::print(){
+	/*
+	std::cout << "Levelname: " << this->fLevelName << std::endl;
+	std::cout << "Difficulty: " << this->fLevelDifficulty << std::endl;
+	std::cout << "Stages todo: " << this->fStages.size() << std::endl;
+	std::cout << "World(" << this->fWorld->width << ", " << this->fWorld->height << ")" << std::endl;
+	std::cout << "--------------" << std::endl << "Ships(" << this->fWorld->ships.size() << ")"<< std::endl << "----------------" << std::endl;
+	for(auto i : this->fWorld->ships){
+		if(i == this->fWorld->player){
+			std::cout << "PLAYER: (" << i->getLocation().x << ", " << i->getLocation().y << ")" << std::endl;
+		}else{
+			std::cout << "ENEMY: (" << i->getLocation().x << ", " << i->getLocation().y << ")" << std::endl;
+		}
+	}
+	*/
+	std::cout << "Stages todo: " << this->fStages.size() << "  --  Ships(" << this->fWorld->ships.size() << ")" << std::endl;
+}
+
 Game::~Game() {
-	// TODO Auto-generated destructor stub
+	delete this->fWorld;
+	delete this->fHAL;
 }
 

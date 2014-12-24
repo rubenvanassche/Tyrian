@@ -11,6 +11,7 @@
 class Size {
 public:
 	Size();
+	Size(int width, int height);
 	virtual ~Size();
 
 	int width;

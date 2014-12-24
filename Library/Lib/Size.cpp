@@ -12,6 +12,11 @@ Size::Size() {
 
 }
 
+Size::Size(int width, int height){
+	this->width = width;
+	this->height = height;
+}
+
 Size::~Size() {
 	// TODO Auto-generated destructor stub
 }

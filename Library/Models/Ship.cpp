@@ -7,9 +7,9 @@
 
 #include "Ship.h"
 
-Ship::Ship() {
-	// TODO Auto-generated constructor stub
-
+Ship::Ship(Point location, Size size) {
+	this->fPoint = location;
+	this->fSize = size;
 }
 
 void Ship::move(Direction const direction){
@@ -22,11 +22,11 @@ void Ship::move(Direction const direction){
 	}
 
 	if(direction.isUp()){
-		this->fPoint.y += this->fSpeed;
+		this->fPoint.y -= this->fSpeed;
 	}
 
 	if(direction.isDown()){
-		this->fPoint.y -= this->fSpeed;
+		this->fPoint.y += this->fSpeed;
 	}
 
 }

@@ -11,16 +11,19 @@
 #include <list>
 #include "Bullet.h"
 #include "Ship.h"
+#include "Entity.h"
 
 /**
  * @brief The world class, containing the whole battlefield(all the Entities)
  */
-class World {
+class World : public Entity {
 public:
 	/**
 	 * @brief World Constructor
 	 */
-	World();
+	World(int width, int height);
+
+	virtual void move(Direction const direction);
 
 	virtual ~World();
 
@@ -38,6 +41,16 @@ public:
 	 * @brief The ship of the player
 	 */
 	Ship* player;
+
+	/**
+	 * @brief The Height of the world
+	 */
+	int height;
+
+	/**
+	 * @brief The Width of the world
+	 */
+	int width;
 };
 
 #endif /* LIBRARY_MODELS_WORLD_H_ */
