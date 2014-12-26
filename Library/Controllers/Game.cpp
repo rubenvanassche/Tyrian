@@ -55,8 +55,14 @@ void Game::play(){
 	// Let's move all the enemy ships
 	fHAL->moveShips();
 
+	// Let's move all the bullets
+	fHAL->moveBullets();
+
 	// Do collision detection of enemy ships with player
 	fHAL->shipCollisionDetection();
+
+	// Do collision detection of bullets
+	fHAL->bulletCollisionDetection();
 }
 
 

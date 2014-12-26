@@ -55,6 +55,36 @@ void HAL9000::moveShips(){
 	}
 }
 
+void HAL9000::moveBullets(){
+	std::list<Bullet*> &bullets = this->fWorld->getBullets();
+	std::list<Bullet*>::iterator it = bullets.begin();
+	while(it != bullets.end()){
+		// Move it down when enemy and move up when player
+		// TODO find some better algorithm
+		if((*it)->getFrom() == this->fWorld->getPlayer()){
+			Direction direction("down");
+			(*it)->move(direction);
+		}else{
+			Direction direction("up");
+			(*it)->move(direction);
+		}
+
+
+		// Check if the bullet is out of the world
+		if(this->fWorld->collides(*it) == false){
+				// First send a message to the Bridge
+				this->fWorld->bridge->removeBullet(*it);
+				// Now remove it
+				bullets.erase(it++);
+		}
+
+		// Becouse we remove some bullets from the list we need to check if we haven't reached the end of the list otherwise we might use memory that isn't ours
+		if(it != bullets.end()){
+			it++;
+		}
+	}
+}
+
 void HAL9000::shipCollisionDetection(){
 	for(auto i : this->fWorld->getShips()){
 		if(i == this->fWorld->getPlayer()){
