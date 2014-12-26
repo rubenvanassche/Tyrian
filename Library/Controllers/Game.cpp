@@ -53,9 +53,10 @@ void Game::play(){
 	}
 
 	// Let's move all the enemy ships
-	fHAL->move(fWorld->getShips());
+	fHAL->moveShips();
 
-	// Let's move myself
+	// Do collision detection of enemy ships with player
+	fHAL->shipCollisionDetection();
 }
 
 
@@ -64,15 +65,29 @@ void Game::createStage(XMLStage const &stage){
 	factory.build(stage);
 }
 
+void Game::movePlayer(Direction direction){
+	// Check if we can move the players ship without getting out of bounds
+	if(this->fWorld->collides(this->fWorld->getPlayer()) == false){
+		// Ship isn't in Game anymore
+		return;
+	}
+
+	this->fWorld->getPlayer()->move(direction);
+}
+
+void Game::shootPlayer(){
+	this->fWorld->getPlayer()->shoot();
+}
+
 void Game::print(){
 	/*
 	std::cout << "Levelname: " << this->fLevelName << std::endl;
 	std::cout << "Difficulty: " << this->fLevelDifficulty << std::endl;
 	std::cout << "Stages todo: " << this->fStages.size() << std::endl;
-	std::cout << "World(" << this->fWorld->width << ", " << this->fWorld->height << ")" << std::endl;
-	std::cout << "--------------" << std::endl << "Ships(" << this->fWorld->ships.size() << ")"<< std::endl << "----------------" << std::endl;
-	for(auto i : this->fWorld->ships){
-		if(i == this->fWorld->player){
+	std::cout << "World(" << this->fWorld->getWidth() << ", " << this->fWorld->getHeight() << ")" << std::endl;
+	std::cout << "--------------" << std::endl << "Ships(" << this->fWorld->getShips().size() << ")"<< std::endl << "----------------" << std::endl;
+	for(auto i : this->fWorld->getShips()){
+		if(i == this->fWorld->getPlayer()){
 			std::cout << "PLAYER: (" << i->getLocation().x << ", " << i->getLocation().y << ")" << std::endl;
 		}else{
 			std::cout << "ENEMY: (" << i->getLocation().x << ", " << i->getLocation().y << ")" << std::endl;

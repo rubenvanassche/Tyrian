@@ -29,7 +29,17 @@ public:
 	/**
 	 * @brief move all the enemy ships
 	 */
-	void move(std::list<Ship*>& ships);
+	void moveShips();
+
+	/**
+	 * @brief Reduce health points if an enemy ship hits the player
+	 */
+	void shipCollisionDetection();
+
+	/**
+	 * @brief Check if bullets hit ships and reduce their health
+	 */
+	void bulletCollisionDetection();
 
 	virtual ~HAL9000();
 private:

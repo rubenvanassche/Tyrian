@@ -7,10 +7,12 @@
 
 #include "Ship.h"
 
-Ship::Ship(Point location, Size size) {
+Ship::Ship(Point location, Size size, double speed, double health) {
 	this->fPoint = location;
 	this->fSize = size;
 	this->fGun = nullptr;
+	this->fSpeed = speed;
+	this->fHealth = health;
 }
 
 void Ship::move(Direction const direction){
@@ -42,6 +44,22 @@ void Ship::shoot() const{
 
 void Ship::setGun(Gun* gun){
 	this->fGun = gun;
+}
+
+void Ship::reduceHealth(double points){
+	if(points < 0){
+		throw std::runtime_error("Can't reduce health of a ship by a number lower then zero");
+	}
+
+	this->fHealth -= points;
+}
+
+bool Ship::isDead(){
+	if(this->fHealth <= 0){
+		return true;
+	}else{
+		return false;
+	}
 }
 
 Ship::~Ship() {

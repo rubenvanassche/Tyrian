@@ -26,6 +26,16 @@ public:
 	 */
 	void move(Direction const direction);
 
+	/**
+	 * @brief Get a pointer to the ship where this Bullet was shot from
+	 */
+	Ship* getFrom();
+
+	/**
+	 * @brief Damage a ship
+	 */
+	void explode(Ship* ship);
+
 	virtual ~Bullet();
 private:
 	double fSpeed;

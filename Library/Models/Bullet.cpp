@@ -33,6 +33,14 @@ void Bullet::move(Direction const direction){
 	}
 }
 
+Ship* Bullet::getFrom(){
+	return this->fFrom;
+}
+
+void Bullet::explode(Ship* ship){
+	ship->reduceHealth(this->fDamage);
+}
+
 Bullet::~Bullet() {
 	// TODO Auto-generated destructor stub
 }

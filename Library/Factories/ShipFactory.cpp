@@ -40,7 +40,9 @@ void ShipFactory::build(XMLStage stage){
 
 Ship* ShipFactory::standard(Point location){
 	Size size(40, 20);
-	Ship* shipPtr = new Ship(location, size);
+	double speed = 5;
+	double health = 10;
+	Ship* shipPtr = new Ship(location, size, speed, health);
 	shipPtr->setType("standard");
 
 	return shipPtr;

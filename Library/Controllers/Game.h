@@ -33,6 +33,16 @@ public:
 	 */
 	void createStage(XMLStage const &stage);
 
+	/**
+	 * @brief Move the player
+	 */
+	void movePlayer(Direction direction);
+
+	/**
+	 * @brief Shoot a bullet out of the gun of the player
+	 */
+	void shootPlayer();
+
 	void print();
 
 	virtual ~Game();
