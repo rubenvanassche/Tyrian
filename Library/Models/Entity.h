@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <list>
+#include <string>
 #include "../Lib/Point.h"
 #include "../Lib/Size.h"
 #include "../Lib/Direction.h"
@@ -37,10 +38,21 @@ public:
 	 */
 	bool collides(Entity* entity);
 
+	/**
+	 * @brief Set the type of this Entity(used for bitmapping)
+	 */
+	virtual void setType(std::string type);
+
+	/**
+	 * @brief Get the type of this entity
+	 */
+	virtual std::string getType();
+
 	virtual ~Entity();
 protected:
     Point fPoint;
     Size fSize;
+    std::string fType;
 };
 
 #endif

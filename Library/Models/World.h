@@ -10,11 +10,13 @@
 
 class Ship;
 class Bullet;
+class Bridge;
 
 #include <list>
 #include "Bullet.h"
 #include "Ship.h"
 #include "Entity.h"
+#include "../Lib/Bridge.h"
 
 /**
  * @brief The world class, containing the whole battlefield(all the Entities)
@@ -24,11 +26,68 @@ public:
 	/**
 	 * @brief World Constructor
 	 */
-	World(int width, int height);
+	World(int width, int height, Bridge* bridge);
 
 	virtual void move(Direction const direction);
 
 	virtual ~World();
+
+	/**
+	 * @brief Add a Ship
+	 */
+	void addShip(Ship* ship);
+
+	/**
+	 * @brief Add a Bullet
+	 */
+	void addBullet(Bullet* bullet);
+
+	/**
+	 * @brief Remove a Ship
+	 */
+	void removeShip(Ship* ship);
+
+	/**
+	 * @brief Remove a Bullet
+	 */
+	void removeBullet(Bullet* bullet);
+
+	/**
+	 * @brief Get the player's Ship
+	 */
+	Ship* getPlayer();
+
+	/**
+	 * @brief Set the player's Ship
+	 */
+	void setPlayer(Ship* player);
+
+	/**
+	 * @brief get The width of the World
+	 */
+	int getWidth();
+
+	/**
+	 * @brief get The width of the World
+	 */
+	int getHeight();
+
+	/**
+	 * @brief Get all the Ships in the World
+	 */
+	std::list<Ship*>& getShips();
+
+	/**
+	 * @brief Get all the Bullets in the World
+	 */
+	std::list<Bullet*>& getBullets();
+
+	/**
+	 * @brief The Bridge
+	 */
+	Bridge* bridge;
+
+private:
 
 	/**
 	 * @brief Container for Bullets

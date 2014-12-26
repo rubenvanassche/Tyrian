@@ -15,6 +15,7 @@ Gun* GunFactory::basic(Point location, Ship* ship){
 	// TODO Find a better place for this
 	BulletFactory* bulletFactory = new BulletFactory(this->fWorld, ship);
 	Gun* gun = new Gun(location, bulletFactory, ship);
+	gun->setType("basic");
 
 	return gun;
 }

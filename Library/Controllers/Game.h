@@ -13,6 +13,7 @@
 #include "../Lib/FileLoader.h"
 #include "../Factories/ShipFactory.h"
 #include "../Models/World.h"
+#include "../Lib/Bridge.h"
 #include "HAL9000.h"
 
 /**
@@ -20,7 +21,7 @@
  */
 class Game {
 public:
-	Game(std::string const filename);
+	Game(std::string const filename, Bridge* bridge);
 
 	/**
 	 * @brief Play one iteration

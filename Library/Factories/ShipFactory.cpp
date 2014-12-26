@@ -33,15 +33,16 @@ void ShipFactory::build(XMLStage stage){
 			throw std::runtime_error("Something went wrong with the ship type, not being found");
 		}else{
 			// Add the ship to the ships list
-			this->fWorld->ships.push_back(ship);
+			this->fWorld->addShip(ship);
 		}
 	}
 }
 
 Ship* ShipFactory::standard(Point location){
 	Size size(40, 20);
-
 	Ship* shipPtr = new Ship(location, size);
+	shipPtr->setType("standard");
+
 	return shipPtr;
 }
 

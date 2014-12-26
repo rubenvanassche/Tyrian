@@ -19,7 +19,7 @@ void HAL9000::move(std::list<Ship*>& ships){
 	std::list<Ship*>::iterator it = ships.begin();
 	while(it != ships.end()){
 		// If the ship we want to move is the player's ship, we don't do anything
-		if(*it == this->fWorld->player){
+		if(*it == this->fWorld->getPlayer()){
 			it++;
 		}
 
@@ -31,6 +31,9 @@ void HAL9000::move(std::list<Ship*>& ships){
 		// Check if the ship is out of the world
 		if(this->fWorld->collides(*it) == false){
 			// yes it is, remove it
+			// First send a message to the Bridge
+			this->fWorld->bridge->removeShip(*it);
+			// Now remove it
 			ships.erase(it++);
 		}
 

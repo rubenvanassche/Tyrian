@@ -36,6 +36,14 @@ bool Entity::collides(Entity* entity){
 	return false;
 }
 
+void Entity::setType(std::string type){
+	this->fType = type;
+}
+
+std::string Entity::getType(){
+	return this->fType;
+}
+
 Entity::~Entity() {
 	// TODO Auto-generated destructor stub
 }

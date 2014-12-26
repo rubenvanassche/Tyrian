@@ -7,7 +7,7 @@
 
 #include "Game.h"
 
-Game::Game(std::string const filename) {
+Game::Game(std::string const filename, Bridge* bridge) {
 	// Load the xml file
 	FileLoader fileloader;
 	XMLGame game = fileloader.loadFile(filename);
@@ -17,7 +17,7 @@ Game::Game(std::string const filename) {
 	this->fStages = game.stages;
 
 	// Create a world
-	this->fWorld = new World(320, 320);
+	this->fWorld = new World(320, 320, bridge);
 
 	// Create HAL9000 the A.I.
 	this->fHAL = new HAL9000(this->fWorld);
@@ -26,15 +26,15 @@ Game::Game(std::string const filename) {
 	ShipFactory factory;
 	Point startPosition(100, 100);
 	Ship* playerPtr = factory.standard(startPosition);
-	this->fWorld->player = playerPtr;
-	this->fWorld->ships.push_back(playerPtr);
+	this->fWorld->setPlayer(playerPtr);
+	this->fWorld->addShip(playerPtr);
 }
 
 void Game::play(){
 	// Have we won?
 	if(this->fStages.size() == 0){
-		if(this->fWorld->ships.size() == 1){
-			if(this->fWorld->ships.front() == this->fWorld->player){
+		if(this->fWorld->getShips().size() == 1){
+			if(this->fWorld->getShips().front() == this->fWorld->getPlayer()){
 				// TODO you win
 				std::cout << "WON" << std::endl;
 				return;
@@ -47,13 +47,15 @@ void Game::play(){
 	}
 
 	// Do we need to load other ships
-	if(this->fWorld->ships.size() == 1){
+	if(this->fWorld->getShips().size() == 1){
 		this->createStage(this->fStages.front());
 		this->fStages.pop_front();
 	}
 
 	// Let's move all the enemy ships
-	fHAL->move(fWorld->ships);
+	fHAL->move(fWorld->getShips());
+
+	// Let's move myself
 }
 
 
@@ -77,7 +79,7 @@ void Game::print(){
 		}
 	}
 	*/
-	std::cout << "Stages todo: " << this->fStages.size() << "  --  Ships(" << this->fWorld->ships.size() << ")" << std::endl;
+	std::cout << "Stages todo: " << this->fStages.size() << "  --  Ships(" << this->fWorld->getShips().size() << ")" << std::endl;
 }
 
 Game::~Game() {
