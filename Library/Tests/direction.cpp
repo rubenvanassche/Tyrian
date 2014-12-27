@@ -1,6 +1,8 @@
 #include "../External/Catch.hpp"
 #include "../Lib/Direction.h"
 
+using namespace tyLib;
+
 TEST_CASE( "Direction can be Left", "[Direction]" ){
 	Direction d("left");
 	REQUIRE( d.isLeft() == true );

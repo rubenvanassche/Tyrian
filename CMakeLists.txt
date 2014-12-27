@@ -6,12 +6,18 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${PROJECT_SOURCE_DIR}/Extra")
 find_package(SFML 2 COMPONENTS system window graphics)
 
+set(VIEWS Views/View.cpp Views/Bullet.cpp Views/Ship.cpp)
+
+set(HELPERS Helpers/Helpers.cpp)
+
 set(SOURCE_FILES main.cpp)
 
-INCLUDE_DIRECTORIES(${SFML_INCLUDE_DIR})
+INCLUDE_DIRECTORIES(${SFML_INCLUDE_DIR} Library)
 
-add_executable(Tyrian ${SOURCE_FILES})
+message(STATUS "${SFML_LIBRARIES}")
 
-add_library(TyrianLib SHARED Library/Entity.cpp)
+add_subdirectory(Library)
 
-TARGET_LINK_LIBRARIES(Tyrian ${SFML_LIBRARIES})
+add_executable(Tyrian ${SOURCE_FILES} ${VIEWS} ${HELPERS})
+
+TARGET_LINK_LIBRARIES(Tyrian ${SFML_LIBRARIES} Ty)

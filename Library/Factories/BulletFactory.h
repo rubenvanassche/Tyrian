@@ -8,10 +8,15 @@
 #ifndef LIBRARY_FACTORIES_BULLETFACTORY_H_
 #define LIBRARY_FACTORIES_BULLETFACTORY_H_
 
-class World;
-
 #include "../Models/World.h"
 #include "../Models/Bullet.h"
+
+
+namespace tyLib{
+
+class World;
+class Ship;
+class Bullet;
 
 /**
  * @brief A factory for constructing Bullets
@@ -34,5 +39,7 @@ private:
 
 	Ship* fFrom;
 };
+
+}
 
 #endif /* LIBRARY_FACTORIES_BULLETFACTORY_H_ */

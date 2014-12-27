@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.8.4)
 project(TyrianLib)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -g")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall -g")
 
 set(MODELS_FILES Models/Entity.cpp Models/Ship.cpp Models/Bullet.cpp Models/Gun.cpp Models/World.cpp)
 
@@ -19,4 +19,4 @@ add_executable(LibTests ${TEST_FILES} ${MODELS_FILES} ${CONTROLLERS_FILES} ${LIB
 
 add_executable(Testmain ${MODELS_FILES} ${CONTROLLERS_FILES} ${LIBRARIES_FILES} ${FACTORIES_FILES} ${EXTERNAL_FILES} testmain.cpp)
 
-add_library(TyLib STATIC ${MODELS_FILES} ${CONTROLLERS_FILES} ${LIBRARIES_FILES} ${FACTORIES_FILES} ${EXTERNAL_FILES})
+add_library(Ty STATIC ${MODELS_FILES} ${CONTROLLERS_FILES} ${LIBRARIES_FILES} ${FACTORIES_FILES} ${EXTERNAL_FILES})

@@ -7,6 +7,8 @@
 
 #include "FileLoader.h"
 
+namespace tyLib{
+
 FileLoader::FileLoader() {
 	// TODO Auto-generated constructor stub
 
@@ -146,5 +148,7 @@ void FileLoader::visualize(){
 
 FileLoader::~FileLoader() {
 	// TODO Auto-generated destructor stub
+}
+
 }
 

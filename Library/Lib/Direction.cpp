@@ -6,6 +6,7 @@
  */
 #include "Direction.h"
 
+namespace tyLib{
 
 Direction::Direction(std::string direction) {
     // Set the string to lower characters
@@ -57,5 +58,7 @@ std::string Direction::getDirection() const {
 
 Direction::~Direction() {
 	// TODO Auto-generated destructor stub
+}
+
 }
 

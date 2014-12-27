@@ -3,6 +3,8 @@
 #include <string>
 #include <vector>
 
+using namespace tyLib;
+
 TEST_CASE( "Load a file", "[FileLoader]" ) {
 
 	SECTION( "That doesn't exists" ){

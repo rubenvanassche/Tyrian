@@ -13,6 +13,7 @@
 #include "../Models/Gun.h"
 #include "BulletFactory.h"
 
+namespace tyLib{
 
 /**
  * @brief A factory for constructing Guns
@@ -37,7 +38,8 @@ public:
 	virtual ~GunFactory();
 private:
 	World* fWorld;
-	Ship* fShip;
 };
+
+}
 
 #endif /* LIBRARY_FACTORIES_GUNFACTORY_H_ */

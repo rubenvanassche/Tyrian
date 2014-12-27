@@ -7,6 +7,8 @@
 
 #include "ShipFactory.h"
 
+namespace tyLib{
+
 ShipFactory::ShipFactory(){
 	this->fWorld = nullptr;
 }
@@ -59,3 +61,4 @@ ShipFactory::~ShipFactory() {
 	// TODO Auto-generated destructor stub
 }
 
+}

@@ -7,6 +7,8 @@
 
 #include "Size.h"
 
+namespace tyLib{
+
 Size::Size() {
 	// TODO Auto-generated constructor stub
 
@@ -19,5 +21,7 @@ Size::Size(int width, int height){
 
 Size::~Size() {
 	// TODO Auto-generated destructor stub
+}
+
 }
 

@@ -12,6 +12,8 @@
 #include "../Models/World.h"
 #include <list>
 
+namespace tyLib{
+
 /**
  * @brief A factory for constructing Ships
  */
@@ -47,5 +49,7 @@ private:
 	World *fWorld;
 
 };
+
+}
 
 #endif /* LIBRARY_FACTORIES_SHIPFACTORY_H_ */

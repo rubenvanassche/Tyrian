@@ -7,6 +7,8 @@
 
 #include "Ship.h"
 
+namespace tyLib{
+
 Ship::Ship(Point location, Size size, double speed, double health) {
 	this->fPoint = location;
 	this->fSize = size;
@@ -66,3 +68,4 @@ Ship::~Ship() {
 	// TODO Auto-generated destructor stub
 }
 
+}

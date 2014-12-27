@@ -8,6 +8,9 @@
 #include "../Lib/Size.h"
 #include "../Lib/Direction.h"
 
+
+namespace tyLib{
+
 /**
  * @brief Model representing an Entity, something that moves on the battle field
  */
@@ -54,5 +57,7 @@ protected:
     Size fSize;
     std::string fType;
 };
+
+}
 
 #endif

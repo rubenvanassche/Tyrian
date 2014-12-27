@@ -7,6 +7,8 @@
 
 #include "World.h"
 
+namespace tyLib{
+
 World::World(int width, int height, Bridge* bridge) {
 	this->fPoint = Point(0, 0);
 	this->fSize = Size(width, height);
@@ -65,3 +67,4 @@ World::~World() {
 	// TODO Auto-generated destructor stub
 }
 
+}

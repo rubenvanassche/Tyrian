@@ -8,10 +8,13 @@
 #ifndef LIBRARY_MODELS_SHIP_H_
 #define LIBRARY_MODELS_SHIP_H_
 
-class Gun;
-
 #include "Entity.h"
 #include "Gun.h"
+
+namespace tyLib{
+
+class Gun;
+
 
 /**
  * @brief Model representing a Ship
@@ -56,5 +59,7 @@ private:
 
 	Gun* fGun;
 };
+
+}
 
 #endif /* LIBRARY_MODELS_SHIP_H_ */

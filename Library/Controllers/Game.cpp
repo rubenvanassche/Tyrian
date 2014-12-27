@@ -7,6 +7,8 @@
 
 #include "Game.h"
 
+namespace tyLib{
+
 Game::Game(std::string const filename, Bridge* bridge) {
 	// Load the xml file
 	FileLoader fileloader;
@@ -106,5 +108,7 @@ void Game::print(){
 Game::~Game() {
 	delete this->fWorld;
 	delete this->fHAL;
+}
+
 }
 

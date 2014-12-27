@@ -6,6 +6,7 @@
  */
 
 #include "BulletFactory.h"
+namespace tyLib{
 
 BulletFactory::BulletFactory(World* worldPtr, Ship* from) {
 	this->fWorld = worldPtr;
@@ -26,3 +27,4 @@ BulletFactory::~BulletFactory() {
 	// TODO Auto-generated destructor stub
 }
 
+}

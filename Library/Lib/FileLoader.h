@@ -14,6 +14,8 @@
 #include <iostream>
 #include "../External/pugixml.hpp"
 
+namespace tyLib{
+
 /**
  * @brief Structure to represent an XML Ship
  */
@@ -90,5 +92,7 @@ private:
 
 	std::list<XMLStage> fStages;
 };
+
+}
 
 #endif /* LIBRARY_LIB_FILELOADER_H_ */

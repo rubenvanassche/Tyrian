@@ -1,5 +1,7 @@
 #include "Entity.h"
 
+namespace tyLib{
+
 Entity::Entity() {
 	this->fPoint = Point(0,0);
 
@@ -40,10 +42,12 @@ void Entity::setType(std::string type){
 	this->fType = type;
 }
 
-std::string Entity::getType(){
+::std::string Entity::getType(){
 	return this->fType;
 }
 
 Entity::~Entity() {
 	// TODO Auto-generated destructor stub
+}
+
 }

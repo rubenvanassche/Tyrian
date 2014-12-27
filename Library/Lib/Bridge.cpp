@@ -6,6 +6,7 @@
  */
 
 #include "Bridge.h"
+namespace tyLib{
 
 Bridge::Bridge() {
 	// TODO Auto-generated constructor stub
@@ -16,3 +17,4 @@ Bridge::~Bridge() {
 	// TODO Auto-generated destructor stub
 }
 
+}

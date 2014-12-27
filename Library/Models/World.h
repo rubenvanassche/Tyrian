@@ -8,15 +8,16 @@
 #ifndef LIBRARY_MODELS_WORLD_H_
 #define LIBRARY_MODELS_WORLD_H_
 
-class Ship;
-class Bullet;
-class Bridge;
 
 #include <list>
 #include "Bullet.h"
 #include "Ship.h"
 #include "Entity.h"
 #include "../Lib/Bridge.h"
+
+namespace tyLib{
+
+class Bridge;
 
 /**
  * @brief The world class, containing the whole battlefield(all the Entities)
@@ -115,4 +116,5 @@ private:
 	int width;
 };
 
+}
 #endif /* LIBRARY_MODELS_WORLD_H_ */

@@ -7,6 +7,8 @@
 
 #include "Point.h"
 
+namespace tyLib{
+
 Point::Point(){
 
 }
@@ -20,3 +22,4 @@ Point::~Point() {
 	// TODO Auto-generated destructor stub
 }
 
+}

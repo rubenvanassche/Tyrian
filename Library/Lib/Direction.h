@@ -12,6 +12,8 @@
 #include <algorithm>
 #include <exception>
 
+namespace tyLib{
+
 /**
  * @brief Container for the direction an Entity should move to
  */
@@ -51,5 +53,7 @@ public:
 private:
 	std::string fDirection;
 };
+
+}
 
 #endif /* LIBRARY_LIB_DIRECTION_H_ */

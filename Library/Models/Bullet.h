@@ -11,6 +11,10 @@
 #include "Entity.h"
 #include "Ship.h"
 
+namespace tyLib{
+
+class Ship;
+
 /**
  * @brief Model representing a Bullet
  */
@@ -42,5 +46,7 @@ private:
 	double fDamage;
 	Ship* fFrom;
 };
+
+}
 
 #endif /* LIBRARY_MODELS_BULLET_H_ */

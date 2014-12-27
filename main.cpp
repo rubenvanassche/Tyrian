@@ -1,16 +1,47 @@
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
+#include "Library/Controllers/Game.h"
+#include "Views/Bullet.h"
+#include "Views/Ship.h"
 
+
+class SFMLBridge : public tyLib::Bridge{
+public:
+	virtual void createShip(tyLib::Ship* shipPtr){
+		tySFML::Ship* ship = new tySFML::Ship(window, shipPtr);
+		this->ships.push_back(ship);
+	}
+	virtual void createBullet(tyLib::Bullet* shipPtr){
+		std::cout << "Added Bullet" << std::endl;
+	}
+	virtual void removeShip(tyLib::Ship* shipPtr){
+		std::cout << "Removed Ship" << std::endl;
+	}
+	virtual void removeBullet(tyLib::Bullet* shipPtr){
+		std::cout << "Removed Bullet" << std::endl;
+	}
+
+	std::list<tySFML::Ship*> ships;
+	sf::RenderWindow* window;
+};
 
 int main() {
     // Create the main window
-    sf::RenderWindow window(sf::VideoMode(800, 600), "SFML window");
+    sf::RenderWindow window(sf::VideoMode(320, 320), "SFML window");
 
-    sf::CircleShape shape(50);
-    shape.setFillColor(sf::Color(100, 250, 50));
+    // Create the bridge between SFML and tyLib
+    SFMLBridge* bridge = new SFMLBridge;
+    bridge->window = &window;
+
+    // Create the game
+    tyLib::Game g("Library/Tests/Levels/level1.xml", bridge);
+
+    tySFML::Bullet x(&window);
 
     while (window.isOpen())
     {
+    	// Play once
+    	g.play();
 
         // Process events
         sf::Event event;
@@ -23,10 +54,14 @@ int main() {
         // Clear screen
         window.clear();
 
-        window.draw(shape);
+        for(auto i : bridge->ships){
+        	i->draw();
+        }
+       // window.draw();
 
         // Update the window
         window.display();
     }
     return EXIT_SUCCESS;
 }
+

@@ -7,6 +7,7 @@
 
 #ifndef LIBRARY_LIB_SIZE_H_
 #define LIBRARY_LIB_SIZE_H_
+namespace tyLib{
 
 class Size {
 public:
@@ -17,5 +18,7 @@ public:
 	int width;
 	int height;
 };
+
+}
 
 #endif /* LIBRARY_LIB_SIZE_H_ */

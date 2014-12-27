@@ -7,6 +7,8 @@
 
 #include "HAL9000.h"
 
+namespace tyLib{
+
 HAL9000::HAL9000(World* world) {
 	this->fWorld = world;
 }
@@ -124,3 +126,4 @@ HAL9000::~HAL9000() {
 	// TODO Auto-generated destructor stub
 }
 
+}

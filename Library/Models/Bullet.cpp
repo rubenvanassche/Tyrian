@@ -7,6 +7,8 @@
 
 #include "Bullet.h"
 
+namespace tyLib{
+
 Bullet::Bullet(Point location, Size size, double speed, double damage, Ship* from) {
 	this->fPoint = location;
 	this->fSize = size;
@@ -45,3 +47,4 @@ Bullet::~Bullet() {
 	// TODO Auto-generated destructor stub
 }
 
+}

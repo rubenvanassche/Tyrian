@@ -16,6 +16,8 @@
 #include "../Lib/Bridge.h"
 #include "HAL9000.h"
 
+namespace tyLib{
+
 /**
  * @brief The master controller who controls the whole game
  */
@@ -56,5 +58,7 @@ private:
 	World* fWorld;
 	HAL9000* fHAL;
 };
+
+}
 
 #endif /* LIBRARY_CONTROLLERS_GAME_H_ */

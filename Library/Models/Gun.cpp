@@ -7,10 +7,11 @@
 
 #include "Gun.h"
 
-Gun::Gun(Point location, BulletFactory* bulletFactory, Ship* ship) {
+namespace tyLib{
+
+Gun::Gun(Point location, BulletFactory* bulletFactory) {
 	this->fPoint = location;
 	this->fSize = Size(0,0);
-	this->fShip = ship;
 	this->fBulletFactory = bulletFactory;
 }
 
@@ -24,3 +25,4 @@ Gun::~Gun() {
 	delete this->fBulletFactory;
 }
 
+}

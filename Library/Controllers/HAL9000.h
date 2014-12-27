@@ -14,6 +14,8 @@
 #include "../Models/Ship.h"
 #include "../Lib/Direction.h"
 
+namespace tyLib{
+
 /**
  * @brief The Artificial Intelligence for Bullets and enemy Ships
  */
@@ -50,5 +52,7 @@ public:
 private:
 	World* fWorld;
 };
+
+}
 
 #endif /* LIBRARY_CONTROLLERS_HAL9000_H_ */

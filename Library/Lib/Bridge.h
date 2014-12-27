@@ -11,6 +11,11 @@
 #include "../Models/Ship.h"
 #include "../Models/Bullet.h"
 
+namespace tyLib{
+
+class Ship;
+class Bullet;
+
 /**
  * @brief A bridge between the tyLib and an graphical representation
  */
@@ -40,5 +45,7 @@ public:
 
 	virtual ~Bridge();
 };
+
+}
 
 #endif /* LIBRARY_LIB_BRIDGE_H_ */
