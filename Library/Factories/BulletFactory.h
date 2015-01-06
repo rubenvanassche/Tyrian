@@ -31,7 +31,7 @@ public:
 	/**
 	 * @brief Build a blue bullet
 	 */
-	Bullet* blue(Point location);
+	Bullet* blue(Vector location);
 
 	virtual ~BulletFactory();
 private:

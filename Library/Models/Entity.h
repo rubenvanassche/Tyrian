@@ -29,7 +29,7 @@ public:
 	/**
 	 * @brief Get the location of an Entity
 	 */
-	Point getLocation() const;
+	Vector getLocation() const;
 
 	/**
 	 * @brief Get the Size of an Entity
@@ -68,7 +68,7 @@ public:
 
 	virtual ~Entity();
 protected:
-    Point fPoint;
+    Vector fPoint;
     Size fSize;
     std::string fType;
     bool fVisible = true;

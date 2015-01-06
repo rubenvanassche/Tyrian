@@ -10,7 +10,7 @@
 namespace tyLib{
 
 World::World(int width, int height, Bridge* bridge) {
-	this->fPoint = Point(0, 0);
+	this->fPoint = Vector(0, 0);
 	this->fSize = Size(width, height);
 	this->width = width;
 	this->height = height;

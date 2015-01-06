@@ -26,7 +26,7 @@ Game::Game(std::string const filename, Bridge* bridge) {
 
 	// Build the ship of the player
 	ShipFactory factory(this->fWorld);
-	Point startPosition(100, 100);
+	Vector startPosition(100, 100);
 	Ship* playerPtr = factory.fighter(startPosition, "basic");
 	this->fWorld->setPlayer(playerPtr);
 	this->fWorld->addShip(playerPtr);

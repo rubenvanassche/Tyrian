@@ -17,7 +17,7 @@ sf::Vector2f toVector2(tyLib::Size size){
 	return vector;
 }
 
-sf::Vector2f toVector2(tyLib::Point point){
+sf::Vector2f toVector2(tyLib::Vector point){
 	sf::Vector2f vector;
 	vector.x = point.x;
 	vector.y = point.y;

@@ -3,11 +3,11 @@
 namespace tyLib{
 
 Entity::Entity() {
-	this->fPoint = Point(0,0);
+	this->fPoint = Vector(0,0);
 
 }
 
-Point Entity::getLocation() const{
+Vector Entity::getLocation() const{
 	return this->fPoint;
 }
 
@@ -17,11 +17,11 @@ Size Entity::getSize() const{
 
 bool Entity::collides(Entity* entity){
 	// Get the bounds from the given entity
-	Point upleft(entity->fPoint.x, entity->fPoint.y);
-	Point upright(entity->fPoint.x + entity->fSize.width, entity->fPoint.y);
-	Point downleft(entity->fPoint.x, entity->fPoint.y + entity->fSize.height);
-	Point downright(entity->fPoint.x + entity->fSize.width, entity->fPoint.y + entity->fSize.height);
-	std::list<Point> points{upleft, upright, downleft, downright};
+	Vector upleft(entity->fPoint.x, entity->fPoint.y);
+	Vector upright(entity->fPoint.x + entity->fSize.width, entity->fPoint.y);
+	Vector downleft(entity->fPoint.x, entity->fPoint.y + entity->fSize.height);
+	Vector downright(entity->fPoint.x + entity->fSize.width, entity->fPoint.y + entity->fSize.height);
+	std::list<Vector> points{upleft, upright, downleft, downright};
 
 
 	// Check if the points lie in me

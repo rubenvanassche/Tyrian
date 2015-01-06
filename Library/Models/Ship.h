@@ -24,7 +24,7 @@ public:
 	/**
 	 * @brief Constructs a Ship
 	 */
-	Ship(Point location, Size size, double speed, double health);
+	Ship(Vector location, Size size, double speed, double health);
 
 	/**
 	 * @brief Moves a ship to a certain Direction

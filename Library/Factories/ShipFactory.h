@@ -34,12 +34,12 @@ public:
 	/**
 	 * @brief build a standard ship with a given Point and guntype
 	 */
-	Ship* standard(Point location, std::string guntype);
+	Ship* standard(Vector location, std::string guntype);
 
 	/**
 	 * @brief Build a fighter ship
 	 */
-	Ship* fighter(Point location, std::string guntype);
+	Ship* fighter(Vector location, std::string guntype);
 
 	virtual ~ShipFactory();
 private:

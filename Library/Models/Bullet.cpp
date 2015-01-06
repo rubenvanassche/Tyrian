@@ -9,7 +9,7 @@
 
 namespace tyLib{
 
-Bullet::Bullet(Point location, Size size, double speed, double damage, Ship* from) {
+Bullet::Bullet(Vector location, Size size, double speed, double damage, Ship* from) {
 	this->fPoint = location;
 	this->fSize = size;
 	this->fSpeed = speed;

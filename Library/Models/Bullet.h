@@ -23,7 +23,7 @@ public:
 	/**
 	 * @brief Construct a Bullet
 	 */
-	Bullet(Point location, Size size, double speed, double damage, Ship* from);
+	Bullet(Vector location, Size size, double speed, double damage, Ship* from);
 
 	/**
 	 * @brief Moves a Bullet to a certain Direction

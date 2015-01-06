@@ -9,7 +9,7 @@
 
 namespace tyLib{
 
-Ship::Ship(Point location, Size size, double speed, double health) {
+Ship::Ship(Vector location, Size size, double speed, double health) {
 	this->fPoint = location;
 	this->fSize = size;
 	this->fGun = nullptr;

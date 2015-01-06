@@ -22,7 +22,7 @@ void ShipFactory::build(XMLStage stage){
 
 	for(auto i : stage.ships){
 		Ship* ship = nullptr;
-		Point location(i.x, i.y);
+		Vector location(i.x, i.y);
 		std::string guntype = i.gun;
 
 		// Find the ship we need to build and build it
@@ -43,7 +43,7 @@ void ShipFactory::build(XMLStage stage){
 	}
 }
 
-Ship* ShipFactory::standard(Point location, std::string guntype){
+Ship* ShipFactory::standard(Vector location, std::string guntype){
 	Size size(40, 20);
 	double speed = 1;
 	double health = 2;
@@ -57,7 +57,7 @@ Ship* ShipFactory::standard(Point location, std::string guntype){
 	return shipPtr;
 }
 
-Ship* ShipFactory::fighter(Point location, std::string guntype){
+Ship* ShipFactory::fighter(Vector location, std::string guntype){
 	Size size(17, 23);
 	double speed = 4;
 	double health = 10;
