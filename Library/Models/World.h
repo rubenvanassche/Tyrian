@@ -103,7 +103,7 @@ private:
 	/**
 	 * @brief The ship of the player
 	 */
-	Ship* player;
+	Ship* player = nullptr;
 
 	/**
 	 * @brief The Height of the world

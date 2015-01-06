@@ -9,8 +9,21 @@
 
 namespace tySFML {
 
-void Bullet::draw(tyLib::Bullet* bullet){
-
+Bullet::Bullet(Window* window, tyLib::Bullet* bullet) : View(window){
+	this->fBullet = bullet;
 }
+
+void Bullet::draw(){
+	sf::RectangleShape rectangle(toVector2(this->fBullet->getSize()));
+	rectangle.setPosition(toVector2(this->fBullet->getLocation()));
+	rectangle.setFillColor(sf::Color::Red);
+
+	this->fWindow->draw(rectangle);
+}
+
+bool Bullet::is(tyLib::Bullet* bullet){
+	return this->fBullet == bullet;
+}
+
 
 } /* namespace tySFML */

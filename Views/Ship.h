@@ -15,7 +15,7 @@ namespace tySFML {
 
 class Ship : public View {
 public:
-	Ship(sf::RenderWindow* window, tyLib::Ship* ship);
+	Ship(Window* window, tyLib::Ship* ship);
 
 	void draw();
 

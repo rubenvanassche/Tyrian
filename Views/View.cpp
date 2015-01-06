@@ -9,9 +9,10 @@
 
 namespace tySFML {
 
-View::View(sf::RenderWindow* window) {
+View::View(Window* window)  {
 	this->fWindow = window;
 }
+
 
 View::~View() {
 	// TODO Auto-generated destructor stub

@@ -51,11 +51,27 @@ public:
 	 */
 	virtual std::string getType();
 
+	/**
+	 * @brief hide the Entity
+	 */
+	void hide();
+
+	/**
+	 * @brief show the Entity
+	 */
+	void show();
+
+	/**
+	 * @brief is the Entity visible
+	 */
+	bool isVisible();
+
 	virtual ~Entity();
 protected:
     Point fPoint;
     Size fSize;
     std::string fType;
+    bool fVisible = true;
 };
 
 }

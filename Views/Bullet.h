@@ -15,11 +15,13 @@ namespace tySFML {
 
 class Bullet : public View {
 public:
-	using View::View;
+	Bullet(Window* window, tyLib::Bullet* ship);
 
-	void draw(tyLib::Bullet* bullet);
+	void draw();
+
+	bool is(tyLib::Bullet* ship);
 private:
-	tyLib::Bullet* bullet;
+	tyLib::Bullet* fBullet;
 };
 
 } /* namespace tySFML */

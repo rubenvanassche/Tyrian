@@ -11,12 +11,15 @@
 
 #include "Entity.h"
 #include "../Factories/BulletFactory.h"
+#include "Ship.h"
+#include "../Lib/Direction.h"
 
 
 namespace tyLib{
 
 class BulletFactory;
 
+class Ship;
 
 /**
  * @brief Model representing a Gun
@@ -24,9 +27,9 @@ class BulletFactory;
 class Gun : public Entity {
 public:
 	/**
-	 * Construct a Gun with a given Point as location and a Bulletfactory for shooting bullets
+	 * Construct a Gun with a given Direction as location and a Bulletfactory for shooting bullets
 	 */
-	Gun(Point location, BulletFactory* bulletFactory);
+	Gun(Ship* ship, Direction& direction,  BulletFactory* bulletFactory);
 
 	virtual void move(Direction direction){};
 
@@ -38,6 +41,8 @@ public:
 	virtual ~Gun();
 private:
 	BulletFactory* fBulletFactory;
+	Ship* fFrom;
+	Direction fDirection;
 };
 
 }

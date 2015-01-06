@@ -25,9 +25,9 @@ Game::Game(std::string const filename, Bridge* bridge) {
 	this->fHAL = new HAL9000(this->fWorld);
 
 	// Build the ship of the player
-	ShipFactory factory;
+	ShipFactory factory(this->fWorld);
 	Point startPosition(100, 100);
-	Ship* playerPtr = factory.standard(startPosition);
+	Ship* playerPtr = factory.standard(startPosition, "basic");
 	this->fWorld->setPlayer(playerPtr);
 	this->fWorld->addShip(playerPtr);
 }
@@ -65,6 +65,9 @@ void Game::play(){
 
 	// Do collision detection of bullets
 	fHAL->bulletCollisionDetection();
+
+	// Check if we have dead Ships
+	fHAL->checkForDeadShips();
 }
 
 
@@ -85,10 +88,11 @@ void Game::movePlayer(Direction direction){
 
 void Game::shootPlayer(){
 	this->fWorld->getPlayer()->shoot();
+	std::cout << "shoot" << std::endl;
 }
 
 void Game::print(){
-	/*
+
 	std::cout << "Levelname: " << this->fLevelName << std::endl;
 	std::cout << "Difficulty: " << this->fLevelDifficulty << std::endl;
 	std::cout << "Stages todo: " << this->fStages.size() << std::endl;
@@ -101,8 +105,16 @@ void Game::print(){
 			std::cout << "ENEMY: (" << i->getLocation().x << ", " << i->getLocation().y << ")" << std::endl;
 		}
 	}
-	*/
-	std::cout << "Stages todo: " << this->fStages.size() << "  --  Ships(" << this->fWorld->getShips().size() << ")" << std::endl;
+	std::cout << "--------------" << std::endl << "Bullets(" << this->fWorld->getBullets().size() << ")"<< std::endl << "----------------" << std::endl;
+	for(auto i : this->fWorld->getBullets()){
+		if(i->getFrom() == this->fWorld->getPlayer()){
+			std::cout << "PLAYER: (" << i->getLocation().x << ", " << i->getLocation().y << ")" << std::endl;
+		}else{
+			std::cout << "ENEMY: (" << i->getLocation().x << ", " << i->getLocation().y << ")" << std::endl;
+		}
+	}
+
+	//std::cout << "Stages todo: " << this->fStages.size() << "  --  Ships(" << this->fWorld->getShips().size() << ")" << std::endl;
 }
 
 Game::~Game() {

@@ -46,6 +46,18 @@ void Entity::setType(std::string type){
 	return this->fType;
 }
 
+void Entity::hide(){
+	this->fVisible = false;
+}
+
+void Entity::show(){
+	this->fVisible = true;
+}
+
+bool Entity::isVisible(){
+	return this->fVisible;
+}
+
 Entity::~Entity() {
 	// TODO Auto-generated destructor stub
 }

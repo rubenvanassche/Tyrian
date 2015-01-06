@@ -12,6 +12,7 @@
 #include "../Models/World.h"
 #include "../Models/Gun.h"
 #include "BulletFactory.h"
+#include "../Lib/Direction.h"
 
 namespace tyLib{
 
@@ -28,12 +29,12 @@ public:
 	/**
 	 * Build a basic gun
 	 */
-	Gun* basic(Point location, Ship* ship);
+	Gun* basic(Ship* ship);
 
 	/**
 	 * Build a gun based upon an given name and Point
 	 */
-	Gun* build(std::string, Point location, Ship* ship);
+	Gun* build(std::string, Ship* ship);
 
 	virtual ~GunFactory();
 private:

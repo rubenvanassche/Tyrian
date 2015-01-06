@@ -17,20 +17,20 @@
 					<!-- The X position of the ship -->
 					<x>10</x>
 					<!-- The Y position of the ship -->
-					<y>10</y>
+					<y>320</y>
 					<!-- The type of the ship's gun -->
 					<gun>Basic</gun>
 				</ship>
 				<ship>
 					<type>Standard</type>
-					<x>10</x>
-					<y>40</y>
+					<x>120</x>
+					<y>320</y>
 					<gun>Basic</gun>
 				</ship>
 				<ship>
 					<type>Standard</type>
-					<x>10</x>
-					<y>90</y>
+					<x>200</x>
+					<y>320</y>
 					<gun>Basic</gun>
 				</ship>								
 			</ships>
@@ -41,19 +41,19 @@
 				<ship>
 					<type>Standard</type>
 					<x>10</x>
-					<y>50</y>
+					<y>320</y>
 					<gun>Basic</gun>
 				</ship>
 				<ship>
 					<type>Standard</type>
-					<x>10</x>
-					<y>30</y>
+					<x>120</x>
+					<y>320</y>
 					<gun>Basic</gun>
 				</ship>
 				<ship>
 					<type>Standard</type>
-					<x>10</x>
-					<y>70</y>
+					<x>200</x>
+					<y>320</y>
 					<gun>Basic</gun>
 				</ship>								
 			</ships>
@@ -64,19 +64,19 @@
 				<ship>
 					<type>Standard</type>
 					<x>10</x>
-					<y>10</y>
+					<y>320</y>
 					<gun>Basic</gun>
 				</ship>
 				<ship>
 					<type>Standard</type>
-					<x>10</x>
-					<y>40</y>
+					<x>120</x>
+					<y>320</y>
 					<gun>Basic</gun>
 				</ship>
 				<ship>
 					<type>Standard</type>
-					<x>10</x>
-					<y>90</y>
+					<x>200</x>
+					<y>320</y>
 					<gun>Basic</gun>
 				</ship>								
 			</ships>

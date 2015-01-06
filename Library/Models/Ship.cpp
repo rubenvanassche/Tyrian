@@ -27,11 +27,11 @@ void Ship::move(Direction const direction){
 	}
 
 	if(direction.isUp()){
-		this->fPoint.y -= this->fSpeed;
+		this->fPoint.y += this->fSpeed;
 	}
 
 	if(direction.isDown()){
-		this->fPoint.y += this->fSpeed;
+		this->fPoint.y -= this->fSpeed;
 	}
 
 }

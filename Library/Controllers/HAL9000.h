@@ -48,6 +48,12 @@ public:
 	 */
 	void bulletCollisionDetection();
 
+	/**
+	 * @brief Check if there are dead ships which should be removed
+	 */
+	void checkForDeadShips();
+
+
 	virtual ~HAL9000();
 private:
 	World* fWorld;

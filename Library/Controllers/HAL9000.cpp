@@ -33,6 +33,9 @@ void HAL9000::moveShips(){
 
 		// Check if the ship is out of the world
 		if(this->fWorld->collides(*it) == false){
+			// hide it because it's dead
+			(*it)->hide();
+
 			// Ok, it is out check if there are any bullets of the ship still flying because of Bullet pointers to ships we can't remove a ship before all bullets are removed
 			bool wait = false;
 			for(auto bullet : this->fWorld->getBullets()){
@@ -64,10 +67,10 @@ void HAL9000::moveBullets(){
 		// Move it down when enemy and move up when player
 		// TODO find some better algorithm
 		if((*it)->getFrom() == this->fWorld->getPlayer()){
-			Direction direction("down");
+			Direction direction("up");
 			(*it)->move(direction);
 		}else{
-			Direction direction("up");
+			Direction direction("down");
 			(*it)->move(direction);
 		}
 
@@ -118,6 +121,39 @@ void HAL9000::bulletCollisionDetection(){
 				// otherwise reduce the ships score
 				bullet->explode(ship);
 			}
+		}
+	}
+}
+
+void HAL9000::checkForDeadShips(){
+	std::list<Ship*> &ships = this->fWorld->getShips();
+	std::list<Ship*>::iterator it = ships.begin();
+	while(it != ships.end()){
+		// Check if the ship is dead
+		if((*it)->isDead()){
+			// hide it because it's dead
+			(*it)->hide();
+
+			// check if there are any bullets of the ship still flying because of Bullet pointers to ships we can't remove a ship before all bullets are removed
+			bool wait = false;
+			for(auto bullet : this->fWorld->getBullets()){
+				if(bullet->getFrom() == *it){
+					wait = true;
+					break;
+				}
+			}
+
+			if(wait == false){
+				// First send a message to the Bridge
+				this->fWorld->bridge->removeShip(*it);
+				// Now remove it
+				ships.erase(it++);
+			}
+		}
+
+		// Becouse we remove some ships from the list we need to check if we haven't reached the end of the list otherwise we might use memory that isn't ours
+		if(it != ships.end()){
+			it++;
 		}
 	}
 }

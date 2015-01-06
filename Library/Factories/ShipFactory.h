@@ -10,6 +10,7 @@
 
 #include "../Lib/FileLoader.h"
 #include "../Models/World.h"
+#include "GunFactory.h"
 #include <list>
 
 namespace tyLib{
@@ -24,10 +25,6 @@ public:
 	 */
 	ShipFactory(World *worldPtr);
 
-	/**
-	 * @brief Construct a ShipFactory to be used to create seperate ships
-	 */
-	ShipFactory();
 
 	/**
 	 * @brief Build the ships based upon an xml stage
@@ -35,9 +32,9 @@ public:
 	void build(XMLStage stage);
 
 	/**
-	 * @brief build a standard ship with a given Point
+	 * @brief build a standard ship with a given Point and guntype
 	 */
-	Ship* standard(Point location);
+	Ship* standard(Point location, std::string guntype);
 
 	virtual ~ShipFactory();
 private:
@@ -46,7 +43,14 @@ private:
 	 */
 	Ship* standard(XMLShip ship);
 
+	/**
+	 * @brief If the player in World isn't set on time, things can go wrong so do this if this isn't done yet
+	 */
+	void checkIfPlayerSet(Ship* player);
+
 	World *fWorld;
+
+	GunFactory* fGunFactory;
 
 };
 

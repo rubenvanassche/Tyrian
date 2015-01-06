@@ -9,16 +9,18 @@
 
 namespace tySFML {
 
-Ship::Ship(sf::RenderWindow* window, tyLib::Ship* ship) : View(window){
+Ship::Ship(Window* window, tyLib::Ship* ship) : View(window){
 	this->fShip = ship;
 }
 
 void Ship::draw(){
-	sf::RectangleShape rectangle(toVector2(this->fShip->getLocation()));
-	rectangle.setSize(sf::Vector2f(toVector2(this->fShip->getSize())));
-	rectangle.setFillColor(sf::Color::Red);
+	sf::RectangleShape rectangle(toVector2(this->fShip->getSize()));
+	rectangle.setPosition(toVector2(this->fShip->getLocation()));
+	rectangle.setFillColor(sf::Color::Green);
 
-	this->fWindow->draw(rectangle);
+	if(this->fShip->isVisible()){
+		this->fWindow->draw(rectangle);
+	}
 }
 
 bool Ship::is(tyLib::Ship* ship){

@@ -8,7 +8,7 @@ find_package(SFML 2 COMPONENTS system window graphics)
 
 set(VIEWS Views/View.cpp Views/Bullet.cpp Views/Ship.cpp)
 
-set(HELPERS Helpers/Helpers.cpp)
+set(HELPERS Helpers/Helpers.cpp Helpers/SFMLBridge.cpp Helpers/Input.cpp Helpers/Stopwatch.cpp Helpers/Window.cpp)
 
 set(SOURCE_FILES main.cpp)
 
