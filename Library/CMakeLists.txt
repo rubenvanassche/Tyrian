@@ -11,7 +11,7 @@ set(FACTORIES_FILES Factories/ShipFactory.cpp Factories/BulletFactory.cpp Factor
 
 set(TEST_FILES Tests/test.cpp Tests/direction.cpp Tests/fileloader.cpp)
 
-set(LIBRARIES_FILES Lib/Point.cpp Lib/Size.cpp Lib/Direction.cpp lib/FileLoader.cpp Lib/Bridge.cpp)
+set(LIBRARIES_FILES Lib/Point.cpp Lib/Size.cpp Lib/Direction.cpp Lib/FileLoader.cpp Lib/Bridge.cpp)
 
 set(EXTERNAL_FILES External/Catch.hpp External/pugixml.cpp)
 
