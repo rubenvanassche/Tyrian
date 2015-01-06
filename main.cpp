@@ -1,5 +1,6 @@
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
+#include <SFML/System.hpp>
 #include "Library/Controllers/Game.h"
 #include "Views/Bullet.h"
 #include "Views/Ship.h"
@@ -27,9 +28,6 @@ int main() {
     tySFML::Input *input;
     input = tySFML::Input::getInstance();
 
-    sf::Clock clock;
-    int FPS = 30;    //Frames per second
-    double SPF = 1.0 / (double) FPS;   //Seconds per frame
 
 
     while (window.isOpen())
@@ -72,13 +70,11 @@ int main() {
 
         }
 
+		   g.play();
 
 
 
-    	// Play once
-    	g.play();
-
-    	g.print();
+    	//g.print();
 
         // Clear screen
         window.clear();
@@ -94,9 +90,6 @@ int main() {
         // Update the window
         window.display();
 
-        while(clock.getElapsedTime().asSeconds() < SPF);
-
-        clock.restart();
     }
     return EXIT_SUCCESS;
 }
