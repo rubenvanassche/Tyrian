@@ -12,6 +12,7 @@
 #include <list>
 #include <stdlib.h>
 #include <iostream>
+#include <exception>
 #include "../External/pugixml.hpp"
 
 namespace tyLib{
