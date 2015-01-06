@@ -36,18 +36,13 @@ public:
 	 */
 	Ship* standard(Point location, std::string guntype);
 
+	/**
+	 * @brief Build a fighter ship
+	 */
+	Ship* fighter(Point location, std::string guntype);
+
 	virtual ~ShipFactory();
 private:
-	/**
-	 * @brief build a standard ship with a given XMLShip
-	 */
-	Ship* standard(XMLShip ship);
-
-	/**
-	 * @brief If the player in World isn't set on time, things can go wrong so do this if this isn't done yet
-	 */
-	void checkIfPlayerSet(Ship* player);
-
 	World *fWorld;
 
 	GunFactory* fGunFactory;

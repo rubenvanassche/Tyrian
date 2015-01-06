@@ -18,8 +18,8 @@ Gun* GunFactory::basic(Ship* ship){
 	BulletFactory* bulletFactory = new BulletFactory(this->fWorld, ship);
 	Gun* gun;
 	// The direction the gun is pointed to
-	std::cout << "Ship: " << ship  <<std::endl;
-			std::cout << "player: " << this->fWorld->getPlayer()  <<std::endl;
+	std::cout << "Ship gun constructing: " << ship  <<std::endl;
+	std::cout << "player: " << this->fWorld->getPlayer()  <<std::endl;
 	if(ship == this->fWorld->getPlayer()){
 		// The player is up
 		Direction direction("up");
@@ -37,6 +37,12 @@ Gun* GunFactory::basic(Ship* ship){
 }
 
 Gun* GunFactory::build(std::string gunType, Ship* ship){
+	// First check if the player was set in the world otherwise it will be difficult in the next functions to detrmine if we're building a ship for a player or enemy
+	if(this->fWorld->getPlayer() == nullptr){
+		// No player set, because the player is always builded first asume we're building the player
+		this->fWorld->setPlayer(ship);
+	}
+
 	if(gunType == "basic"){
 		return this->basic(ship);
 	}

@@ -22,10 +22,16 @@ void ShipFactory::build(XMLStage stage){
 
 	for(auto i : stage.ships){
 		Ship* ship = nullptr;
+		Point location(i.x, i.y);
+		std::string guntype = i.gun;
 
-		// Build a standard ship
+		// Find the ship we need to build and build it
 		if(i.type == "standard"){
-			ship = this->standard(i);
+			ship = this->standard(location, guntype);
+		}
+
+		if(i.type == "fighter"){
+			ship = this->fighter(location, guntype);
 		}
 
 		if(ship == nullptr){
@@ -40,9 +46,9 @@ void ShipFactory::build(XMLStage stage){
 Ship* ShipFactory::standard(Point location, std::string guntype){
 	Size size(40, 20);
 	double speed = 1;
-	double health = 10;
+	double health = 2;
+
 	Ship* shipPtr = new Ship(location, size, speed, health);
-	this->checkIfPlayerSet(shipPtr);
 	shipPtr->setType("standard");
 
 	// Build the gun
@@ -51,18 +57,20 @@ Ship* ShipFactory::standard(Point location, std::string guntype){
 	return shipPtr;
 }
 
+Ship* ShipFactory::fighter(Point location, std::string guntype){
+	Size size(17, 23);
+	double speed = 4;
+	double health = 10;
 
-Ship* ShipFactory::standard(XMLShip ship){
-	Point point(ship.x, ship.y);
+	Ship* shipPtr = new Ship(location, size, speed, health);
+	shipPtr->setType("fighter");
 
-	return this->standard(point, ship.gun);
+	// Build the gun
+	shipPtr->setGun(this->fGunFactory->build(guntype, shipPtr));
+
+	return shipPtr;
 }
 
-void ShipFactory::checkIfPlayerSet(Ship* player){
-	if(this->fWorld->getPlayer() == nullptr){
-		this->fWorld->setPlayer(player);
-	}
-}
 
 ShipFactory::~ShipFactory() {
 	// TODO Auto-generated destructor stub

@@ -27,6 +27,11 @@ int main() {
     tySFML::Input *input;
     input = tySFML::Input::getInstance();
 
+    sf::Clock clock;
+    int FPS = 30;    //Frames per second
+    double SPF = 1.0 / (double) FPS;   //Seconds per frame
+
+
     while (window.isOpen())
     {
     	stopwatch->update();
@@ -64,6 +69,7 @@ int main() {
         		tyLib::Direction d("down");
         		g.movePlayer(d);
         	}
+
         }
 
 
@@ -87,6 +93,10 @@ int main() {
 
         // Update the window
         window.display();
+
+        while(clock.getElapsedTime().asSeconds() < SPF);
+
+        clock.restart();
     }
     return EXIT_SUCCESS;
 }
