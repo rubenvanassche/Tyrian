@@ -10,6 +10,7 @@
 
 #include <SFML/Graphics/Drawable.hpp>
 #include <stdexcept>
+#include <iostream>
 #include "Assets.h"
 
 namespace tySFML {
@@ -34,6 +35,17 @@ public:
 	 */
 	void setText(std::string text, sf::Color textcolor, sf::Font* font);
 
+
+	/**
+	 * @brief Change the padding in the Button(normal: 2)
+	 */
+	void setPadding(int padding);
+
+	/**
+	 * @brief Check if a certain point lies in the button to check if it has been clicked
+	 */
+	bool isButtonClicked(sf::Vector2i point);
+
 	/**
 	 * @brief Enable SFML to draw this immediately
 	 */
@@ -48,6 +60,8 @@ private:
 	sf::Color flineColor;
 
 	sf::Color fBackGroundColor;
+
+	int fPadding = 2;
 
 	std::string fText;
 	sf::Font* fFont;

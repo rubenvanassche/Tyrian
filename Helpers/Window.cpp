@@ -12,14 +12,15 @@ namespace tySFML {
 
 Window::Window(int width, int height){
 	this->fWindow = new sf::RenderWindow(sf::VideoMode(height, width), "Tyrian");
-	this->fWindow->setFramerateLimit(60);
+	//this->fWindow->setFramerateLimit(60);
 	this->fWidth = width;
 	this->fHeight = height;
+	this->fBackGroundColor = sf::Color::Black;
 }
 
 
 void Window::clear(){
-	this->fWindow->clear();
+	this->fWindow->clear(this->fBackGroundColor);
 }
 
 void Window::draw(sf::Shape &drawable){
@@ -49,6 +50,10 @@ bool Window::isOpen(){
 
 void Window::display(){
 	this->fWindow->display();
+}
+
+void Window::setBackGroundColor(sf::Color const color){
+	this->fBackGroundColor = color;
 }
 
 Window::~Window() {

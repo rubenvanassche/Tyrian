@@ -59,12 +59,23 @@ public:
 	 */
 	void display();
 
+
+	/**
+	 * @brief Sets the background color of the Window
+	 */
+	void setBackGroundColor(sf::Color const color);
+
+	/**
+	 * @brief Get the pointer to the Window
+	 */
+	sf::RenderWindow* getWindow(){return this->fWindow;};
+
 	virtual ~Window();
 private:
 	sf::RenderWindow* fWindow;
 	int fHeight;
 	int fWidth;
-
+	sf::Color fBackGroundColor;
 };
 
 } /* namespace tySFML */
