@@ -15,6 +15,7 @@
 #include <stdexcept>
 #include <algorithm>
 #include "../External/pugixml.hpp"
+#include "../External/tinydir.h"
 
 namespace tyLib{
 
@@ -46,6 +47,17 @@ struct XMLGame{
 };
 
 /**
+ * @brief Structure representing a level
+ */
+struct Level{
+	std::string directory;
+	std::string filename;
+	std::string name;
+	std::string path;
+	int difficuly;
+};
+
+/**
  * @brief Loads a game file
  */
 class FileLoader {
@@ -54,6 +66,16 @@ public:
 	 * @brief Construct the loader
 	 */
 	FileLoader();
+
+	/**
+	 * @brief Get all the levels in an certain directory
+	 */
+	std::list<Level> getLevels(std::string const directory);
+
+	/**
+	 * @brief get information about a level file
+	 */
+	Level getLevel(std::string const filename, std::string directory);
 
 	/**
 	 * @brief Load a file by a given filename and return an XMLGame

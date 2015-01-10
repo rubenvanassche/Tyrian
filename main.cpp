@@ -1,3 +1,42 @@
+#include "Helpers/Window.h"
+#include "Helpers/Input.h"
+#include "Helpers/Assets.h"
+#include "Helpers/StopWatch.h"
+#include "Helpers/Stage.h"
+
+#include "Stages/GameStage.h"
+#include "Stages/IntroStage.h"
+#include "Stages/SelectlevelStage.h"
+
+int main(){
+    // Create the main window
+	tySFML::Window window(320, 320);
+
+	// The path where the fonts are
+	std::string fontsPath = "Resources/Fonts";
+
+	// The path where the textures are
+	std::string texturesPath = "Resources/Textures";
+
+	// Create the Assets Container
+	tySFML::Assets assets = tySFML::Assets(texturesPath, fontsPath);
+
+	// Create the stagescontainer
+	tySFML::Stages stages;
+
+	// Create the stages and link them in the stages container
+	tySFML::IntroStage introStage = tySFML::IntroStage(&window, &stages, &assets);
+	stages.intro = &introStage;
+	tySFML::GameStage gameStage = tySFML::GameStage(&window, &stages, &assets);
+	stages.game = &gameStage;
+	tySFML::SelectLevelStage selectLevelStage = tySFML::SelectLevelStage(&window, &stages, &assets);
+	stages.selectLevel = &selectLevelStage;
+
+	// Start by running our intro stage
+	introStage.run();
+}
+
+/*
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
@@ -8,35 +47,9 @@
 #include "Helpers/Stopwatch.h"
 #include "Helpers/Input.h"
 #include "Helpers/Window.h"
-#include "Library/External/tinydir.h"
-
-int blob(){
-	tinydir_dir dir;
-	tinydir_open(&dir, "Stages");
-
-	while (dir.has_next)
-	{
-	    tinydir_file file;
-	    tinydir_readfile(&dir, &file);
-
-	    printf("%s", file.name);
-	    if (file.is_dir)
-	    {
-	        printf("/");
-	    }
-	    printf("\n");
-
-	    tinydir_next(&dir);
-	}
-
-	tinydir_close(&dir);
-}
+#include "Library/Lib/FileLoader.h"
 
 int main() {
-	blob();
-
-	return 0;
-
     // Create the main window
 	tySFML::Window window(320, 320);
 
@@ -125,4 +138,4 @@ int main() {
     }
     return EXIT_SUCCESS;
 }
-
+*/

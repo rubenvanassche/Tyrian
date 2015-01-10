@@ -35,6 +35,11 @@ public:
 	void draw(sf::Shape &drawable);
 
 	/**
+	 * @brief Draw an View
+	 */
+	void draw(sf::Drawable &drawable);
+
+	/**
 	 * @brief Close the Window
 	 */
 	void close();

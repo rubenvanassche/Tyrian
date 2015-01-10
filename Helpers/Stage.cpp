@@ -9,9 +9,10 @@
 
 namespace tySFML {
 
-Stage::Stage() {
-	// TODO Auto-generated constructor stub
-
+Stage::Stage(Window* app, Stages* stages, Assets* assets) {
+	this->fApp = app;
+	this->fStages = stages;
+	this->fAssets = assets;
 }
 
 Stage::~Stage() {

@@ -30,6 +30,10 @@ void Window::draw(sf::Shape &drawable){
 	this->fWindow->draw(drawable);
 }
 
+void Window::draw(sf::Drawable &drawable){
+	this->fWindow->draw(drawable);
+}
+
 void Window::close(){
 	this->fWindow->close();
 }

@@ -14,6 +14,56 @@ FileLoader::FileLoader() {
 
 }
 
+std::list<Level> FileLoader::getLevels(std::string const directory){
+	// System for reading directory
+	tinydir_dir dir;
+	tinydir_open(&dir, directory.c_str());
+
+	std::list<Level> levels;
+
+	while (dir.has_next){
+	    tinydir_file file;
+	    tinydir_readfile(&dir, &file);
+
+	    // Remove some unneeded things in the directory
+	    if(file.name == ".." or file.name == "." or file.is_dir){
+	    	tinydir_next(&dir);
+	    	continue;
+	    }
+
+	    // Make a level;
+	    Level level = this->getLevel(file.name, directory);
+	    levels.push_back(level);
+
+	    tinydir_next(&dir);
+	}
+
+	tinydir_close(&dir);
+
+	return levels;
+}
+
+Level FileLoader::getLevel(std::string const filename, std::string directory){
+	Level level;
+	level.filename = filename;
+	level.directory = directory;
+	level.path = directory + "/" + filename;
+
+	// Now get the difficulty and name
+	pugi::xml_document doc;
+	pugi::xml_parse_result result = doc.load_file(level.path.c_str());
+	if(result){
+		// get the name of the level
+		level.name = doc.child("level").child_value("name");
+		// get the difficulty of the level
+		level.difficuly = atoi(doc.child("level").child_value("difficulty"));
+	}else{
+		throw std::runtime_error("Couldn't open the xml file");
+	}
+
+	return level;
+}
+
 XMLGame FileLoader::loadFile(std::string const filename){
 	// Load the xml file
 	pugi::xml_document doc;
