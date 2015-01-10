@@ -9,29 +9,29 @@
 
 namespace tyLib{
 
-Ship::Ship(Vector location, Size size, double speed, double health) {
-	this->fPoint = location;
+Ship::Ship(Vector location, Size size, Vector velocity, double health) {
+	this->fLocation = location;
 	this->fSize = size;
+	this->fVelocity = velocity;
 	this->fGun = nullptr;
-	this->fSpeed = speed;
 	this->fHealth = health;
 }
 
-void Ship::move(Direction const direction){
+void Ship::move(Direction const direction, double const delta){
 	if(direction.isLeft()){
-		this->fPoint.x -= this->fSpeed;
+		this->fLocation.x -= this->fVelocity.x * delta;
 	}
 
 	if(direction.isRight()){
-		this->fPoint.x += this->fSpeed;
+		this->fLocation.x += this->fVelocity.x * delta;
 	}
 
 	if(direction.isUp()){
-		this->fPoint.y += this->fSpeed;
+		this->fLocation.y += this->fVelocity.y * delta;
 	}
 
 	if(direction.isDown()){
-		this->fPoint.y -= this->fSpeed;
+		this->fLocation.y -= this->fVelocity.y * delta;
 	}
 
 }

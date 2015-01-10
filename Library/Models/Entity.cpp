@@ -3,12 +3,13 @@
 namespace tyLib{
 
 Entity::Entity() {
-	this->fPoint = Vector(0,0);
+	this->fLocation = Vector(0,0);
+	this->fVelocity = Vector(1,1);
 
 }
 
 Vector Entity::getLocation() const{
-	return this->fPoint;
+	return this->fLocation;
 }
 
 Size Entity::getSize() const{
@@ -17,17 +18,17 @@ Size Entity::getSize() const{
 
 bool Entity::collides(Entity* entity){
 	// Get the bounds from the given entity
-	Vector upleft(entity->fPoint.x, entity->fPoint.y);
-	Vector upright(entity->fPoint.x + entity->fSize.width, entity->fPoint.y);
-	Vector downleft(entity->fPoint.x, entity->fPoint.y + entity->fSize.height);
-	Vector downright(entity->fPoint.x + entity->fSize.width, entity->fPoint.y + entity->fSize.height);
+	Vector upleft(entity->fLocation.x, entity->fLocation.y);
+	Vector upright(entity->fLocation.x + entity->fSize.width, entity->fLocation.y);
+	Vector downleft(entity->fLocation.x, entity->fLocation.y + entity->fSize.height);
+	Vector downright(entity->fLocation.x + entity->fSize.width, entity->fLocation.y + entity->fSize.height);
 	std::list<Vector> points{upleft, upright, downleft, downright};
 
 
 	// Check if the points lie in me
 	for(auto i : points){
-		if(i.x >= this->fPoint.x and i.x <= (this->fPoint.x + this->fSize.width)){
-			if(i.y >= this->fPoint.y and i.y <= (this->fPoint.y + this->fSize.height)){
+		if(i.x >= this->fLocation.x and i.x <= (this->fLocation.x + this->fSize.width)){
+			if(i.y >= this->fLocation.y and i.y <= (this->fLocation.y + this->fSize.height)){
 				// Seems like this points lies in me
 				return true;
 			}

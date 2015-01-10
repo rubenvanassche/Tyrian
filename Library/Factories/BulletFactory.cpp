@@ -15,7 +15,8 @@ BulletFactory::BulletFactory(World* worldPtr, Ship* from) {
 
 Bullet* BulletFactory::blue(Vector location){
 	Size size(5,5);
-	Bullet* bullet = new Bullet(location, size, 0.5, 10, this->fFrom);
+	Vector velocity = Vector(5,5);
+	Bullet* bullet = new Bullet(location, size, velocity, 10, this->fFrom);
 	bullet->setType("blue");
 
 	this->fWorld->addBullet(bullet);

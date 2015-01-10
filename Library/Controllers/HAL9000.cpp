@@ -17,7 +17,7 @@ std::string HAL9000::openThePodBayDoors() const{
 	return "I'm sorry, Dave. I'm afraid I can't do that.";
 }
 
-void HAL9000::moveShips(){
+void HAL9000::moveShips(double const delta){
 	std::list<Ship*> &ships = this->fWorld->getShips();
 	std::list<Ship*>::iterator it = ships.begin();
 	while(it != ships.end()){
@@ -29,7 +29,7 @@ void HAL9000::moveShips(){
 		// Move it down
 		// TODO find some better algorithm
 		Direction direction("down");
-		(*it)->move(direction);
+		(*it)->move(direction, delta);
 
 		// Check if the ship is out of the world
 		if(this->fWorld->collides(*it) == false){
@@ -60,7 +60,7 @@ void HAL9000::moveShips(){
 	}
 }
 
-void HAL9000::moveBullets(){
+void HAL9000::moveBullets(double const delta){
 	std::list<Bullet*> &bullets = this->fWorld->getBullets();
 	std::list<Bullet*>::iterator it = bullets.begin();
 	while(it != bullets.end()){
@@ -68,10 +68,10 @@ void HAL9000::moveBullets(){
 		// TODO find some better algorithm
 		if((*it)->getFrom() == this->fWorld->getPlayer()){
 			Direction direction("up");
-			(*it)->move(direction);
+			(*it)->move(direction, delta);
 		}else{
 			Direction direction("down");
-			(*it)->move(direction);
+			(*it)->move(direction, delta);
 		}
 
 

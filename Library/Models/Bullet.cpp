@@ -9,29 +9,29 @@
 
 namespace tyLib{
 
-Bullet::Bullet(Vector location, Size size, double speed, double damage, Ship* from) {
-	this->fPoint = location;
+Bullet::Bullet(Vector location, Size size, Vector velocity, double damage, Ship* from) {
+	this->fLocation = location;
 	this->fSize = size;
-	this->fSpeed = speed;
+	this->fVelocity = velocity;
 	this->fDamage = damage;
 	this->fFrom = from;
 }
 
-void Bullet::move(Direction const direction){
+void Bullet::move(Direction const direction, double const delta){
 	if(direction.isLeft()){
-		this->fPoint.x -= this->fSpeed;
+		this->fLocation.x -= this->fVelocity.x * delta;
 	}
 
 	if(direction.isRight()){
-		this->fPoint.x += this->fSpeed;
+		this->fLocation.x += this->fVelocity.x * delta;
 	}
 
 	if(direction.isUp()){
-		this->fPoint.y += this->fSpeed;
+		this->fLocation.y += this->fVelocity.y * delta;
 	}
 
 	if(direction.isDown()){
-		this->fPoint.y -= this->fSpeed;
+		this->fLocation.y -= this->fVelocity.y * delta;
 	}
 }
 

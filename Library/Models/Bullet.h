@@ -23,12 +23,12 @@ public:
 	/**
 	 * @brief Construct a Bullet
 	 */
-	Bullet(Vector location, Size size, double speed, double damage, Ship* from);
+	Bullet(Vector location, Size size, Vector velocity, double damage, Ship* from);
 
 	/**
 	 * @brief Moves a Bullet to a certain Direction
 	 */
-	void move(Direction const direction);
+	void move(Direction const direction, double const delta);
 
 	/**
 	 * @brief Get a pointer to the ship where this Bullet was shot from
@@ -42,7 +42,6 @@ public:
 
 	virtual ~Bullet();
 private:
-	double fSpeed;
 	double fDamage;
 	Ship* fFrom;
 };

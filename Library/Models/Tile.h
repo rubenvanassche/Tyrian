@@ -22,7 +22,7 @@ public:
 	/**
 	 * @brief Move the tile in an direction, only up and down supported
 	 */
-	void move(Direction const direction);
+	void move(Direction const direction, double const delta)
 
 	virtual ~Tile();
 };

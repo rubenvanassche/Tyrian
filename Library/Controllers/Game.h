@@ -26,9 +26,9 @@ public:
 	Game(std::string const filename, Bridge* bridge);
 
 	/**
-	 * @brief Play one iteration
+	 * @brief Play one iteration with a given delta(seconds between frames)
 	 */
-	void play();
+	void play(double const delta);
 
 	/**
 	 * @brief Create a stage from an XMLStage object
@@ -36,9 +36,9 @@ public:
 	void createStage(XMLStage const &stage);
 
 	/**
-	 * @brief Move the player
+	 * @brief Move the player with a certain delta
 	 */
-	void movePlayer(Direction direction);
+	void movePlayer(Direction direction, double const delta);
 
 	/**
 	 * @brief Shoot a bullet out of the gun of the player

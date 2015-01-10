@@ -10,7 +10,7 @@
 namespace tyLib{
 
 Gun::Gun(Ship* ship, Direction& direction, BulletFactory* bulletFactory) : fDirection(direction) {
-	this->fPoint = Vector(0,0);
+	this->fLocation = Vector(0,0);
 	this->fSize = Size(0,0);
 	this->fFrom = ship;
 	this->fBulletFactory = bulletFactory;
