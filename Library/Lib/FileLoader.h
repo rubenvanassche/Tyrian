@@ -10,6 +10,7 @@
 
 #include <string>
 #include <list>
+#include <vector>
 #include <stdlib.h>
 #include <iostream>
 #include <stdexcept>
@@ -70,7 +71,7 @@ public:
 	/**
 	 * @brief Get all the levels in an certain directory
 	 */
-	std::list<Level> getLevels(std::string const directory);
+	std::vector<Level> getLevels(std::string const directory);
 
 	/**
 	 * @brief get information about a level file

@@ -37,12 +37,10 @@ void Game::play(double const delta){
 	if(this->fStages.size() == 0){
 		if(this->fWorld->getShips().size() == 1){
 			if(this->fWorld->getShips().front() == this->fWorld->getPlayer()){
-				// TODO you win
-				std::cout << "WON" << std::endl;
+				this->fWon = true;
 				return;
 			}else{
-				// TODO you lose
-				std::cout << "LOSE" << std::endl;
+				this->fLose = true;
 				return;
 			}
 		}
@@ -111,6 +109,14 @@ void Game::movePlayer(Direction direction, double const delta){
 void Game::shootPlayer(){
 	this->fWorld->getPlayer()->shoot();
 	std::cout << "shoot" << std::endl;
+}
+
+bool Game::won(){
+	return this->fWon;
+}
+
+bool Game::lose(){
+	return this->fLose;
 }
 
 void Game::print(){

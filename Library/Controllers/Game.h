@@ -45,6 +45,16 @@ public:
 	 */
 	void shootPlayer();
 
+	/**
+	 * @brief returns true if the player has won the game
+	 */
+	bool won();
+
+	/**
+	 * @brief returns true if the player has lost the game
+	 */
+	bool lose();
+
 	void print();
 
 	virtual ~Game();
@@ -57,6 +67,8 @@ private:
 	// The class stuff
 	World* fWorld;
 	HAL9000* fHAL;
+	bool fWon;
+	bool fLose;
 };
 
 }

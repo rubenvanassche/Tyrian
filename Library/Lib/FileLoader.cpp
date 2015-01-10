@@ -14,12 +14,12 @@ FileLoader::FileLoader() {
 
 }
 
-std::list<Level> FileLoader::getLevels(std::string const directory){
+std::vector<Level> FileLoader::getLevels(std::string const directory){
 	// System for reading directory
 	tinydir_dir dir;
 	tinydir_open(&dir, directory.c_str());
 
-	std::list<Level> levels;
+	std::vector<Level> levels;
 
 	while (dir.has_next){
 	    tinydir_file file;

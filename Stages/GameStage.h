@@ -10,14 +10,29 @@
 
 #include "../Helpers/Stage.h"
 #include <iostream>
+#include <string>
+#include "../Helpers/Button.h"
+#include <SFML/Graphics.hpp>
+#include "../Library/Controllers/Game.h"
+#include "../Helpers/SFMLBridge.h"
+#include "../Helpers/Stopwatch.h"
+#include "../Helpers/Input.h"
+#include "../Library/Lib/FileLoader.h"
 
 namespace tySFML {
+
 
 class GameStage : public Stage {
 public:
 	using Stage::Stage;
-	virtual void run ();
+	/**
+	 * @brief Set the name of the level we're going to play
+	 */
+	void setFileName(std::string fileName){this->fFileName  = fileName;};
+	virtual void run();
 	virtual ~GameStage();
+private:
+	std::string fFileName;
 };
 
 } /* namespace tySFML */

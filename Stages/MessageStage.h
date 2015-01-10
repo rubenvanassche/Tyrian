@@ -1,12 +1,12 @@
 /*
- * IntroStage.h
+ * MessageStage.h
  *
  *  Created on: 10-jan.-2015
  *      Author: Ruben
  */
 
-#ifndef STAGES_INTROSTAGE_H_
-#define STAGES_INTROSTAGE_H_
+#ifndef STAGES_MESSAGESTAGE_H_
+#define STAGES_MESSAGESTAGE_H_
 
 #include "../Helpers/Stage.h"
 #include "../Helpers/Button.h"
@@ -15,13 +15,13 @@
 namespace tySFML {
 
 
-class IntroStage : public Stage {
+class MessageStage : public Stage {
 public:
 	using Stage::Stage;
 	virtual void run ();
-	virtual ~IntroStage();
+	virtual ~MessageStage();
 };
 
 } /* namespace tySFML */
 
-#endif /* STAGES_INTROSTAGE_H_ */
+#endif /* STAGES_MESSAGESTAGE_H_ */
