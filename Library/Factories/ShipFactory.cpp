@@ -59,7 +59,7 @@ Ship* ShipFactory::standard(Vector location, std::string guntype){
 
 Ship* ShipFactory::fighter(Vector location, std::string guntype){
 	Size size(17, 23);
-	Vector velocity = Vector(240,240);
+	Vector velocity = Vector(500,500);
 	double health = 10;
 
 	Ship* shipPtr = new Ship(location, size, velocity, health);

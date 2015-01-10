@@ -38,6 +38,8 @@ int main() {
 
     	double delta = clock.restart().asSeconds();
 
+    	std::cout << delta << std::endl;
+
         // Process events
         sf::Event event;
         while (window.pollEvent(event))

@@ -77,7 +77,6 @@ protected:
 	 * @brief Current location of the eEtity
 	 */
     Vector fLocation;
-   // double fSpeed;
     Size fSize;
     std::string fType;
     bool fVisible = true;
