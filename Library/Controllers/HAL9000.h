@@ -29,14 +29,14 @@ public:
 	std::string openThePodBayDoors() const;
 
 	/**
-	 * @brief move all the enemy hips
+	 * @brief move all the enemy Ships
 	 */
-	void moveShips();
+	void moveShips(double const delta);
 
 	/**
 	 * @brief move all the Bullets
 	 */
-	void moveBullets();
+	void moveBullets(double const delta);
 
 	/**
 	 * @brief Reduce health points if an enemy ship hits the player

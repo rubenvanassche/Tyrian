@@ -10,7 +10,7 @@
 namespace tyLib{
 
 World::World(int width, int height, Bridge* bridge) {
-	this->fPoint = Point(0, 0);
+	this->fLocation = Vector(0, 0);
 	this->fSize = Size(width, height);
 	this->width = width;
 	this->height = height;
@@ -59,9 +59,6 @@ std::list<Bullet*>& World::getBullets(){
 	return this->bullets;
 }
 
-void World::move(Direction const direction){
-
-}
 
 World::~World() {
 	// TODO Auto-generated destructor stub

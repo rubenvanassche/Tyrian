@@ -26,13 +26,13 @@ Game::Game(std::string const filename, Bridge* bridge) {
 
 	// Build the ship of the player
 	ShipFactory factory(this->fWorld);
-	Point startPosition(100, 100);
+	Vector startPosition(100, 100);
 	Ship* playerPtr = factory.fighter(startPosition, "basic");
 	this->fWorld->setPlayer(playerPtr);
 	this->fWorld->addShip(playerPtr);
 }
 
-void Game::play(){
+void Game::play(double const delta){
 	// Have we won?
 	if(this->fStages.size() == 0){
 		if(this->fWorld->getShips().size() == 1){
@@ -55,10 +55,10 @@ void Game::play(){
 	}
 
 	// Let's move all the enemy ships
-	fHAL->moveShips();
+	fHAL->moveShips(delta);
 
 	// Let's move all the bullets
-	fHAL->moveBullets();
+	fHAL->moveBullets(delta);
 
 	// Do collision detection of enemy ships with player
 	fHAL->shipCollisionDetection();
@@ -76,14 +76,15 @@ void Game::createStage(XMLStage const &stage){
 	factory.build(stage);
 }
 
-void Game::movePlayer(Direction direction){
+void Game::movePlayer(Direction direction, double const delta){
 	// Check if we can move the players ship without getting out of bounds
 	if(this->fWorld->collides(this->fWorld->getPlayer()) == false){
 		// Ship isn't in Game anymore
 		return;
 	}
 
-	this->fWorld->getPlayer()->move(direction);
+	// TODO change, delta
+	this->fWorld->getPlayer()->move(direction, delta);
 }
 
 void Game::shootPlayer(){

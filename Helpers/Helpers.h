@@ -21,7 +21,7 @@ namespace tySFML {
 	/**
 	 * @brief Convert a tyLib Point to an SFML Vector2
 	 */
-	sf::Vector2f toVector2(tyLib::Point point);
+	sf::Vector2f toVector2(tyLib::Vector point);
 
 } /* namespace tySFML */
 

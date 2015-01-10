@@ -24,12 +24,12 @@ public:
 	/**
 	 * @brief Move an Entity with a Direction, this function is pure virtual
 	 */
-	virtual void move(Direction const direction)=0;
+	virtual void move(Direction const direction, double const delta)=0;
 
 	/**
 	 * @brief Get the location of an Entity
 	 */
-	Point getLocation() const;
+	Vector getLocation() const;
 
 	/**
 	 * @brief Get the Size of an Entity
@@ -68,7 +68,16 @@ public:
 
 	virtual ~Entity();
 protected:
-    Point fPoint;
+	/**
+	 * @brief How far does an Entity move in time
+	 */
+	Vector fVelocity;
+
+	/**
+	 * @brief Current location of the eEtity
+	 */
+    Vector fLocation;
+   // double fSpeed;
     Size fSize;
     std::string fType;
     bool fVisible = true;

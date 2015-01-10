@@ -24,12 +24,12 @@ public:
 	/**
 	 * @brief Constructs a Ship
 	 */
-	Ship(Point location, Size size, double speed, double health);
+	Ship(Vector location, Size size, Vector veolcity, double health);
 
 	/**
 	 * @brief Moves a ship to a certain Direction
 	 */
-	void move(Direction const direction);
+	void move(Direction const direction, double const delta);
 
 	/**
 	 * @brief Shoot a Bullet from the Ship
@@ -54,7 +54,6 @@ public:
 	virtual ~Ship();
 private:
 	// the amount of pixel a ship moves in a direction
-	double fSpeed;
 	double fHealth;
 
 	Gun* fGun;

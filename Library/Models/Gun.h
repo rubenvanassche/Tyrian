@@ -31,7 +31,7 @@ public:
 	 */
 	Gun(Ship* ship, Direction& direction,  BulletFactory* bulletFactory);
 
-	virtual void move(Direction direction){};
+	virtual void move(Direction const direction, double const delta){};
 
 	/**
 	 * @brief Shoot a bullet from the gun

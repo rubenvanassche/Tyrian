@@ -29,7 +29,7 @@ public:
 	 */
 	World(int width, int height, Bridge* bridge);
 
-	virtual void move(Direction const direction);
+	virtual void move(Direction const direction, double const delta){};
 
 	virtual ~World();
 

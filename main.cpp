@@ -28,12 +28,15 @@ int main() {
     tySFML::Input *input;
     input = tySFML::Input::getInstance();
 
+    sf::Clock clock;
 
 
     while (window.isOpen())
     {
     	stopwatch->update();
 
+
+    	double delta = clock.restart().asSeconds();
 
         // Process events
         sf::Event event;
@@ -50,27 +53,27 @@ int main() {
 
         	if(input->keyLeft()){
         		tyLib::Direction d("left");
-        		g.movePlayer(d);
+        		g.movePlayer(d, delta);
         	}
 
         	if(input->keyRight()){
         		tyLib::Direction d("right");
-        		g.movePlayer(d);
+        		g.movePlayer(d, delta);
         	}
 
         	if(input->keyUp()){
         		tyLib::Direction d("up");
-        		g.movePlayer(d);
+        		g.movePlayer(d, delta);
         	}
 
         	if(input->keyDown()){
         		tyLib::Direction d("down");
-        		g.movePlayer(d);
+        		g.movePlayer(d, delta);
         	}
 
         }
 
-		   g.play();
+		   g.play(delta);
 
 
 

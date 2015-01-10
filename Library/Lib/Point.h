@@ -10,11 +10,11 @@
 
 namespace tyLib{
 
-class Point {
+class Vector {
 public:
-	Point();
-	Point(double x, double y);
-	virtual ~Point();
+	Vector();
+	Vector(double x, double y);
+	virtual ~Vector();
 
 	double x;
 	double y;

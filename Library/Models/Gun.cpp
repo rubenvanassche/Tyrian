@@ -10,7 +10,7 @@
 namespace tyLib{
 
 Gun::Gun(Ship* ship, Direction& direction, BulletFactory* bulletFactory) : fDirection(direction) {
-	this->fPoint = Point(0,0);
+	this->fLocation = Vector(0,0);
 	this->fSize = Size(0,0);
 	this->fFrom = ship;
 	this->fBulletFactory = bulletFactory;
@@ -19,9 +19,9 @@ Gun::Gun(Ship* ship, Direction& direction, BulletFactory* bulletFactory) : fDire
 void Gun::shoot(){
 	// Let' calculate the position to shoot our bullet
 	Size shipSize = this->fFrom->getSize();
-	Point shipLocation = this->fFrom->getLocation();
+	Vector shipLocation = this->fFrom->getLocation();
 
-	Point gunPoint;
+	Vector gunPoint;
 
 	if(this->fDirection.isUp()){
 		gunPoint.x = shipLocation.x + shipSize.width/2;
