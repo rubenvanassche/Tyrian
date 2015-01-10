@@ -45,6 +45,7 @@ void HAL9000::moveShips(double const delta){
 				}
 			}
 
+			// No Bullet's anymore so die!
 			if(wait == false){
 				// First send a message to the Bridge
 				this->fWorld->bridge->removeShip(*it);

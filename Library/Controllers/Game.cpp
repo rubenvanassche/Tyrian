@@ -83,7 +83,28 @@ void Game::movePlayer(Direction direction, double const delta){
 		return;
 	}
 
-	// TODO change, delta
+	// Check if the player isn't going out of bounds
+	Vector playerLocation = this->fWorld->getPlayer()->getLocation();
+	Size playerSize = this->fWorld->getPlayer()->getSize();
+
+	if(playerLocation.x < 0 and direction.isLeft()){
+		return;
+	}
+
+	if((playerLocation.x + playerSize.width) > this->fWorld->getHeight() and direction.isRight()){
+		return;
+	}
+
+	if((playerLocation.y - playerSize.height ) < 0 and direction.isDown()){
+		return;
+	}
+
+	if(playerLocation.y + 10 > this->fWorld->getHeight() and direction.isUp()){
+		return;
+	}
+
+
+	// Just move it
 	this->fWorld->getPlayer()->move(direction, delta);
 }
 

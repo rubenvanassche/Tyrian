@@ -18,10 +18,28 @@ void SFMLBridge::createBullet(tyLib::Bullet* bulletPtr){
 	this->bullets.push_back(bullet);
 }
 void SFMLBridge::removeShip(tyLib::Ship* shipPtr){
-	std::cout << "Removed Ship" << std::endl;
+	std::list<tySFML::Ship*>::iterator it = ships.begin();
+	while(it != this->ships.end()){
+		if((*it)->is(shipPtr)){
+			this->ships.erase(it++);
+		}else{
+			if(it != this->ships.end()){
+				it++;
+			}
+		}
+	}
 }
 void SFMLBridge::removeBullet(tyLib::Bullet* bulletPtr){
-	std::cout << "Removed Bullet" << std::endl;
+	std::list<tySFML::Bullet*>::iterator it = bullets.begin();
+	while(it != this->bullets.end()){
+		if((*it)->is(bulletPtr)){
+			this->bullets.erase(it++);
+		}else{
+			if(it != this->bullets.end()){
+				it++;
+			}
+		}
+	}
 }
 
 } /* namespace tySFML */

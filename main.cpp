@@ -8,8 +8,35 @@
 #include "Helpers/Stopwatch.h"
 #include "Helpers/Input.h"
 #include "Helpers/Window.h"
+#include "Library/External/tinydir.h"
+
+int blob(){
+	tinydir_dir dir;
+	tinydir_open(&dir, "Stages");
+
+	while (dir.has_next)
+	{
+	    tinydir_file file;
+	    tinydir_readfile(&dir, &file);
+
+	    printf("%s", file.name);
+	    if (file.is_dir)
+	    {
+	        printf("/");
+	    }
+	    printf("\n");
+
+	    tinydir_next(&dir);
+	}
+
+	tinydir_close(&dir);
+}
 
 int main() {
+	blob();
+
+	return 0;
+
     // Create the main window
 	tySFML::Window window(320, 320);
 
@@ -37,8 +64,6 @@ int main() {
 
 
     	double delta = clock.restart().asSeconds();
-
-    	std::cout << delta << std::endl;
 
         // Process events
         sf::Event event;
@@ -76,6 +101,8 @@ int main() {
         }
 
 		   g.play(delta);
+
+		   //g.print();
 
 
 
