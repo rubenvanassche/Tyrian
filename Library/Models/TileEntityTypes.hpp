@@ -81,7 +81,7 @@ public:
 class Grass : public Entity{
 public:
 	Grass(){
-		this->size = Size(48,28);
+		this->size = Size(160,160);
 		this->name = "Grass";
 		this->environmenttype = "Grass";
 	}

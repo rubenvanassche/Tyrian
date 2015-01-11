@@ -31,6 +31,14 @@ void Window::draw(sf::Shape &drawable){
 	this->fWindow->draw(drawable);
 }
 
+void Window::draw(sf::Sprite &drawable){
+	// change the y corrdinate because SFML is strange
+	sf::Vector2f position = drawable.getPosition();
+	position.y = this->fHeight - position.y;
+	drawable.setPosition(position);
+	this->fWindow->draw(drawable);
+}
+
 void Window::draw(sf::Drawable &drawable){
 	this->fWindow->draw(drawable);
 }

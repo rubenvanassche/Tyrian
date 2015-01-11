@@ -23,10 +23,12 @@ void Tile::draw(){
 }
 
 void Tile::drawGrass(Entity* entity){
-	int textureOffsetX = 72;
-	int textureOffsetY = 84;
+	std::cout << entity->location.x << ", "<< entity->location.y << std::endl;
 
-	sf::Texture texture = *this->fAssets->getTexture("bg5.png");
+	int textureOffsetX = 0;
+	int textureOffsetY = 0;
+
+	sf::Texture texture = *this->fAssets->getTexture("grass.png");
 
 	sf::Sprite sprite;
 	//sprite.setScale(toVector2(entity->size));

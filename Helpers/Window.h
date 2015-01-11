@@ -37,6 +37,11 @@ public:
 	/**
 	 * @brief Draw an View
 	 */
+	void draw(sf::Sprite &drawable);
+
+	/**
+	 * @brief Draw an View
+	 */
 	void draw(sf::Drawable &drawable);
 
 	/**

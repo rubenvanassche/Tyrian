@@ -25,6 +25,16 @@ public:
 	 */
 	View(Window* window);
 
+	/**
+	 * @brief Draws a sprite based upon
+	 * @param file The file where the sprite is in
+	 * @param location The location the entity is at
+	 * @param size The size of the Entity
+	 * @param offsetX the offset x needed in the file to find the sprite
+	 * yparam offsetX the offset x needed in the file to find the sprite
+	 */
+	sf::Sprite drawSprite(const std::string& file, const tyLib::Vector&  location, const tyLib::Size& size, const int offsetX, const int offsetY);
+
 
 	virtual ~View();
 protected:

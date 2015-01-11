@@ -39,19 +39,19 @@
 			<start>5</start>
 			<ships>
 				<ship>
-					<type>Standard</type>
+					<type>Longue</type>
 					<x>10</x>
 					<y>320</y>
 					<gun>Basic</gun>
 				</ship>
 				<ship>
-					<type>Standard</type>
+					<type>Longue</type>
 					<x>120</x>
 					<y>320</y>
 					<gun>Basic</gun>
 				</ship>
 				<ship>
-					<type>Standard</type>
+					<type>Longue</type>
 					<x>200</x>
 					<y>320</y>
 					<gun>Basic</gun>

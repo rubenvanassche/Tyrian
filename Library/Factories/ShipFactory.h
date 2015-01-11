@@ -41,6 +41,12 @@ public:
 	 */
 	Ship* fighter(Vector location, std::string guntype);
 
+	/**
+	 * @brief Build a longue ship
+	 */
+	Ship* longue(Vector location, std::string guntype);
+
+
 	virtual ~ShipFactory();
 private:
 	World *fWorld;

@@ -95,7 +95,7 @@ void GameStage::run(){
         // Clear screen
 		this->fApp->clear();
 
-		//bg.draw();
+		bg.draw();
 
         for(auto i : bridge->ships){
         	i->draw();

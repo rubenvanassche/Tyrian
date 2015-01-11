@@ -10,7 +10,7 @@
 namespace tyLib {
 
 Tile::Tile(int width, int height, std::string tiletype) {
-	this->fVelocity = Vector(0, 1);
+	this->fVelocity = Vector(1, 100);
 	this->fTileType = tiletype;
 	this->fWidth = width;
 	this->fHeight = height;
@@ -71,6 +71,8 @@ void Tile::buildBackground(){
 			newEntity->location = point;
 
 			this->fBackgroundEntities.push_back(newEntity);
+
+			std::cout << "Added by build(" << point.x << "," << point.y << std::endl;
 		}
 	}
 
@@ -96,6 +98,8 @@ void Tile::moveBackground(double const delta){
 			newEntity->location = point;
 
 			this->fBackgroundEntities.push_back(newEntity);
+
+			std::cout << "Added by move" << std::endl;
 		}
 
 		// When we've added these entites it means we will also need to remove some
@@ -104,11 +108,16 @@ void Tile::moveBackground(double const delta){
 			it = this->fBackgroundEntities.begin();
 			delete *it;
 			this->fBackgroundEntities.pop_front();
+
+			std::cout << "Deleted by move" << std::endl;
 		}
+
+		// Now reset the moved
+		this->fMoved = 0;
 	}else{
 		// Nope just move all the entities
 		for(auto i : this->fBackgroundEntities){
-			i->location = i->location - this->fVelocity*delta;
+			i->location.y = i->location.y - this->fVelocity.y*delta;
 		}
 	}
 
@@ -116,7 +125,7 @@ void Tile::moveBackground(double const delta){
 }
 
 te::Entity* Tile::getBackgroundEntity(){
-	te::Entity* out;
+	te::Entity* out = nullptr;
 	if(this->fTileType == "Grass"){
 		 out = new te::Grass;
 	}

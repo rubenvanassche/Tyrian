@@ -106,7 +106,7 @@ public:
 	virtual ~FileLoader();
 private:
 	// List with all the valid shiptypes
-	std::list<std::string> const fValidShipTypes{"standard"};
+	std::list<std::string> const fValidShipTypes{"standard", "longue"};
 	// List with all the valid guntypes
 	std::list<std::string> const fValidGunTypes{"basic"};
 	// The width of the game
