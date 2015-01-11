@@ -44,7 +44,7 @@ void GameStage::run(){
 
 
     	double delta = clock.restart().asSeconds();
-    	std::cout << "delta   " << delta << std::endl;
+    	std::cout << "fps   " << stopwatch->getFPS() << std::endl;
 
     	if(g.won() == true){
     		this->fStages->message->setMessage("You Win!");
