@@ -18,5 +18,6 @@ The game:
 ```
 The tests:
 ```
-./Library/LibTest
+cd Library
+./LibTests
 ```
