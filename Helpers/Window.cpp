@@ -12,7 +12,7 @@ namespace tySFML {
 
 Window::Window(int width, int height){
 	this->fWindow = new sf::RenderWindow(sf::VideoMode(height, width), "Tyrian");
-	//this->fWindow->setFramerateLimit(60);
+	this->fWindow->setFramerateLimit(40);
 	this->fWidth = width;
 	this->fHeight = height;
 	this->fBackGroundColor = sf::Color::Black;
