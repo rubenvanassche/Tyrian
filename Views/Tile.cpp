@@ -23,8 +23,6 @@ void Tile::draw(){
 }
 
 void Tile::drawGrass(Entity* entity){
-	std::cout << entity->location.x << ", "<< entity->location.y << std::endl;
-
 	int textureOffsetX = 0;
 	int textureOffsetY = 0;
 

@@ -18,8 +18,6 @@ Gun* GunFactory::basic(Ship* ship){
 	BulletFactory* bulletFactory = new BulletFactory(this->fWorld, ship);
 	Gun* gun;
 	// The direction the gun is pointed to
-	std::cout << "Ship gun constructing: " << ship  <<std::endl;
-	std::cout << "player: " << this->fWorld->getPlayer()  <<std::endl;
 	if(ship == this->fWorld->getPlayer()){
 		// The player is up
 		Direction direction("up");

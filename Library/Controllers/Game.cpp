@@ -123,7 +123,6 @@ void Game::movePlayer(Direction direction, double const delta){
 
 void Game::shootPlayer(){
 	this->fWorld->getPlayer()->shoot();
-	std::cout << "shoot" << std::endl;
 }
 
 bool Game::won(){

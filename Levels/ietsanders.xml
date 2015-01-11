@@ -1,5 +1,5 @@
 <level>
-	<name>Blabla</name>
+	<name>The Grass is Green</name>
 	<difficulty>1</difficulty>
 	
 	<!-- A level is divided in different stages  -->
@@ -23,16 +23,40 @@
 				</ship>
 				<ship>
 					<type>Standard</type>
-					<x>120</x>
+					<x>50</x>
 					<y>320</y>
 					<gun>Basic</gun>
 				</ship>
 				<ship>
 					<type>Standard</type>
-					<x>200</x>
+					<x>90</x>
 					<y>320</y>
 					<gun>Basic</gun>
-				</ship>								
+				</ship>	
+				<ship>
+					<type>Standard</type>
+					<x>140</x>
+					<y>320</y>
+					<gun>Basic</gun>
+				</ship>		
+				<ship>
+					<type>Standard</type>
+					<x>190</x>
+					<y>320</y>
+					<gun>Basic</gun>
+				</ship>	
+				<ship>
+					<type>Standard</type>
+					<x>230</x>
+					<y>320</y>
+					<gun>Basic</gun>
+				</ship>	
+				<ship>
+					<type>Standard</type>
+					<x>270</x>
+					<y>320</y>
+					<gun>Basic</gun>
+				</ship>									
 			</ships>
 		</stage>
 		<stage>

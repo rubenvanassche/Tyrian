@@ -58,7 +58,7 @@ void Tile::addEntities(double const delta){
 
 void Tile::buildBackground(){
 	te::Entity* backgroundEntity = this->getBackgroundEntity();
-	const int entitiesNeededWidth = (int)(this->fWidth/backgroundEntity->size.width + 1);
+	const int entitiesNeededWidth = (int)(this->fWidth/backgroundEntity->size.width);
 	const int entitiesNeededHeight = (int)(this->fHeight/backgroundEntity->size.height + 1);
 
 	for(int i = 0; i< entitiesNeededWidth;i++){
@@ -71,8 +71,6 @@ void Tile::buildBackground(){
 			newEntity->location = point;
 
 			this->fBackgroundEntities.push_back(newEntity);
-
-			std::cout << "Added by build(" << point.x << "," << point.y << std::endl;
 		}
 	}
 
@@ -85,7 +83,7 @@ void Tile::moveBackground(double const delta){
 	// Do we need to add entities to the top and remove the ones at the bottom
 	if(this->fMoved >= backgroundEntity->size.height){
 		// How many entities we need to add?
-		const int entitiesNeeded = (int)(this->fWidth/backgroundEntity->size.width + 1);
+		const int entitiesNeeded = (int)(this->fWidth/backgroundEntity->size.width);
 
 		// Add some new
 		for(int i = 0;i < entitiesNeeded;i++){
@@ -98,8 +96,6 @@ void Tile::moveBackground(double const delta){
 			newEntity->location = point;
 
 			this->fBackgroundEntities.push_back(newEntity);
-
-			std::cout << "Added by move" << std::endl;
 		}
 
 		// When we've added these entites it means we will also need to remove some
@@ -108,8 +104,6 @@ void Tile::moveBackground(double const delta){
 			it = this->fBackgroundEntities.begin();
 			delete *it;
 			this->fBackgroundEntities.pop_front();
-
-			std::cout << "Deleted by move" << std::endl;
 		}
 
 		// Now reset the moved
