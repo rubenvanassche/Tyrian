@@ -46,14 +46,14 @@ void GameStage::run(){
     	double delta = clock.restart().asSeconds();
     	std::cout << "delta   " << delta << std::endl;
 
-    	if(g.won()){
-    		//this->fStages->message->setMessage("You Win!");
-    		//this->fStages->message->run();
+    	if(g.won() == true){
+    		this->fStages->message->setMessage("You Win!");
+    		this->fStages->message->run();
     	}
 
-    	if(g.lose()){
-    		//this->fStages->message->setMessage("You Lose!");
-    		//this->fStages->message->run();
+    	if(g.lose() == true){
+    		this->fStages->message->setMessage("You Lose!");
+    		this->fStages->message->run();
     	}
 
         // Process events

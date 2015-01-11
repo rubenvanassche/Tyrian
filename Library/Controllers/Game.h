@@ -72,8 +72,8 @@ private:
 	// The class stuff
 	World* fWorld;
 	HAL9000* fHAL;
-	bool fWon;
-	bool fLose;
+	bool fWon = false;
+	bool fLose = false;
 };
 
 }
