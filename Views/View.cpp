@@ -11,6 +11,7 @@ namespace tySFML {
 
 View::View(Window* window)  {
 	this->fWindow = window;
+	this->fAssets = Assets::getInstance();
 }
 
 

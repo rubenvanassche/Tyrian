@@ -9,18 +9,20 @@
 
 namespace tySFML{
 
-Assets::Assets(std::string texturePath, std::string fontPath) {
-	this->fFontPath = fontPath;
-	this->fTexturePath = texturePath;
+bool Assets::instanceFlag = false;
+Assets* Assets::obj = nullptr;
+Assets::Assets(){
+	// Do nothing
+}
 
-	// Remove the / at the end of a path if this is set
-	if(this->fFontPath.back() == '/'){
-		this->fFontPath = this->fFontPath.substr(0, this->fFontPath.size()-1);
-	}
-
-	if(this->fTexturePath.back() == '/'){
-		this->fTexturePath = this->fTexturePath.substr(0, this->fTexturePath.size()-1);
-	}
+Assets* Assets::getInstance(){
+    if(instanceFlag == false){
+        obj = new Assets();
+        instanceFlag = true;
+        return obj;
+    }else{
+        return obj;
+    }
 }
 
 sf::Texture* Assets::getTexture(std::string file){
@@ -52,6 +54,24 @@ sf::Font* Assets::getFont(std::string file){
 		return font;
 	}else{
 		return this->fFonts[file];
+	}
+}
+
+void Assets::setFontPath(std::string path){
+	this->fFontPath = path;
+
+	// Remove the / at the end of a path if this is set
+	if(this->fFontPath.back() == '/'){
+		this->fFontPath = this->fFontPath.substr(0, this->fFontPath.size()-1);
+	}
+}
+
+void Assets::setTexturesPath(std::string path){
+	this->fTexturePath = path;
+
+	// Remove the / at the end of a path if this is set
+	if(this->fTexturePath.back() == '/'){
+		this->fTexturePath = this->fTexturePath.substr(0, this->fTexturePath.size()-1);
 	}
 }
 

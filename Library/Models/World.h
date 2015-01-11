@@ -14,6 +14,7 @@
 #include "Ship.h"
 #include "Entity.h"
 #include "../Lib/Bridge.h"
+#include "Tile.h"
 
 namespace tyLib{
 
@@ -84,6 +85,11 @@ public:
 	std::list<Bullet*>& getBullets();
 
 	/**
+	 * @brief Get the backgroundtile
+	 */
+	Tile* getTile();
+
+	/**
 	 * @brief The Bridge
 	 */
 	Bridge* bridge;
@@ -104,6 +110,11 @@ private:
 	 * @brief The ship of the player
 	 */
 	Ship* player = nullptr;
+
+	/**
+	 * @brief The Tile at the background
+	 */
+	Tile* tile;
 
 	/**
 	 * @brief The Height of the world

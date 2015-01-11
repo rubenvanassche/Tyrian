@@ -9,10 +9,10 @@
 
 namespace tySFML {
 
-Stage::Stage(Window* app, Stages* stages, Assets* assets) {
+Stage::Stage(Window* app, Stages* stages) {
 	this->fApp = app;
 	this->fStages = stages;
-	this->fAssets = assets;
+	this->fAssets = Assets::getInstance();
 }
 
 Stage::~Stage() {

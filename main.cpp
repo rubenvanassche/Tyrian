@@ -14,25 +14,27 @@ int main(){
 	tySFML::Window window(320, 320);
 
 	// The path where the fonts are
-	std::string fontsPath = "Resources/Fonts";
+	std::string fontPath = "Resources/Fonts";
 
 	// The path where the textures are
 	std::string texturesPath = "Resources/Textures";
 
 	// Create the Assets Container
-	tySFML::Assets assets = tySFML::Assets(texturesPath, fontsPath);
+	tySFML::Assets *assets = tySFML::Assets::getInstance();
+	assets->setFontPath(fontPath);
+	assets->setTexturesPath(texturesPath);
 
 	// Create the stagescontainer
 	tySFML::Stages stages;
 
 	// Create the stages and link them in the stages container
-	tySFML::IntroStage introStage = tySFML::IntroStage(&window, &stages, &assets);
+	tySFML::IntroStage introStage = tySFML::IntroStage(&window, &stages);
 	stages.intro = &introStage;
-	tySFML::GameStage gameStage = tySFML::GameStage(&window, &stages, &assets);
+	tySFML::GameStage gameStage = tySFML::GameStage(&window, &stages);
 	stages.game = &gameStage;
-	tySFML::SelectLevelStage selectLevelStage = tySFML::SelectLevelStage(&window, &stages, &assets);
+	tySFML::SelectLevelStage selectLevelStage = tySFML::SelectLevelStage(&window, &stages);
 	stages.selectLevel = &selectLevelStage;
-	tySFML::MessageStage messagestage = tySFML::MessageStage(&window, &stages, &assets);
+	tySFML::MessageStage messagestage = tySFML::MessageStage(&window, &stages);
 	stages.message = &messagestage;
 
 	// Start by running our intro stage

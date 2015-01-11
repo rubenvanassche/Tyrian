@@ -58,6 +58,9 @@ void Game::play(double const delta){
 	// Let's move all the bullets
 	fHAL->moveBullets(delta);
 
+	// Move the background
+	this->fWorld->getTile()->move(Direction("Down"), delta);
+
 	// Do collision detection of enemy ships with player
 	fHAL->shipCollisionDetection();
 
@@ -117,6 +120,10 @@ bool Game::won(){
 
 bool Game::lose(){
 	return this->fLose;
+}
+
+Tile* Game::getTile(){
+	return this->fWorld->getTile();
 }
 
 void Game::print(){

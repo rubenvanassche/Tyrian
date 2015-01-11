@@ -19,10 +19,10 @@ namespace tySFML{
  */
 class Assets {
 public:
-	/**
-	 * @brief Constructor for Assets with the path where the textures are and the path where the fonts are
-	 */
-	Assets(std::string texturePath, std::string fontPath);
+    /**
+     * @brief Get an instance of the Singleton
+     */
+    static Assets* getInstance();
 
 	/**
 	 * @brief get a texture
@@ -42,13 +42,29 @@ public:
 	 */
 	sf::Font* getFont(std::string file);
 
+	/**
+	 * @brief Set the font path
+	 */
+	void setFontPath(std::string path);
+
+	/**
+	 * @brief Set the textures path
+	 */
+	void setTexturesPath(std::string path);
+
 	virtual ~Assets();
 private:
-	std::string fTexturePath;
-	std::string fFontPath;
+	std::string fTexturePath = "";
+	std::string fFontPath = "";
 
 	std::map<std::string, sf::Texture*> fTextures;
 	std::map<std::string, sf::Font*> fFonts;
+
+	// For singleton
+    static bool instanceFlag;
+    static Assets *obj;
+    sf::Event fEvent;
+    Assets();
 };
 
 }

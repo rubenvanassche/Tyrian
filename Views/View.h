@@ -11,6 +11,7 @@
 #include "../Library/Models/Entity.h"
 #include "../Helpers/Helpers.h"
 #include "../Helpers/Window.h"
+#include "../Helpers/Assets.h"
 
 namespace tySFML {
 
@@ -28,6 +29,7 @@ public:
 	virtual ~View();
 protected:
 	Window* fWindow;
+	Assets* fAssets;
 };
 
 } /* namespace tySML */

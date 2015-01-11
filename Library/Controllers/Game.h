@@ -55,6 +55,11 @@ public:
 	 */
 	bool lose();
 
+	/**
+	 * @brief get a pointer to the Tile
+	 */
+	Tile* getTile();
+
 	void print();
 
 	virtual ~Game();

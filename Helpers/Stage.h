@@ -20,15 +20,15 @@ struct Stages;
  */
 class Stage {
 public:
-	Stage(Window* app, Stages* stages, Assets* assets);
+	Stage(Window* app, Stages* stages);
 	virtual void run ()=0;
 	void setMessage(std::string message){this->fMessage  = message;};
 	std::string getMessage(){return this->fMessage;};
 	virtual ~Stage();
 protected:
 	Stages* fStages = nullptr;
-	Assets* fAssets = nullptr;
 	Window* fApp = nullptr;
+	Assets* fAssets = nullptr;
 	std::string fMessage;
 };
 

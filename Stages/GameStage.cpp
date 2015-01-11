@@ -11,12 +11,19 @@ namespace tySFML {
 
 void GameStage::run(){
 	std::cout << this->fMessage << std::endl;
+
     // Create the bridge between SFML and tyLib
     tySFML::SFMLBridge* bridge = new tySFML::SFMLBridge;
     bridge->window = this->fApp;
 
     // Create the game
     tyLib::Game g(this->fMessage, bridge);
+
+    // Get the background
+    tySFML::Tile bg = Tile(this->fApp, g.getTile());
+
+    // Create an assets library
+    tySFML::Assets *assets = tySFML::Assets::getInstance();
 
     // Get our stopwatch
     tySFML::Stopwatch *stopwatch;
@@ -85,14 +92,16 @@ void GameStage::run(){
 
 		   g.play(delta);
 
-		   //g.print();
+		   g.print();
 
 
 
     	//g.print();
 
         // Clear screen
-		   this->fApp->clear();
+		this->fApp->clear();
+
+		//bg.draw();
 
         for(auto i : bridge->ships){
         	i->draw();

@@ -15,6 +15,9 @@ World::World(int width, int height, Bridge* bridge) {
 	this->width = width;
 	this->height = height;
 	this->bridge = bridge;
+
+	// Initiate the tile
+	this->tile = new Tile(width, height, "Grass");
 }
 
 void World::addShip(Ship* ship){
@@ -57,6 +60,10 @@ std::list<Ship*>& World::getShips(){
 
 std::list<Bullet*>& World::getBullets(){
 	return this->bullets;
+}
+
+Tile* World::getTile(){
+	return this->tile;
 }
 
 
