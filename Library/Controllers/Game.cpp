@@ -46,6 +46,12 @@ void Game::play(double const delta){
 		}
 	}
 
+	// Check the Health of the player
+	if(this->fWorld->getPlayer()->isDead()){
+		this->fLose = true;
+		return;
+	}
+
 	// Do we need to load other ships
 	if(this->fWorld->getShips().size() == 1){
 		this->createStage(this->fStages.front());
