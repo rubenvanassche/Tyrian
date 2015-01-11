@@ -26,18 +26,29 @@ Stopwatch* Stopwatch::getInstance(){
 }
 
 void Stopwatch::update(){
-    if(fClock.getElapsedTime().asSeconds() >= 1.f){
+    if(fFPSClock.getElapsedTime().asSeconds() >= 1.f){
         fFps = fFrame;
         fFrame = 0;
-        fClock.restart();
+        fFPSClock.restart();
     }
 
     fFrame++;
+
+    // Reset the delta attribute
+    this->fDelta = 0;
 }
 
 
 int Stopwatch::getFPS(){
 	return this->fFps;
+}
+
+double Stopwatch::getDelta(){
+	if(this->fDelta == 0){
+		this->fDelta = fClock.restart().asSeconds();
+	}
+
+	return this->fDelta;
 }
 
 Stopwatch::~Stopwatch(){

@@ -19,7 +19,9 @@ private:
     Stopwatch();
     int fFrame = 0;
     int fFps = 0;
+    sf::Clock fFPSClock;
     sf::Clock fClock;
+    double fDelta;
 public:
     /**
      * @brief Get an instance of the Singleton
@@ -27,9 +29,14 @@ public:
     static Stopwatch* getInstance();
 
     /**
-     * Update the clock
+     * @brief Update the clock
      */
     void update();
+
+    /**
+     * @brief Get the delta
+     */
+    double getDelta();
 
     /**
      * Get the framerate per second

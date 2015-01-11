@@ -39,12 +39,8 @@ void GameStage::run(){
 	this->fApp->setBackGroundColor(sf::Color::Black);
 
 	while(this->fApp->isOpen()){
-
+		// Update the stopwatch so all our entities run equal on each device.
     	stopwatch->update();
-
-
-    	double delta = clock.restart().asSeconds();
-    	std::cout << "fps   " << stopwatch->getFPS() << std::endl;
 
     	if(g.won() == true){
     		this->fStages->message->setMessage("You Win!");
@@ -58,9 +54,10 @@ void GameStage::run(){
 
         // Process events
         sf::Event event;
-        while (this->fApp->pollEvent(event))
-        {
+        while (this->fApp->pollEvent(event)){
+        	// Give the event to our input handler
         	input->executeEvent(event);
+
             // Close window : exit
             if (event.type == sf::Event::Closed)
             	this->fApp->close();
@@ -71,33 +68,28 @@ void GameStage::run(){
 
         	if(input->keyLeft()){
         		tyLib::Direction d("left");
-        		g.movePlayer(d, delta);
+        		g.movePlayer(d, stopwatch->getDelta());
         	}
 
         	if(input->keyRight()){
         		tyLib::Direction d("right");
-        		g.movePlayer(d, delta);
+        		g.movePlayer(d, stopwatch->getDelta());
         	}
 
         	if(input->keyUp()){
         		tyLib::Direction d("up");
-        		g.movePlayer(d, delta);
+        		g.movePlayer(d, stopwatch->getDelta());
         	}
 
         	if(input->keyDown()){
         		tyLib::Direction d("down");
-        		g.movePlayer(d, delta);
+        		g.movePlayer(d, stopwatch->getDelta());
         	}
-
         }
 
-		   g.play(delta);
+        // Play one iteration of the game.
+        g.play(stopwatch->getDelta());
 
-		   //g.print();
-
-
-
-    	//g.print();
 
         // Clear screen
 		this->fApp->clear();
@@ -111,6 +103,7 @@ void GameStage::run(){
         for(auto i : bridge->bullets){
         	i->draw();
         }
+
 
         // Update the window
         this->fApp->display();
