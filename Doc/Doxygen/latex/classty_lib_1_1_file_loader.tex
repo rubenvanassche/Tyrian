@@ -1,0 +1,47 @@
+\hypertarget{classty_lib_1_1_file_loader}{}\section{ty\+Lib\+:\+:File\+Loader Class Reference}
+\label{classty_lib_1_1_file_loader}\index{ty\+Lib\+::\+File\+Loader@{ty\+Lib\+::\+File\+Loader}}
+
+
+Loads a game file.  
+
+
+
+
+{\ttfamily \#include $<$File\+Loader.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classty_lib_1_1_file_loader_a33a5065f8d94ad6f1d27dedf5bbd4e5a}{}\hyperlink{classty_lib_1_1_file_loader_a33a5065f8d94ad6f1d27dedf5bbd4e5a}{File\+Loader} ()\label{classty_lib_1_1_file_loader_a33a5065f8d94ad6f1d27dedf5bbd4e5a}
+
+\begin{DoxyCompactList}\small\item\em Construct the loader. \end{DoxyCompactList}\item 
+\hypertarget{classty_lib_1_1_file_loader_a16b2f231499009aa9ee963c8ed04078d}{}std\+::vector$<$ \hyperlink{structty_lib_1_1_level}{Level} $>$ \hyperlink{classty_lib_1_1_file_loader_a16b2f231499009aa9ee963c8ed04078d}{get\+Levels} (std\+::string const directory)\label{classty_lib_1_1_file_loader_a16b2f231499009aa9ee963c8ed04078d}
+
+\begin{DoxyCompactList}\small\item\em Get all the levels in an certain directory. \end{DoxyCompactList}\item 
+\hypertarget{classty_lib_1_1_file_loader_a469c68bb38fd316a9870c5f9cc4cd2ba}{}\hyperlink{structty_lib_1_1_level}{Level} \hyperlink{classty_lib_1_1_file_loader_a469c68bb38fd316a9870c5f9cc4cd2ba}{get\+Level} (std\+::string const filename, std\+::string directory)\label{classty_lib_1_1_file_loader_a469c68bb38fd316a9870c5f9cc4cd2ba}
+
+\begin{DoxyCompactList}\small\item\em get information about a level file \end{DoxyCompactList}\item 
+\hypertarget{classty_lib_1_1_file_loader_a1e4980bdc65e2d33f4f449d99995780c}{}\hyperlink{structty_lib_1_1_x_m_l_game}{X\+M\+L\+Game} \hyperlink{classty_lib_1_1_file_loader_a1e4980bdc65e2d33f4f449d99995780c}{load\+File} (std\+::string const filename)\label{classty_lib_1_1_file_loader_a1e4980bdc65e2d33f4f449d99995780c}
+
+\begin{DoxyCompactList}\small\item\em Load a file by a given filename and return an \hyperlink{structty_lib_1_1_x_m_l_game}{X\+M\+L\+Game}. \end{DoxyCompactList}\item 
+\hypertarget{classty_lib_1_1_file_loader_a220ed5f763c37a2f4a2da48fe0a66883}{}\hyperlink{structty_lib_1_1_x_m_l_stage}{X\+M\+L\+Stage} \hyperlink{classty_lib_1_1_file_loader_a220ed5f763c37a2f4a2da48fe0a66883}{process\+Stage} (pugi\+::xml\+\_\+node \&doc)\label{classty_lib_1_1_file_loader_a220ed5f763c37a2f4a2da48fe0a66883}
+
+\begin{DoxyCompactList}\small\item\em Generate a Stage Structure based upon an given Stage xml node. \end{DoxyCompactList}\item 
+\hypertarget{classty_lib_1_1_file_loader_aa4e1406b5da4b9134f585d169e06354b}{}\hyperlink{structty_lib_1_1_x_m_l_ship}{X\+M\+L\+Ship} \hyperlink{classty_lib_1_1_file_loader_aa4e1406b5da4b9134f585d169e06354b}{process\+Ship} (pugi\+::xml\+\_\+node \&doc)\label{classty_lib_1_1_file_loader_aa4e1406b5da4b9134f585d169e06354b}
+
+\begin{DoxyCompactList}\small\item\em Generate a \hyperlink{classty_lib_1_1_ship}{Ship} Structure based upon an given \hyperlink{classty_lib_1_1_ship}{Ship} xml node. \end{DoxyCompactList}\item 
+\hypertarget{classty_lib_1_1_file_loader_aaf6738ee2dbfbea6687cdacaa9e6e5b7}{}bool \hyperlink{classty_lib_1_1_file_loader_aaf6738ee2dbfbea6687cdacaa9e6e5b7}{check\+Data} ()\label{classty_lib_1_1_file_loader_aaf6738ee2dbfbea6687cdacaa9e6e5b7}
+
+\begin{DoxyCompactList}\small\item\em check if the Data is correct loaded from an xml document \end{DoxyCompactList}\item 
+\hypertarget{classty_lib_1_1_file_loader_ab1a2e00c9eb13cab8445693bd1b51185}{}void \hyperlink{classty_lib_1_1_file_loader_ab1a2e00c9eb13cab8445693bd1b51185}{visualize} ()\label{classty_lib_1_1_file_loader_ab1a2e00c9eb13cab8445693bd1b51185}
+
+\begin{DoxyCompactList}\small\item\em Generate a visual representation of an X\+M\+L file(using the I\+O\+Stream) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Loads a game file. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Library/\+Lib/File\+Loader.\+h\item 
+Library/\+Lib/File\+Loader.\+cpp\end{DoxyCompactItemize}

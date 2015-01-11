@@ -1,0 +1,26 @@
+var searchData=
+[
+  ['getbackground',['getBackground',['../classty_lib_1_1_tile.html#aad618620b76b0535d16da909eb479194',1,'tyLib::Tile']]],
+  ['getbullets',['getBullets',['../classty_lib_1_1_world.html#a8e71ce8d440a67a6dd4a67dff361d78b',1,'tyLib::World']]],
+  ['getdelta',['getDelta',['../classty_s_f_m_l_1_1_stopwatch.html#a879aaf8fc50b97a47af816e2b25f454c',1,'tySFML::Stopwatch']]],
+  ['getdirection',['getDirection',['../classty_lib_1_1_direction.html#afc53092ec1d72f584636109a99e1245f',1,'tyLib::Direction']]],
+  ['getentities',['getEntities',['../classty_lib_1_1_tile.html#a6f6409be0fd74df0d57499dd30975fae',1,'tyLib::Tile']]],
+  ['getfont',['getFont',['../classty_s_f_m_l_1_1_assets.html#a3f20804bb69de705d9b97753883d4ddf',1,'tySFML::Assets']]],
+  ['getfps',['getFPS',['../classty_s_f_m_l_1_1_stopwatch.html#a8f8a72c1f245089ca0a60ca9f5e3ea98',1,'tySFML::Stopwatch']]],
+  ['getfrom',['getFrom',['../classty_lib_1_1_bullet.html#a97425f9c2b614c3a229b4142ffaedde9',1,'tyLib::Bullet']]],
+  ['getheight',['getHeight',['../classty_lib_1_1_world.html#aaf59a1d69b47ad5e0a75a4fd54915cd5',1,'tyLib::World']]],
+  ['getinstance',['getInstance',['../classty_s_f_m_l_1_1_assets.html#abd9296156d4aa083de4773ae86b5ff71',1,'tySFML::Assets::getInstance()'],['../classty_s_f_m_l_1_1_input.html#a7cd1afad591623b3d653728c788df37a',1,'tySFML::Input::getInstance()'],['../classty_s_f_m_l_1_1_stopwatch.html#a1a40eb512e4e261206030939d453aba3',1,'tySFML::Stopwatch::getInstance()']]],
+  ['getlevel',['getLevel',['../classty_lib_1_1_file_loader.html#a469c68bb38fd316a9870c5f9cc4cd2ba',1,'tyLib::FileLoader']]],
+  ['getlevels',['getLevels',['../classty_lib_1_1_file_loader.html#a16b2f231499009aa9ee963c8ed04078d',1,'tyLib::FileLoader']]],
+  ['getlocation',['getLocation',['../classty_lib_1_1_entity.html#aee571c378800bd3e2aebaa8065617be0',1,'tyLib::Entity']]],
+  ['getplayer',['getPlayer',['../classty_lib_1_1_world.html#a5773e8a9a0a103f327a552a907a0725c',1,'tyLib::World']]],
+  ['getships',['getShips',['../classty_lib_1_1_world.html#aa7b308467c7a3b4b2f9469b7aeeb9160',1,'tyLib::World']]],
+  ['getsize',['getSize',['../classty_lib_1_1_entity.html#a6e5c374923ed5c6474a6520c5ed8081b',1,'tyLib::Entity']]],
+  ['gettexture',['getTexture',['../classty_s_f_m_l_1_1_assets.html#adf011f22e1001c363815014a4a132670',1,'tySFML::Assets']]],
+  ['gettile',['getTile',['../classty_lib_1_1_game.html#a1ffb805b183c64d2f30b331a1cbdd65c',1,'tyLib::Game::getTile()'],['../classty_lib_1_1_world.html#a158ca5e7b7d4a8ed9a000e00598f31be',1,'tyLib::World::getTile()']]],
+  ['gettype',['getType',['../classty_lib_1_1_entity.html#ada25552ccf50363a3b846ca718df9036',1,'tyLib::Entity']]],
+  ['getwidth',['getWidth',['../classty_lib_1_1_world.html#a7617c4c438c675a4da570ed70be00733',1,'tyLib::World']]],
+  ['getwindow',['getWindow',['../classty_s_f_m_l_1_1_window.html#a2e116b4ae884b7d104d19e427b7ec0f8',1,'tySFML::Window']]],
+  ['gun',['Gun',['../classty_lib_1_1_gun.html#a2b05ac8f0a2c8501df42c7dae9bce093',1,'tyLib::Gun']]],
+  ['gunfactory',['GunFactory',['../classty_lib_1_1_gun_factory.html#ae3c4ba49d152f1463a1548b9bd14a926',1,'tyLib::GunFactory']]]
+];

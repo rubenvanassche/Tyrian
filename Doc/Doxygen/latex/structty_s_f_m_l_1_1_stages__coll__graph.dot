@@ -1,0 +1,13 @@
+digraph "tySFML::Stages"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="tySFML::Stages",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node2 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" game\nintro\nmessage\nselectLevel" ];
+  Node2 [label="tySFML::Stage",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classty_s_f_m_l_1_1_stage.html",tooltip="Represents a Stage, a certain part of the game. "];
+  Node3 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" fApp" ];
+  Node3 [label="tySFML::Window",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classty_s_f_m_l_1_1_window.html",tooltip="Represents an SFML Window. "];
+  Node4 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" fAssets" ];
+  Node4 [label="tySFML::Assets",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classty_s_f_m_l_1_1_assets.html",tooltip="Class for storing assets and getting them without making endless copies. "];
+  Node1 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" fStages" ];
+}

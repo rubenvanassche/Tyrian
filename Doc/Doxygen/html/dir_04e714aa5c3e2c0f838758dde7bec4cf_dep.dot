@@ -1,0 +1,9 @@
+digraph "Library/Factories" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_5ad7f572bbca03234e8e621e192fc099 {
+    graph [ bgcolor="#ddddee", pencolor="black", label="Library" fontname="Helvetica", fontsize="10", URL="dir_5ad7f572bbca03234e8e621e192fc099.html"]
+  dir_04e714aa5c3e2c0f838758dde7bec4cf [shape=box, label="Factories", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_04e714aa5c3e2c0f838758dde7bec4cf.html"];
+  }
+}

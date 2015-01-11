@@ -1,0 +1,9 @@
+digraph "Library/External" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_5ad7f572bbca03234e8e621e192fc099 {
+    graph [ bgcolor="#ddddee", pencolor="black", label="Library" fontname="Helvetica", fontsize="10", URL="dir_5ad7f572bbca03234e8e621e192fc099.html"]
+  dir_f60c8f9a3aa4bdff182c81e5fee3ef2e [shape=box, label="External", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_f60c8f9a3aa4bdff182c81e5fee3ef2e.html"];
+  }
+}

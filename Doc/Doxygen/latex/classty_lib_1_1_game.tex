@@ -1,0 +1,50 @@
+\hypertarget{classty_lib_1_1_game}{}\section{ty\+Lib\+:\+:Game Class Reference}
+\label{classty_lib_1_1_game}\index{ty\+Lib\+::\+Game@{ty\+Lib\+::\+Game}}
+
+
+The master controller who controls the whole game.  
+
+
+
+
+{\ttfamily \#include $<$Game.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classty_lib_1_1_game_a3826bff41f496de75cdd0fd9a4abe2f2}{}{\bfseries Game} (std\+::string const filename, \hyperlink{classty_lib_1_1_bridge}{Bridge} $\ast$bridge)\label{classty_lib_1_1_game_a3826bff41f496de75cdd0fd9a4abe2f2}
+
+\item 
+\hypertarget{classty_lib_1_1_game_ac509d35039339b4d34623f3d6999685c}{}void \hyperlink{classty_lib_1_1_game_ac509d35039339b4d34623f3d6999685c}{play} (double const delta)\label{classty_lib_1_1_game_ac509d35039339b4d34623f3d6999685c}
+
+\begin{DoxyCompactList}\small\item\em Play one iteration with a given delta(seconds between frames) \end{DoxyCompactList}\item 
+\hypertarget{classty_lib_1_1_game_ac909c1e6a6dc5ec2d5c9cce4769c5511}{}void \hyperlink{classty_lib_1_1_game_ac909c1e6a6dc5ec2d5c9cce4769c5511}{create\+Stage} (\hyperlink{structty_lib_1_1_x_m_l_stage}{X\+M\+L\+Stage} const \&stage)\label{classty_lib_1_1_game_ac909c1e6a6dc5ec2d5c9cce4769c5511}
+
+\begin{DoxyCompactList}\small\item\em Create a stage from an \hyperlink{structty_lib_1_1_x_m_l_stage}{X\+M\+L\+Stage} object. \end{DoxyCompactList}\item 
+\hypertarget{classty_lib_1_1_game_a73b72e8cc20e916239f5e45a65cf6e86}{}void \hyperlink{classty_lib_1_1_game_a73b72e8cc20e916239f5e45a65cf6e86}{move\+Player} (\hyperlink{classty_lib_1_1_direction}{Direction} direction, double const delta)\label{classty_lib_1_1_game_a73b72e8cc20e916239f5e45a65cf6e86}
+
+\begin{DoxyCompactList}\small\item\em Move the player with a certain delta. \end{DoxyCompactList}\item 
+\hypertarget{classty_lib_1_1_game_a82c102e92f997e0ded34ae0e95d1c2b0}{}void \hyperlink{classty_lib_1_1_game_a82c102e92f997e0ded34ae0e95d1c2b0}{shoot\+Player} ()\label{classty_lib_1_1_game_a82c102e92f997e0ded34ae0e95d1c2b0}
+
+\begin{DoxyCompactList}\small\item\em Shoot a bullet out of the gun of the player. \end{DoxyCompactList}\item 
+\hypertarget{classty_lib_1_1_game_aa7a320fe63b0bf48adbd0e74129921ae}{}bool \hyperlink{classty_lib_1_1_game_aa7a320fe63b0bf48adbd0e74129921ae}{won} ()\label{classty_lib_1_1_game_aa7a320fe63b0bf48adbd0e74129921ae}
+
+\begin{DoxyCompactList}\small\item\em returns true if the player has won the game \end{DoxyCompactList}\item 
+\hypertarget{classty_lib_1_1_game_ab84271fa142410616ef863ee15ac1f09}{}bool \hyperlink{classty_lib_1_1_game_ab84271fa142410616ef863ee15ac1f09}{lose} ()\label{classty_lib_1_1_game_ab84271fa142410616ef863ee15ac1f09}
+
+\begin{DoxyCompactList}\small\item\em returns true if the player has lost the game \end{DoxyCompactList}\item 
+\hypertarget{classty_lib_1_1_game_a1ffb805b183c64d2f30b331a1cbdd65c}{}\hyperlink{classty_lib_1_1_tile}{Tile} $\ast$ \hyperlink{classty_lib_1_1_game_a1ffb805b183c64d2f30b331a1cbdd65c}{get\+Tile} ()\label{classty_lib_1_1_game_a1ffb805b183c64d2f30b331a1cbdd65c}
+
+\begin{DoxyCompactList}\small\item\em get a pointer to the \hyperlink{classty_lib_1_1_tile}{Tile} \end{DoxyCompactList}\item 
+\hypertarget{classty_lib_1_1_game_a691f8f85b6968b421e238c1ac798e4bf}{}void {\bfseries print} ()\label{classty_lib_1_1_game_a691f8f85b6968b421e238c1ac798e4bf}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The master controller who controls the whole game. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Library/\+Controllers/Game.\+h\item 
+Library/\+Controllers/Game.\+cpp\end{DoxyCompactItemize}

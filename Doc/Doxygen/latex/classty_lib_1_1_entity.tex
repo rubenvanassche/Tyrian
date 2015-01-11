@@ -1,0 +1,79 @@
+\hypertarget{classty_lib_1_1_entity}{}\section{ty\+Lib\+:\+:Entity Class Reference}
+\label{classty_lib_1_1_entity}\index{ty\+Lib\+::\+Entity@{ty\+Lib\+::\+Entity}}
+
+
+Model representing an \hyperlink{classty_lib_1_1_entity}{Entity}, something that moves on the battle field.  
+
+
+
+
+{\ttfamily \#include $<$Entity.\+h$>$}
+
+
+
+Inheritance diagram for ty\+Lib\+:\+:Entity\+:
+% FIG 0
+
+
+Collaboration diagram for ty\+Lib\+:\+:Entity\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classty_lib_1_1_entity_a193805649ec834e473afd601832a857c}{}\hyperlink{classty_lib_1_1_entity_a193805649ec834e473afd601832a857c}{Entity} ()\label{classty_lib_1_1_entity_a193805649ec834e473afd601832a857c}
+
+\begin{DoxyCompactList}\small\item\em Construct an \hyperlink{classty_lib_1_1_entity}{Entity}. \end{DoxyCompactList}\item 
+\hypertarget{classty_lib_1_1_entity_a091f0b74ac6e7645d39b6b8d37873cf1}{}virtual void \hyperlink{classty_lib_1_1_entity_a091f0b74ac6e7645d39b6b8d37873cf1}{move} (\hyperlink{classty_lib_1_1_direction}{Direction} const direction, double const delta)=0\label{classty_lib_1_1_entity_a091f0b74ac6e7645d39b6b8d37873cf1}
+
+\begin{DoxyCompactList}\small\item\em Move an \hyperlink{classty_lib_1_1_entity}{Entity} with a \hyperlink{classty_lib_1_1_direction}{Direction}, this function is pure virtual. \end{DoxyCompactList}\item 
+\hypertarget{classty_lib_1_1_entity_aee571c378800bd3e2aebaa8065617be0}{}\hyperlink{classty_lib_1_1_vector}{Vector} \hyperlink{classty_lib_1_1_entity_aee571c378800bd3e2aebaa8065617be0}{get\+Location} () const \label{classty_lib_1_1_entity_aee571c378800bd3e2aebaa8065617be0}
+
+\begin{DoxyCompactList}\small\item\em Get the location of an \hyperlink{classty_lib_1_1_entity}{Entity}. \end{DoxyCompactList}\item 
+\hypertarget{classty_lib_1_1_entity_a6e5c374923ed5c6474a6520c5ed8081b}{}\hyperlink{classty_lib_1_1_size}{Size} \hyperlink{classty_lib_1_1_entity_a6e5c374923ed5c6474a6520c5ed8081b}{get\+Size} () const \label{classty_lib_1_1_entity_a6e5c374923ed5c6474a6520c5ed8081b}
+
+\begin{DoxyCompactList}\small\item\em Get the \hyperlink{classty_lib_1_1_size}{Size} of an \hyperlink{classty_lib_1_1_entity}{Entity}. \end{DoxyCompactList}\item 
+\hypertarget{classty_lib_1_1_entity_a5a343573cf472453795a1818b3512e03}{}bool \hyperlink{classty_lib_1_1_entity_a5a343573cf472453795a1818b3512e03}{collides} (\hyperlink{classty_lib_1_1_entity}{Entity} $\ast$entity)\label{classty_lib_1_1_entity_a5a343573cf472453795a1818b3512e03}
+
+\begin{DoxyCompactList}\small\item\em Check if an \hyperlink{classty_lib_1_1_entity}{Entity} collides with this entity. \end{DoxyCompactList}\item 
+\hypertarget{classty_lib_1_1_entity_a501afcddffc3359a51491377dea89e4d}{}virtual void \hyperlink{classty_lib_1_1_entity_a501afcddffc3359a51491377dea89e4d}{set\+Type} (std\+::string type)\label{classty_lib_1_1_entity_a501afcddffc3359a51491377dea89e4d}
+
+\begin{DoxyCompactList}\small\item\em Set the type of this Entity(used for bitmapping) \end{DoxyCompactList}\item 
+\hypertarget{classty_lib_1_1_entity_ada25552ccf50363a3b846ca718df9036}{}virtual std\+::string \hyperlink{classty_lib_1_1_entity_ada25552ccf50363a3b846ca718df9036}{get\+Type} ()\label{classty_lib_1_1_entity_ada25552ccf50363a3b846ca718df9036}
+
+\begin{DoxyCompactList}\small\item\em Get the type of this entity. \end{DoxyCompactList}\item 
+\hypertarget{classty_lib_1_1_entity_a1766118325f9c7e96ab702d3fe2af587}{}void \hyperlink{classty_lib_1_1_entity_a1766118325f9c7e96ab702d3fe2af587}{hide} ()\label{classty_lib_1_1_entity_a1766118325f9c7e96ab702d3fe2af587}
+
+\begin{DoxyCompactList}\small\item\em hide the \hyperlink{classty_lib_1_1_entity}{Entity} \end{DoxyCompactList}\item 
+\hypertarget{classty_lib_1_1_entity_a1dc8ab6172d82be5cf24cab0e637d3d5}{}void \hyperlink{classty_lib_1_1_entity_a1dc8ab6172d82be5cf24cab0e637d3d5}{show} ()\label{classty_lib_1_1_entity_a1dc8ab6172d82be5cf24cab0e637d3d5}
+
+\begin{DoxyCompactList}\small\item\em show the \hyperlink{classty_lib_1_1_entity}{Entity} \end{DoxyCompactList}\item 
+\hypertarget{classty_lib_1_1_entity_ab6ad91ab4b400ef84c2382365124d627}{}bool \hyperlink{classty_lib_1_1_entity_ab6ad91ab4b400ef84c2382365124d627}{is\+Visible} ()\label{classty_lib_1_1_entity_ab6ad91ab4b400ef84c2382365124d627}
+
+\begin{DoxyCompactList}\small\item\em is the \hyperlink{classty_lib_1_1_entity}{Entity} visible \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classty_lib_1_1_entity_ac22c7aa6072ffde1433cf37d20b4c09c}{}\hyperlink{classty_lib_1_1_vector}{Vector} \hyperlink{classty_lib_1_1_entity_ac22c7aa6072ffde1433cf37d20b4c09c}{f\+Velocity}\label{classty_lib_1_1_entity_ac22c7aa6072ffde1433cf37d20b4c09c}
+
+\begin{DoxyCompactList}\small\item\em How far does an \hyperlink{classty_lib_1_1_entity}{Entity} move in time. \end{DoxyCompactList}\item 
+\hypertarget{classty_lib_1_1_entity_a5491a29abfb23b2adaa8091d99ef0dff}{}\hyperlink{classty_lib_1_1_vector}{Vector} \hyperlink{classty_lib_1_1_entity_a5491a29abfb23b2adaa8091d99ef0dff}{f\+Location}\label{classty_lib_1_1_entity_a5491a29abfb23b2adaa8091d99ef0dff}
+
+\begin{DoxyCompactList}\small\item\em Current location of the e\+Etity. \end{DoxyCompactList}\item 
+\hypertarget{classty_lib_1_1_entity_a89765b7b2c2c4666f6dba9b928b1172d}{}\hyperlink{classty_lib_1_1_size}{Size} {\bfseries f\+Size}\label{classty_lib_1_1_entity_a89765b7b2c2c4666f6dba9b928b1172d}
+
+\item 
+\hypertarget{classty_lib_1_1_entity_a748286a55e371c6f1440e2f43a0a46fa}{}std\+::string {\bfseries f\+Type}\label{classty_lib_1_1_entity_a748286a55e371c6f1440e2f43a0a46fa}
+
+\item 
+\hypertarget{classty_lib_1_1_entity_a542cc85a72ac413c574cd15c09a08e8b}{}bool {\bfseries f\+Visible} = true\label{classty_lib_1_1_entity_a542cc85a72ac413c574cd15c09a08e8b}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Model representing an \hyperlink{classty_lib_1_1_entity}{Entity}, something that moves on the battle field. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Library/\+Models/Entity.\+h\item 
+Library/\+Models/Entity.\+cpp\end{DoxyCompactItemize}

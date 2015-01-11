@@ -1,0 +1,77 @@
+\hypertarget{classty_lib_1_1_world}{}\section{ty\+Lib\+:\+:World Class Reference}
+\label{classty_lib_1_1_world}\index{ty\+Lib\+::\+World@{ty\+Lib\+::\+World}}
+
+
+The world class, containing the whole battlefield(all the Entities)  
+
+
+
+
+{\ttfamily \#include $<$World.\+h$>$}
+
+
+
+Inheritance diagram for ty\+Lib\+:\+:World\+:
+% FIG 0
+
+
+Collaboration diagram for ty\+Lib\+:\+:World\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classty_lib_1_1_world_a7fefec88b68ff37e655d4a2b8013b17e}{}\hyperlink{classty_lib_1_1_world_a7fefec88b68ff37e655d4a2b8013b17e}{World} (int width, int height, \hyperlink{classty_lib_1_1_bridge}{Bridge} $\ast$\hyperlink{classty_lib_1_1_world_a7046a485b63a96e8728766e53dfe9d58}{bridge})\label{classty_lib_1_1_world_a7fefec88b68ff37e655d4a2b8013b17e}
+
+\begin{DoxyCompactList}\small\item\em \hyperlink{classty_lib_1_1_world}{World} Constructor. \end{DoxyCompactList}\item 
+\hypertarget{classty_lib_1_1_world_acaea0024d90ad5f5451ef5ffead5d6d3}{}virtual void \hyperlink{classty_lib_1_1_world_acaea0024d90ad5f5451ef5ffead5d6d3}{move} (\hyperlink{classty_lib_1_1_direction}{Direction} const direction, double const delta)\label{classty_lib_1_1_world_acaea0024d90ad5f5451ef5ffead5d6d3}
+
+\begin{DoxyCompactList}\small\item\em Move an \hyperlink{classty_lib_1_1_entity}{Entity} with a \hyperlink{classty_lib_1_1_direction}{Direction}, this function is pure virtual. \end{DoxyCompactList}\item 
+\hypertarget{classty_lib_1_1_world_ab352b0dcf59091dc5ad5045a10401bc0}{}void \hyperlink{classty_lib_1_1_world_ab352b0dcf59091dc5ad5045a10401bc0}{add\+Ship} (\hyperlink{classty_lib_1_1_ship}{Ship} $\ast$ship)\label{classty_lib_1_1_world_ab352b0dcf59091dc5ad5045a10401bc0}
+
+\begin{DoxyCompactList}\small\item\em Add a \hyperlink{classty_lib_1_1_ship}{Ship}. \end{DoxyCompactList}\item 
+\hypertarget{classty_lib_1_1_world_a941e4fb886457e46c1588b51191b185c}{}void \hyperlink{classty_lib_1_1_world_a941e4fb886457e46c1588b51191b185c}{add\+Bullet} (\hyperlink{classty_lib_1_1_bullet}{Bullet} $\ast$bullet)\label{classty_lib_1_1_world_a941e4fb886457e46c1588b51191b185c}
+
+\begin{DoxyCompactList}\small\item\em Add a \hyperlink{classty_lib_1_1_bullet}{Bullet}. \end{DoxyCompactList}\item 
+\hypertarget{classty_lib_1_1_world_a279eae49007364611d876a236906b433}{}void \hyperlink{classty_lib_1_1_world_a279eae49007364611d876a236906b433}{remove\+Ship} (\hyperlink{classty_lib_1_1_ship}{Ship} $\ast$ship)\label{classty_lib_1_1_world_a279eae49007364611d876a236906b433}
+
+\begin{DoxyCompactList}\small\item\em Remove a \hyperlink{classty_lib_1_1_ship}{Ship}. \end{DoxyCompactList}\item 
+\hypertarget{classty_lib_1_1_world_a0acfdcc7406d2feff5ead7b36b91904a}{}void \hyperlink{classty_lib_1_1_world_a0acfdcc7406d2feff5ead7b36b91904a}{remove\+Bullet} (\hyperlink{classty_lib_1_1_bullet}{Bullet} $\ast$bullet)\label{classty_lib_1_1_world_a0acfdcc7406d2feff5ead7b36b91904a}
+
+\begin{DoxyCompactList}\small\item\em Remove a \hyperlink{classty_lib_1_1_bullet}{Bullet}. \end{DoxyCompactList}\item 
+\hypertarget{classty_lib_1_1_world_a5773e8a9a0a103f327a552a907a0725c}{}\hyperlink{classty_lib_1_1_ship}{Ship} $\ast$ \hyperlink{classty_lib_1_1_world_a5773e8a9a0a103f327a552a907a0725c}{get\+Player} ()\label{classty_lib_1_1_world_a5773e8a9a0a103f327a552a907a0725c}
+
+\begin{DoxyCompactList}\small\item\em Get the player\textquotesingle{}s \hyperlink{classty_lib_1_1_ship}{Ship}. \end{DoxyCompactList}\item 
+\hypertarget{classty_lib_1_1_world_a134363b3004ad2553f745d00146a70b0}{}void \hyperlink{classty_lib_1_1_world_a134363b3004ad2553f745d00146a70b0}{set\+Player} (\hyperlink{classty_lib_1_1_ship}{Ship} $\ast$player)\label{classty_lib_1_1_world_a134363b3004ad2553f745d00146a70b0}
+
+\begin{DoxyCompactList}\small\item\em Set the player\textquotesingle{}s \hyperlink{classty_lib_1_1_ship}{Ship}. \end{DoxyCompactList}\item 
+\hypertarget{classty_lib_1_1_world_a7617c4c438c675a4da570ed70be00733}{}int \hyperlink{classty_lib_1_1_world_a7617c4c438c675a4da570ed70be00733}{get\+Width} ()\label{classty_lib_1_1_world_a7617c4c438c675a4da570ed70be00733}
+
+\begin{DoxyCompactList}\small\item\em get The width of the \hyperlink{classty_lib_1_1_world}{World} \end{DoxyCompactList}\item 
+\hypertarget{classty_lib_1_1_world_aaf59a1d69b47ad5e0a75a4fd54915cd5}{}int \hyperlink{classty_lib_1_1_world_aaf59a1d69b47ad5e0a75a4fd54915cd5}{get\+Height} ()\label{classty_lib_1_1_world_aaf59a1d69b47ad5e0a75a4fd54915cd5}
+
+\begin{DoxyCompactList}\small\item\em get The width of the \hyperlink{classty_lib_1_1_world}{World} \end{DoxyCompactList}\item 
+\hypertarget{classty_lib_1_1_world_aa7b308467c7a3b4b2f9469b7aeeb9160}{}std\+::list$<$ \hyperlink{classty_lib_1_1_ship}{Ship} $\ast$ $>$ \& \hyperlink{classty_lib_1_1_world_aa7b308467c7a3b4b2f9469b7aeeb9160}{get\+Ships} ()\label{classty_lib_1_1_world_aa7b308467c7a3b4b2f9469b7aeeb9160}
+
+\begin{DoxyCompactList}\small\item\em Get all the Ships in the \hyperlink{classty_lib_1_1_world}{World}. \end{DoxyCompactList}\item 
+\hypertarget{classty_lib_1_1_world_a8e71ce8d440a67a6dd4a67dff361d78b}{}std\+::list$<$ \hyperlink{classty_lib_1_1_bullet}{Bullet} $\ast$ $>$ \& \hyperlink{classty_lib_1_1_world_a8e71ce8d440a67a6dd4a67dff361d78b}{get\+Bullets} ()\label{classty_lib_1_1_world_a8e71ce8d440a67a6dd4a67dff361d78b}
+
+\begin{DoxyCompactList}\small\item\em Get all the Bullets in the \hyperlink{classty_lib_1_1_world}{World}. \end{DoxyCompactList}\item 
+\hypertarget{classty_lib_1_1_world_a158ca5e7b7d4a8ed9a000e00598f31be}{}\hyperlink{classty_lib_1_1_tile}{Tile} $\ast$ \hyperlink{classty_lib_1_1_world_a158ca5e7b7d4a8ed9a000e00598f31be}{get\+Tile} ()\label{classty_lib_1_1_world_a158ca5e7b7d4a8ed9a000e00598f31be}
+
+\begin{DoxyCompactList}\small\item\em Get the backgroundtile. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classty_lib_1_1_world_a7046a485b63a96e8728766e53dfe9d58}{}\hyperlink{classty_lib_1_1_bridge}{Bridge} $\ast$ \hyperlink{classty_lib_1_1_world_a7046a485b63a96e8728766e53dfe9d58}{bridge}\label{classty_lib_1_1_world_a7046a485b63a96e8728766e53dfe9d58}
+
+\begin{DoxyCompactList}\small\item\em The \hyperlink{classty_lib_1_1_bridge}{Bridge}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+The world class, containing the whole battlefield(all the Entities) 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Library/\+Models/World.\+h\item 
+Library/\+Models/World.\+cpp\end{DoxyCompactItemize}

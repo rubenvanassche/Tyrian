@@ -1,0 +1,7 @@
+digraph "Graphical Class Hierarchy"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="tyLib::HAL9000",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classty_lib_1_1_h_a_l9000.html",tooltip="The Artificial Intelligence for Bullets and enemy Ships. "];
+}
