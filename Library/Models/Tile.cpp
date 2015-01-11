@@ -10,7 +10,7 @@
 namespace tyLib {
 
 Tile::Tile(int width, int height, std::string tiletype) {
-	this->fVelocity = Vector(0, 10);
+	this->fVelocity = Vector(0, 1);
 	this->fTileType = tiletype;
 	this->fWidth = width;
 	this->fHeight = height;
@@ -71,8 +71,6 @@ void Tile::buildBackground(){
 			newEntity->location = point;
 
 			this->fBackgroundEntities.push_back(newEntity);
-
-			std::cout << "Added by build" << std::endl;
 		}
 	}
 
@@ -98,8 +96,6 @@ void Tile::moveBackground(double const delta){
 			newEntity->location = point;
 
 			this->fBackgroundEntities.push_back(newEntity);
-
-			std::cout << "Added by move" << std::endl;
 		}
 
 		// When we've added these entites it means we will also need to remove some
@@ -108,8 +104,6 @@ void Tile::moveBackground(double const delta){
 			it = this->fBackgroundEntities.begin();
 			delete *it;
 			this->fBackgroundEntities.pop_front();
-
-			std::cout << "deleted by move" << std::endl;
 		}
 	}else{
 		// Nope just move all the entities

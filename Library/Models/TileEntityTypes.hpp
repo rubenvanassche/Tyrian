@@ -10,7 +10,7 @@
 
 #include "../Lib/Point.h"
 #include "../Lib/Size.h"
-#include <String>
+#include <string>
 
 namespace tyLib{
 namespace te{

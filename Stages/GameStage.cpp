@@ -44,6 +44,7 @@ void GameStage::run(){
 
 
     	double delta = clock.restart().asSeconds();
+    	std::cout << "delta   " << delta << std::endl;
 
     	if(g.won()){
     		this->fStages->message->setMessage("You Win!");
@@ -92,7 +93,7 @@ void GameStage::run(){
 
 		   g.play(delta);
 
-		   g.print();
+		   //g.print();
 
 
 

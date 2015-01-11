@@ -1,12 +1,12 @@
 #include "Helpers/Window.h"
 #include "Helpers/Input.h"
 #include "Helpers/Assets.h"
-#include "Helpers/StopWatch.h"
+#include "Helpers/Stopwatch.h"
 #include "Helpers/Stage.h"
 
 #include "Stages/GameStage.h"
 #include "Stages/IntroStage.h"
-#include "Stages/SelectlevelStage.h"
+#include "Stages/SelectLevelStage.h"
 #include "Stages/MessageStage.h"
 
 int main(){

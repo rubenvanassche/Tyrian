@@ -79,7 +79,7 @@ void SelectLevelStage::run (){
 					sf::Vector2i localPosition = sf::Mouse::getPosition(*(this->fApp->getWindow()));
 
 					// Check if a button is clicked
-					int counter;
+					int counter = 0;
 					for(auto i : buttons){
 						if(i.isButtonClicked(localPosition)){
 							// Now by the counter we can check which file to load and start the next stage
@@ -87,6 +87,8 @@ void SelectLevelStage::run (){
 							this->fStages->game->setMessage(levels[counter].path);
 							this->fStages->game->run();
 						}
+
+						counter++;
 					}
             	}
             }
