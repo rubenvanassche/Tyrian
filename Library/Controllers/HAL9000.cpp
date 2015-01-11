@@ -178,6 +178,35 @@ void HAL9000::checkForDeadBullets(){
 	}
 }
 
+void HAL9000::shootBullets(bool pass){
+	if(this->fWorld->getShips().size() == 1){
+		// Only the player is still there
+		return;
+	}
+
+	int random = rand() % 100;
+
+
+	if(random == 5 or pass == true){
+		// Let's start shooting
+		int randomShip = rand() % this->fWorld->getShips().size();
+
+		std::list<Ship*> &ships = this->fWorld->getShips();
+		std::list<Ship*>::iterator it = ships.begin();
+
+		for(int i = 0;i < randomShip;i++){
+			it++;
+		}
+
+		if(*it == this->fWorld->getPlayer()){
+			this->shootBullets(true);
+		}else{
+			(*it)->shoot();
+		}
+
+	}
+}
+
 HAL9000::~HAL9000() {
 	// TODO Auto-generated destructor stub
 }

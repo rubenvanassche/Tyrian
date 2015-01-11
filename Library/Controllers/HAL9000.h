@@ -10,6 +10,7 @@
 
 #include <string>
 #include <list>
+#include <cstdlib>
 #include "../Models/World.h"
 #include "../Models/Ship.h"
 #include "../Lib/Direction.h"
@@ -57,6 +58,11 @@ public:
 	 * @brief Check if there are dead bullets which should be removed
 	 */
 	void checkForDeadBullets();
+
+	/**
+	 * @brief Let's enemies shoot bullets, if pass is true, there wil be fired a bullet imediatly without randomness
+	 */
+	void shootBullets(bool pass);
 
 
 	virtual ~HAL9000();

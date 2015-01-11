@@ -45,7 +45,7 @@ void ShipFactory::build(XMLStage stage){
 
 Ship* ShipFactory::standard(Vector location, std::string guntype){
 	Size size(40, 20);
-	Vector velocity = Vector(100,100);
+	Vector velocity = Vector(50,50);
 	double health = 2;
 
 	Ship* shipPtr = new Ship(location, size, velocity, health);
@@ -59,7 +59,7 @@ Ship* ShipFactory::standard(Vector location, std::string guntype){
 
 Ship* ShipFactory::fighter(Vector location, std::string guntype){
 	Size size(17, 23);
-	Vector velocity = Vector(500,500);
+	Vector velocity = Vector(350,350);
 	double health = 10;
 
 	Ship* shipPtr = new Ship(location, size, velocity, health);
