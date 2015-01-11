@@ -51,6 +51,14 @@ double Stopwatch::getDelta(){
 	return this->fDelta;
 }
 
+void Stopwatch::reset(){
+	this->fClock.restart();
+	this->fFPSClock.restart();
+	this->fDelta = 0;
+	this->fFrame = 0;
+	this->fFps = 0;
+}
+
 Stopwatch::~Stopwatch(){
     instanceFlag = false;
 }

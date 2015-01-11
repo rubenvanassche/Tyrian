@@ -29,7 +29,7 @@ public:
     static Stopwatch* getInstance();
 
     /**
-     * @brief Update the clock
+     * @brief Update the clock for FPS and delta
      */
     void update();
 
@@ -37,6 +37,11 @@ public:
      * @brief Get the delta
      */
     double getDelta();
+
+    /**
+     * @brief reset the Stopwatch
+     */
+    void reset();
 
     /**
      * Get the framerate per second

@@ -28,6 +28,7 @@ void GameStage::run(){
     // Get our stopwatch
     tySFML::Stopwatch *stopwatch;
     stopwatch = tySFML::Stopwatch::getInstance();
+    stopwatch->reset();
 
     // Get our input processor
     tySFML::Input *input;
