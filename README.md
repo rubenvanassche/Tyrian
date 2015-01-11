@@ -1,4 +1,5 @@
 # Tyrian
+[![Build Status](https://travis-ci.org/rubenvanassche/Tyrian.svg)](https://travis-ci.org/rubenvanassche/Tyrian)
 A game for advanced programming
 
 ## Dependencies
