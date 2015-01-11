@@ -10,3 +10,13 @@ A game for advanced programming
 cmake .
 make
 ```
+
+## Running
+The game:
+```
+./Tyrian
+```
+The tests:
+```
+./Library/LibTest
+```
