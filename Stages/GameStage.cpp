@@ -47,8 +47,8 @@ void GameStage::run(){
     	std::cout << "delta   " << delta << std::endl;
 
     	if(g.won()){
-    		this->fStages->message->setMessage("You Win!");
-    		this->fStages->message->run();
+    		//this->fStages->message->setMessage("You Win!");
+    		//this->fStages->message->run();
     	}
 
     	if(g.won()){
