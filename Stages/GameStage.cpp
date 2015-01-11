@@ -51,9 +51,9 @@ void GameStage::run(){
     		//this->fStages->message->run();
     	}
 
-    	if(g.won()){
-    		this->fStages->message->setMessage("You Lose!");
-    		this->fStages->message->run();
+    	if(g.lose()){
+    		//this->fStages->message->setMessage("You Lose!");
+    		//this->fStages->message->run();
     	}
 
         // Process events
