@@ -53,6 +53,11 @@ public:
 	 */
 	void checkForDeadShips();
 
+	/**
+	 * @brief Check if there are dead bullets which should be removed
+	 */
+	void checkForDeadBullets();
+
 
 	virtual ~HAL9000();
 private:

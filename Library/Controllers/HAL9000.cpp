@@ -159,6 +159,25 @@ void HAL9000::checkForDeadShips(){
 	}
 }
 
+void HAL9000::checkForDeadBullets(){
+	std::list<Bullet*> &bullets = this->fWorld->getBullets();
+	std::list<Bullet*>::iterator it = bullets.begin();
+	while(it != bullets.end()){
+		// Check if the bullet is dead
+		if((*it)->isDead()){
+			// First send a message to the Bridge
+			this->fWorld->bridge->removeBullet(*it);
+			// Now remove it
+			bullets.erase(it++);
+		}
+
+		// Becouse we remove some bullets from the list we need to check if we haven't reached the end of the list otherwise we might use memory that isn't ours
+		if(it != bullets.end()){
+			it++;
+		}
+	}
+}
+
 HAL9000::~HAL9000() {
 	// TODO Auto-generated destructor stub
 }

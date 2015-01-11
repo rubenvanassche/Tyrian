@@ -41,6 +41,12 @@ Ship* Bullet::getFrom(){
 
 void Bullet::explode(Ship* ship){
 	ship->reduceHealth(this->fDamage);
+	this->fDead = true;
+	this->hide();
+}
+
+bool Bullet::isDead(){
+	return this->fDead;
 }
 
 Bullet::~Bullet() {

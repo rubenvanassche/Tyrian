@@ -69,6 +69,9 @@ void Game::play(double const delta){
 
 	// Check if we have dead Ships
 	fHAL->checkForDeadShips();
+
+	// Check if we have dead Ships
+	fHAL->checkForDeadBullets();
 }
 
 

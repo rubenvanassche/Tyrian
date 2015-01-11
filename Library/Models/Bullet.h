@@ -40,8 +40,14 @@ public:
 	 */
 	void explode(Ship* ship);
 
+	/**
+	 * @brief Returns a boolean telling if the ship is dead
+	 */
+	bool isDead();
+
 	virtual ~Bullet();
 private:
+	bool fDead = false;
 	double fDamage;
 	Ship* fFrom;
 };
