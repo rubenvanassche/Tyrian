@@ -18,7 +18,7 @@
 #include "../Helpers/Stopwatch.h"
 #include "../Helpers/Input.h"
 #include "../Views/Tile.h"
-#include <Lib/FileLoader.h>
+#include "Lib/FileLoader.h"
 
 namespace tySFML {
 
