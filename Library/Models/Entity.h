@@ -4,6 +4,7 @@
 #include <iostream>
 #include <list>
 #include <string>
+#include <stdexcept>
 #include "../Lib/Point.h"
 #include "../Lib/Size.h"
 #include "../Lib/Direction.h"
