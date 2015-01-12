@@ -22,5 +22,3 @@ add_subdirectory(Library)
 add_executable(Tyrian ${SOURCE_FILES} ${VIEWS} ${HELPERS} ${STAGES})
 
 TARGET_LINK_LIBRARIES(Tyrian ${SFML_LIBRARIES} Ty)
-
-target_include_directories(Tyrian PUBLIC "${PROJECT_SOURCE_DIR}/Library")
