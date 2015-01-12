@@ -10,6 +10,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <string>
+#include <stdexcept>
 #include <map>
 
 namespace tySFML{
