@@ -10,6 +10,7 @@
 
 #include <string>
 #include <algorithm>
+#include <stdexcept>
 #include <exception>
 
 namespace tyLib{
