@@ -319,7 +319,7 @@ std::map<std::string, XMLGunBlueprint> FileLoader::getGunBlueprints(){
 			pt::read_xml("Data/Guns/" + filename, tree);
 
 			// Create The blueprint
-			XMLBulletGunprint blueprint;
+			XMLGunBlueprint blueprint;
 			blueprint.type = tree.get<std::string>("gun.type");
 			blueprint.bullets = tree.get<std::string>("gun.bullets");
 			blueprints[blueprint.type] = blueprint;
