@@ -38,9 +38,11 @@ void Game::play(double const delta){
 		if(this->fWorld->getShips().size() == 1){
 			if(this->fWorld->getShips().front() == this->fWorld->getPlayer()){
 				this->fWon = true;
+				this->updateHighscores();
 				return;
 			}else{
 				this->fLose = true;
+				this->updateHighscores();
 				return;
 			}
 		}
@@ -49,6 +51,7 @@ void Game::play(double const delta){
 	// Check the Health of the player
 	if(this->fWorld->getPlayer()->isDead()){
 		this->fLose = true;
+		this->updateHighscores();
 		return;
 	}
 
@@ -131,6 +134,11 @@ bool Game::won(){
 
 bool Game::lose(){
 	return this->fLose;
+}
+
+bool Game::updateHighscores() const{
+	Highscores scores;
+	return scores.add(this->fWorld->getPlayer()->getScore());
 }
 
 Tile* Game::getTile(){

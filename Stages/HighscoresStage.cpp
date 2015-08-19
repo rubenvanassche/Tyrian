@@ -5,30 +5,39 @@
  *      Author: Ruben
  */
 
-#include "IntroStage.h"
+#include "HighscoresStage.h"
+#include "../Library/Lib/Highscores.h"
+#include <map>
+#include <string>
 
 namespace tySFML {
 
 
-void IntroStage::run(){
+void HighscoresStage::run(){
 	sf::Font* font = this->fAssets->getFont("stark.otf");
 
-	Button button(sf::Vector2f(83,200), sf::Vector2f(154, 30), sf::Color(0,140,158));
-	button.setText("Click Here To Start",sf::Color(52,56,56),  font);
+	Button button(sf::Vector2f(135,270), sf::Vector2f(50, 30), sf::Color(0,140,158));
+	button.setText("Back",sf::Color(52,56,56),  font);
 	button.setLine(1, sf::Color(249,212,35));
 	button.setPadding(7);
 
-	Button highscores(sf::Vector2f(110,250), sf::Vector2f(96, 30), sf::Color(0,140,158));
-	highscores.setText("HighScores",sf::Color(52,56,56),  font);
-	highscores.setLine(1, sf::Color(249,212,35));
-	highscores.setPadding(7);
-
 	sf::Text text;
 	text.setFont(*font);
-	text.setString("Tyrian");
+	text.setString("Highscores");
 	text.setColor(sf::Color::White);
-	text.setPosition(sf::Vector2f(80,30));
-	text.setCharacterSize(50);
+	text.setPosition(sf::Vector2f(60,30));
+	text.setCharacterSize(40);
+
+	// Create the highscores string
+	tyLib::Highscores HighScores;
+	std::string scores = HighScores.getString();
+
+	sf::Text highscorestext;
+	highscorestext.setFont(*font);
+	highscorestext.setString(scores);
+	highscorestext.setColor(sf::Color::White);
+	highscorestext.setPosition(sf::Vector2f(95,85));
+	highscorestext.setCharacterSize(14);
 
 	// Set the color of the Window
 	this->fApp->setBackGroundColor(sf::Color(52,56,56));
@@ -49,12 +58,7 @@ void IntroStage::run(){
 
 					if(button.isButtonClicked(localPosition)){
 						// Yes we did  click the button so go the select level stage
-						this->fStages->selectLevel->run();
-					}
-
-					if(highscores.isButtonClicked(localPosition)){
-						// Yes we did  click the button so go the select level stage
-						this->fStages->highscores->run();
+						this->fStages->intro->run();
 					}
             	}
             }
@@ -63,13 +67,13 @@ void IntroStage::run(){
 
 		this->fApp->clear();
 		this->fApp->draw(button);
-		this->fApp->draw(highscores);
 		this->fApp->draw(text);
+		this->fApp->draw(highscorestext);
 		this->fApp->display();
 	}
 }
 
-IntroStage::~IntroStage() {
+HighscoresStage::~HighscoresStage() {
 	// TODO Auto-generated destructor stub
 }
 

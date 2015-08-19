@@ -37,6 +37,16 @@ public:
 	void shoot() const;
 
 	/**
+	 * @brief Add some score to the ship
+	 */
+	void addScore(const double score);
+
+	/**
+	 * @brief Get the score the ship recieved
+	 */
+	double getScore() const;
+
+	/**
 	 * @brief Give the ship a Gun
 	 */
 	void setGun(Gun*);
@@ -53,8 +63,9 @@ public:
 
 	virtual ~Ship();
 private:
-	// the amount of pixel a ship moves in a direction
 	double fHealth;
+
+	double fScore;
 
 	Gun* fGun;
 };

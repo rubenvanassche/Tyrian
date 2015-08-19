@@ -21,7 +21,7 @@ void SelectLevelStage::run (){
 
 	// Get the levels in our levels folder
 	tyLib::FileLoader fileLoader;
-	std::vector<tyLib::Level> levels = fileLoader.getLevels("Levels");
+	std::vector<tyLib::Level> levels = fileLoader.getLevels("Data/Levels");
 
 	// Now create buttons for these levels to start
 	std::list<Button> buttons;

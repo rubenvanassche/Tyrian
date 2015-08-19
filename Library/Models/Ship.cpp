@@ -15,6 +15,7 @@ Ship::Ship(Vector location, Size size, Vector velocity, double health) {
 	this->fVelocity = velocity;
 	this->fGun = nullptr;
 	this->fHealth = health;
+	this->fScore = 0;
 }
 
 void Ship::move(Direction const direction, double const delta){
@@ -42,6 +43,14 @@ void Ship::shoot() const{
 	}
 
 	this->fGun->shoot();
+}
+
+void Ship::addScore(const double score){
+	this->fScore += score;
+}
+
+double Ship::getScore() const{
+	return this->fScore;
 }
 
 void Ship::setGun(Gun* gun){

@@ -121,6 +121,7 @@ void HAL9000::bulletCollisionDetection(){
 
 				// otherwise reduce the ships score
 				bullet->explode(ship);
+				bullet->getFrom()->addScore(1);
 			}
 		}
 	}

@@ -11,7 +11,7 @@ set(VIEWS Views/View.cpp Views/Bullet.cpp Views/Ship.cpp Views/Tile.cpp)
 
 set(HELPERS Helpers/Helpers.cpp Helpers/SFMLBridge.cpp Helpers/Input.cpp Helpers/Stopwatch.cpp Helpers/Window.cpp Helpers/Stage.cpp Helpers/Assets.cpp Helpers/Button.cpp)
 
-set(STAGES Stages/IntroStage.cpp Stages/GameStage.cpp Stages/SelectLevelStage.cpp Stages/MessageStage.cpp)
+set(STAGES Stages/IntroStage.cpp Stages/GameStage.cpp Stages/SelectLevelStage.cpp Stages/MessageStage.cpp Stages/HighscoresStage.cpp)
 
 set(SOURCE_FILES main.cpp)
 

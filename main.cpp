@@ -8,6 +8,7 @@
 #include "Stages/IntroStage.h"
 #include "Stages/SelectLevelStage.h"
 #include "Stages/MessageStage.h"
+#include "Stages/HighscoresStage.h"
 
 int main(){
     // Create the main window
@@ -36,6 +37,8 @@ int main(){
 	stages.selectLevel = &selectLevelStage;
 	tySFML::MessageStage messagestage = tySFML::MessageStage(&window, &stages);
 	stages.message = &messagestage;
+	tySFML::HighscoresStage highscoresStage = tySFML::HighscoresStage(&window, &stages);
+	stages.highscores = &highscoresStage;
 
 	// Start by running our intro stage
 	introStage.run();

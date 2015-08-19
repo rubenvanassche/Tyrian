@@ -14,6 +14,7 @@
 #include "../Factories/ShipFactory.h"
 #include "../Models/World.h"
 #include "../Lib/Bridge.h"
+#include "../Lib/Highscores.h"
 #include "HAL9000.h"
 
 namespace tyLib{
@@ -54,6 +55,11 @@ public:
 	 * @brief returns true if the player has lost the game
 	 */
 	bool lose();
+
+	/**
+	 * @brief Update the highscores
+	 */
+	bool updateHighscores() const;
 
 	/**
 	 * @brief get a pointer to the Tile

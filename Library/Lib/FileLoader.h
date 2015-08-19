@@ -98,6 +98,7 @@ public:
 	 */
 	bool checkData(XMLLevel &game);
 
+
 	/**
 	 * @brief Generate a visual representation of an XML file(using the IOStream)
 	 */

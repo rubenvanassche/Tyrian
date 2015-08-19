@@ -37,6 +37,7 @@ struct Stages{
 	Stage* game;
 	Stage* selectLevel;
 	Stage* message;
+	Stage* highscores;
 };
 
 
