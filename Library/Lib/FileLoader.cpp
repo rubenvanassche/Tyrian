@@ -64,78 +64,69 @@ Level FileLoader::getLevel(std::string const filename, std::string directory){
 	return level;
 }
 
-XMLGame FileLoader::loadFile(std::string const filename){
-	// Load the xml file
-	pugi::xml_document doc;
-	pugi::xml_parse_result result = doc.load_file(filename.c_str());
+XMLLevel FileLoader::loadFile(std::string const filename){
+	// Load the xml File
+	pt::ptree tree;
+	pt::read_xml(filename, tree);
 
-	if(result){
-		// get the name of the level
-		this->fLevelName = doc.child("level").child_value("name");
-		// get the difficulty of the level
-		this->fLevelDifficulty = atoi(doc.child("level").child_value("difficulty"));
+	// Create The Level
+	XMLLevel level;
+	level.name = tree.get<std::string>("level.name");
+	level.difficulty = tree.get<int>("level.difficulty");
 
-		// Let's get the stages
-		for (pugi::xml_node stage = doc.child("level").child("stages").child("stage"); stage; stage = stage.next_sibling("stage")){
-			XMLStage newstage = this->processStage(stage);
-			this->fStages.push_back(newstage);
+	// Process the Stages
+	for(const auto& stageNode : tree.get_child("level.stages")){
+		if(stageNode.first == "stage"){
+			pt::ptree stageTree = stageNode.second;
+			// Create a stage
+			XMLStage stage;
+			stage.start = stageTree.get<int>("start");
+
+			for(const auto& shipNode : stageTree.get_child("ships")){
+				if(shipNode.first == "ship"){
+				pt::ptree shipTree = shipNode.second;
+        		// Create a ship
+        		XMLShip ship;
+
+        		ship.type = shipTree.get<std::string>("type");
+        		ship.gun = shipTree.get<std::string>("gun");
+        		ship.x = shipTree.get<int>("x");
+        		ship.y = shipTree.get<int>("y");
+
+        		// Convert the type and gun to lowercase
+        		std::transform(ship.type.begin(), ship.type.end(), ship.type.begin(), ::tolower);
+        		std::transform(ship.gun.begin(), ship.gun.end(), ship.gun.begin(), ::tolower);
+
+
+        		stage.ships.push_back(ship);
+				}else{
+					// Not valid xml node
+				}
+			}
+			level.stages.push_back(stage);
+		}else{
+			// Not valid xml node
 		}
+    }
 
-		// Let's check if the created data is valid
-		if(this->checkData() == false){
-			throw std::runtime_error("Something is wrong with the XML data");
-		}
-
-		// Ok, we're ready to give the XMLGame
-		XMLGame game;
-		game.levelName = this->fLevelName;
-		game.levelDifficulty = this->fLevelDifficulty;
-		game.stages = this->fStages;
-
-		return game;
-	}else{
-		throw std::runtime_error("Something is wrong with the xml file, please correct it.");
+    //Check if the data is valid
+	if(this->checkData(level) == false){
+		throw std::runtime_error("Something is wrong with the XML data");
 	}
 
-}
-
-XMLStage FileLoader::processStage(pugi::xml_node& doc){
-		XMLStage newstage;
-		// Get the start of the stage
-		newstage.start = atoi(doc.child_value("start"));
-		// parse the ships
-		for (pugi::xml_node ship = doc.child("ships").child("ship"); ship; ship = ship.next_sibling("ship")){
-			XMLShip newship = this->processShip(ship);
-			newstage.ships.push_back(newship);
-		}
-
-		return newstage;
+	return level;
 }
 
 
-XMLShip FileLoader::processShip(pugi::xml_node& doc){
-	XMLShip newship;
-	// Get the type of the ship
-	newship.type = doc.child_value("type");
-	newship.gun = doc.child_value("gun");
-	newship.x = atoi(doc.child_value("x"));
-	newship.y = atoi(doc.child_value("y"));
 
-	// Convert the type and gun to lowercase
-	std::transform(newship.type.begin(), newship.type.end(), newship.type.begin(), ::tolower);
-	std::transform(newship.gun.begin(), newship.gun.end(), newship.gun.begin(), ::tolower);
-
-	return newship;
-}
-
-bool FileLoader::checkData(){
+bool FileLoader::checkData(XMLLevel &level){
 	// Check if the difficulty is between 1 and 5
-	if(this->fLevelDifficulty < 1 or this->fLevelDifficulty > 5){
+	if(level.difficulty < 1 or level.difficulty > 5){
 		throw std::runtime_error("The level difficulty should be between 1 and 5");
 		return false;
 	}
 
-	for(auto i : this->fStages){
+	for(auto i : level.stages){
 		// Check if the start is an valid number
 		if(i.start < 0){
 			throw std::runtime_error("The start of a stage must be greater than 0");

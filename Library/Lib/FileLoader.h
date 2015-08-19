@@ -15,10 +15,17 @@
 #include <iostream>
 #include <stdexcept>
 #include <algorithm>
+#include <boost/property_tree/ptree.hpp>
+#include <boost/property_tree/xml_parser.hpp>
+#include <boost/foreach.hpp>
 #include "../External/pugixml.hpp"
 #include "../External/tinydir.h"
+#include <set>
+#include <exception>
+namespace pt = boost::property_tree;
 
 namespace tyLib{
+
 
 /**
  * @brief Structure to represent an XML Ship
@@ -39,11 +46,12 @@ struct XMLStage{
 };
 
 /**
- * @brief Structure representing the whole game
+ * @brief Structure representing the level game
  */
-struct XMLGame{
-	std::string levelName;
-	int levelDifficulty;
+struct XMLLevel{
+	// Level Info
+	std::string name;
+	int difficulty;
 	std::list<XMLStage> stages;
 };
 
@@ -57,6 +65,8 @@ struct Level{
 	std::string path;
 	int difficuly;
 };
+
+
 
 /**
  * @brief Loads a game file
@@ -81,22 +91,12 @@ public:
 	/**
 	 * @brief Load a file by a given filename and return an XMLGame
 	 */
-	XMLGame loadFile(std::string const filename);
-
-	/**
-	 * @brief Generate a Stage Structure based upon an given Stage xml node
-	 */
-	XMLStage processStage(pugi::xml_node& doc);
-
-	/**
-	 * @brief Generate a Ship Structure based upon an given Ship xml node
-	 */
-	XMLShip processShip(pugi::xml_node& doc);
+	XMLLevel loadFile(std::string const filename);
 
 	/**
 	 * @brief check if the Data is correct loaded from an xml document
 	 */
-	bool checkData();
+	bool checkData(XMLLevel &game);
 
 	/**
 	 * @brief Generate a visual representation of an XML file(using the IOStream)

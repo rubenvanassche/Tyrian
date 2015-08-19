@@ -12,11 +12,11 @@ namespace tyLib{
 Game::Game(std::string const filename, Bridge* bridge) {
 	// Load the xml file
 	FileLoader fileloader;
-	XMLGame game = fileloader.loadFile(filename);
+	XMLLevel level = fileloader.loadFile(filename);
 
-	this->fLevelName = game.levelName;
-	this->fLevelDifficulty = game.levelDifficulty;
-	this->fStages = game.stages;
+	this->fLevelName = level.name;
+	this->fLevelDifficulty = level.difficulty;
+	this->fStages = level.stages;
 
 	// Create a world
 	this->fWorld = new World(320, 320, bridge);

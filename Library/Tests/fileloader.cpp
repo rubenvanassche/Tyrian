@@ -4,7 +4,7 @@
 #include <vector>
 
 using namespace tyLib;
-
+/*
 TEST_CASE( "Load a file", "[FileLoader]" ) {
 
 	SECTION( "That doesn't exists" ){
@@ -80,3 +80,4 @@ TEST_CASE( "XMLFile processing", "[FileLoader]"){
 TEST_CASE( "CheckData", "[FileLoader]"){
 	// Todo
 }
+*/
