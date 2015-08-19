@@ -1,0 +1,20 @@
+<ship>
+	<type>standard</type>
+	<size>
+		<x>19</x>
+		<y>21</y>
+	</size>
+	<velocity>
+		<x>50</x>
+		<y>50</y>	
+	</velocity>
+	<health>2</health>
+	<gun>basic</gun>
+	<texture>
+		<ticks>7</ticks>
+		<x>1</x>
+		<y>171</y>
+		<tickx>24</tickx>
+		<ticky>0</ticky>
+	</texture>
+</ship>

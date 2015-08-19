@@ -1,0 +1,19 @@
+<bullet>
+	<type>basic</type>
+	<size>
+		<x>4</x>
+		<y>7</y>
+	</size>
+	<velocity>
+		<x>75</x>
+		<y>75</y>
+	</velocity>
+	<damage>10</damage>
+	<texture>
+		<ticks>0</ticks>
+		<x>0</x>
+		<y>0</y>
+		<tickx>0</tickx>
+		<ticky>0</ticky>
+	</texture>
+</bullet>

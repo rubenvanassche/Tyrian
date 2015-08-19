@@ -1,0 +1,20 @@
+<ship>
+	<type>fighter</type>
+	<size>
+		<x>21</x>
+		<y>24</y>
+	</size>
+	<velocity>
+		<x>350</x>
+		<y>350</y>
+	</velocity>
+	<health>10</health>
+	<gun>basic</gun>
+	<texture>
+		<ticks>0</ticks>
+		<x>0</x>
+		<y>0</y>
+		<tickx>0</tickx>
+		<ticky>0</ticky>
+	</texture>
+</ship>

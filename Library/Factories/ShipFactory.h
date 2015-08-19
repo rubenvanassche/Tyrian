@@ -25,7 +25,6 @@ public:
 	 */
 	ShipFactory(World *worldPtr);
 
-
 	/**
 	 * @brief Build the ships based upon an xml stage
 	 */
@@ -45,7 +44,6 @@ public:
 	 * @brief Build a longue ship
 	 */
 	Ship* longue(Vector location, std::string guntype);
-
 
 	virtual ~ShipFactory();
 private:

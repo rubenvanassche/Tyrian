@@ -1,0 +1,20 @@
+<ship>
+	<type>longue</type>
+	<size>
+		<x>15</x>
+		<y>19</y>
+	</size>
+	<velocity>
+		<x>50</x>
+		<y>50</y>	
+	</velocity>
+	<health>3</health>
+	<gun>basic</gun>
+	<texture>
+		<ticks>7</ticks>
+		<x>4</x>
+		<y>140</y>
+		<tickx>25</tickx>
+		<ticky>0</ticky>
+	</texture>
+</ship>

@@ -162,6 +162,176 @@ bool FileLoader::checkData(XMLLevel &level){
 	return true;
 }
 
+std::map<std::string, XMLShipBlueprint> FileLoader::getShipBlueprints(){
+	std::string filepath = "Data/Ships";
+
+	// System for reading directory
+	tinydir_dir dir;
+	tinydir_open(&dir, filepath.c_str());
+
+	std::map<std::string, XMLShipBlueprint> blueprints;
+
+	while (dir.has_next){
+	    tinydir_file file;
+	    tinydir_readfile(&dir, &file);
+
+			std::string filename = file.name;
+	    // Remove some unneeded things in the directory
+	    if(filename == ".." or filename == "." or file.is_dir){
+	    	tinydir_next(&dir);
+	    	continue;
+	    }
+
+	    // Make a blueprint;
+			pt::ptree tree;
+
+			pt::read_xml("Data/Ships/" + filename, tree);
+
+			// Create The blueprint
+			XMLShipBlueprint blueprint;
+			blueprint.type = tree.get<std::string>("ship.type");
+
+			Size size;
+			size.width = tree.get<int>("ship.size.x");
+			size.height = tree.get<int>("ship.size.y");
+			blueprint.size = size;
+
+			Vector velocity;
+			velocity.x = tree.get<int>("ship.velocity.x");
+			velocity.y = tree.get<int>("ship.velocity.y");
+			blueprint.velocity = velocity;
+
+			blueprint.health = tree.get<int>("ship.health");
+			blueprint.gun = tree.get<std::string>("ship.gun");
+
+			// The texture
+			XMLTextureBlueprint texture;
+			texture.ticks = tree.get<int>("ship.texture.ticks");
+			Vector offset;
+			offset.x = tree.get<int>("ship.texture.x");
+			offset.y = tree.get<int>("ship.texture.y");
+			texture.offset = offset;
+			Vector tickOffset;
+			tickOffset.x = tree.get<int>("ship.texture.tickx");
+			tickOffset.y = tree.get<int>("ship.texture.ticky");
+			texture.tickOffset = tickOffset;
+
+			blueprint.texture = texture;
+
+			blueprints[blueprint.type] = blueprint;
+
+	    tinydir_next(&dir);
+	}
+
+	tinydir_close(&dir);
+
+	return blueprints;
+}
+
+std::map<std::string, XMLBulletBlueprint> FileLoader::getBulletBlueprints(){
+	std::string filepath = "Data/Bullets";
+
+	// System for reading directory
+	tinydir_dir dir;
+	tinydir_open(&dir, filepath.c_str());
+
+	std::map<std::string, XMLBulletBlueprint> blueprints;
+
+	while (dir.has_next){
+	    tinydir_file file;
+	    tinydir_readfile(&dir, &file);
+
+			std::string filename = file.name;
+	    // Remove some unneeded things in the directory
+	    if(filename == ".." or filename == "." or file.is_dir){
+	    	tinydir_next(&dir);
+	    	continue;
+	    }
+
+	    // Make a blueprint;
+			pt::ptree tree;
+
+			pt::read_xml("Data/Bullets/" + filename, tree);
+
+			// Create The blueprint
+			XMLBulletBlueprint blueprint;
+			blueprint.type = tree.get<std::string>("bullet.type");
+
+			Size size;
+			size.width = tree.get<int>("bullet.size.x");
+			size.height = tree.get<int>("bullet.size.y");
+			blueprint.size = size;
+
+			Vector velocity;
+			velocity.x = tree.get<int>("bullet.velocity.x");
+			velocity.y = tree.get<int>("bullet.velocity.y");
+			blueprint.velocity = velocity;
+
+			blueprint.damage = tree.get<int>("bullet.damage");
+
+			// The texture
+			XMLTextureBlueprint texture;
+			texture.ticks = tree.get<int>("bullet.texture.ticks");
+			Vector offset;
+			offset.x = tree.get<int>("bullet.texture.x");
+			offset.y = tree.get<int>("bullet.texture.y");
+			texture.offset = offset;
+			Vector tickOffset;
+			tickOffset.x = tree.get<int>("bullet.texture.tickx");
+			tickOffset.y = tree.get<int>("bullet.texture.ticky");
+			texture.tickOffset = tickOffset;
+
+			blueprint.texture = texture;
+
+			blueprints[blueprint.type] = blueprint;
+
+	    tinydir_next(&dir);
+	}
+
+	tinydir_close(&dir);
+
+	return blueprints;
+}
+
+std::map<std::string, XMLGunBlueprint> FileLoader::getGunBlueprints(){
+	std::string filepath = "Data/Guns";
+
+	// System for reading directory
+	tinydir_dir dir;
+	tinydir_open(&dir, filepath.c_str());
+
+	std::map<std::string, XMLGunBlueprint> blueprints;
+
+	while (dir.has_next){
+	    tinydir_file file;
+	    tinydir_readfile(&dir, &file);
+
+			std::string filename = file.name;
+	    // Remove some unneeded things in the directory
+	    if(filename == ".." or filename == "." or file.is_dir){
+	    	tinydir_next(&dir);
+	    	continue;
+	    }
+
+	    // Make a blueprint;
+			pt::ptree tree;
+
+			pt::read_xml("Data/Guns/" + filename, tree);
+
+			// Create The blueprint
+			XMLBulletGunprint blueprint;
+			blueprint.type = tree.get<std::string>("gun.type");
+			blueprint.bullets = tree.get<std::string>("gun.bullets");
+			blueprints[blueprint.type] = blueprint;
+
+	    tinydir_next(&dir);
+	}
+
+	tinydir_close(&dir);
+
+	return blueprints;
+}
+
 void FileLoader::visualize(){
 	if(this->fStages.empty()){
 		std::cout << "Please load an XML file" << std::endl;
@@ -193,4 +363,3 @@ FileLoader::~FileLoader() {
 }
 
 }
-

@@ -20,7 +20,10 @@
 #include <boost/foreach.hpp>
 #include "../External/pugixml.hpp"
 #include "../External/tinydir.h"
+#include "../Lib/Size.h"
+#include "../Lib/Point.h"
 #include <set>
+#include <map>
 #include <exception>
 namespace pt = boost::property_tree;
 
@@ -53,6 +56,46 @@ struct XMLLevel{
 	std::string name;
 	int difficulty;
 	std::list<XMLStage> stages;
+};
+
+/**
+ * @brief Structure representing a texture
+ */
+struct XMLTextureBlueprint{
+	int ticks;
+	Vector offset;
+	Vector tickOffset;
+};
+
+/**
+ * @brief Structure representing a ship
+ */
+struct XMLShipBlueprint{
+	std::string type;
+	Size size;
+	Vector velocity;
+	double health;
+	std::string gun;
+	XMLTextureBlueprint texture;
+};
+
+/**
+ * @brief Structure representing a bullet
+ */
+struct XMLBulletBlueprint{
+	std::string type;
+	Size size;
+	Vector velocity;
+	double damage;
+	XMLTextureBlueprint texture;
+};
+
+/**
+ * @brief Structure representing a gun
+ */
+struct XMLGunBlueprint{
+	std::string type;
+	std::string bullets;
 };
 
 /**
@@ -98,6 +141,20 @@ public:
 	 */
 	bool checkData(XMLLevel &game);
 
+	/**
+	 * @brief load the ship blueprints
+	 */
+	std::map<std::string, XMLShipBlueprint> getShipBlueprints();
+
+	/**
+	 * @brief load the bullet blueprints
+	 */
+	std::map<std::string, XMLBulletBlueprint> getBulletBlueprints();
+
+	/**
+	 * @brief load the gun blueprints
+	 */
+	std::map<std::string, XMLGunBlueprint> getGunBlueprints();
 
 	/**
 	 * @brief Generate a visual representation of an XML file(using the IOStream)
