@@ -11,6 +11,8 @@
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
+#include "../Library/Lib/Config.h"
+#include <iostream>
 
 namespace tySFML {
 
@@ -22,7 +24,7 @@ public:
 	/**
 	 * @brief Generate a window with a creating height and with
 	 */
-	Window(int width, int height);
+	Window();
 
 	/**
 	 * @brief Clear the window

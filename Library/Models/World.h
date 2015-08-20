@@ -15,6 +15,7 @@
 #include "Entity.h"
 #include "../Lib/Bridge.h"
 #include "Tile.h"
+#include "../Lib/Players.h"
 
 namespace tyLib{
 
@@ -110,6 +111,10 @@ private:
 	 * @brief The ship of the player
 	 */
 	Ship* player = nullptr;
+
+	/**
+	 * @brief Container representing the player(s)
+	 */
 
 	/**
 	 * @brief The Tile at the background

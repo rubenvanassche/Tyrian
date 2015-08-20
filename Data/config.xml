@@ -1,0 +1,26 @@
+<config>
+  <name>Tyrian</name>
+  <width>320</width>
+  <height>320</height>
+  <frameratelimit>50</frameratelimit>
+  <playership>fighter</playership>
+  <paths>
+      <fonts>Resources/Fonts/</fonts>
+      <textures>Resources/Textures/</textures>
+      <data>Data/</data>
+  </paths>
+  <players>
+    <player>
+      <startposition>
+        <x>100</x>
+        <y>100</y>
+      </startposition>
+    </player>
+    <player>
+      <startposition>
+        <x>150</x>
+        <y>100</y>
+      </startposition>
+    </player>
+  </players>
+</config>

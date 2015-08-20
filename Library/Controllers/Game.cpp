@@ -18,8 +18,11 @@ Game::Game(std::string const filename, Bridge* bridge) {
 	this->fLevelDifficulty = level.difficulty;
 	this->fStages = level.stages;
 
+	// Config
+	Config *config = tyLib::Config::getInstance();
+
 	// Create a world
-	this->fWorld = new World(320, 320, bridge);
+	this->fWorld = new World(config->getHeight(), config->getWidth(), bridge);
 
 	// Create HAL9000 the A.I.
 	this->fHAL = new HAL9000(this->fWorld);
@@ -28,7 +31,7 @@ Game::Game(std::string const filename, Bridge* bridge) {
 	ShipFactory factory(this->fWorld);
 	Vector startPosition(100, 100);
 
-	Ship* playerPtr = factory.buildShip(startPosition, fileloader.getShipBlueprints()["fighter"], true);
+	Ship* playerPtr = factory.buildShip(startPosition, fileloader.getShipBlueprints()[config->getPlayership()], true);
 	this->fWorld->setPlayer(playerPtr);
 	this->fWorld->addShip(playerPtr);
 }

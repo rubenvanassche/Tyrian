@@ -10,12 +10,16 @@
 namespace tySFML {
 
 
-Window::Window(int width, int height){
-	this->fWindow = new sf::RenderWindow(sf::VideoMode(height, width), "Tyrian");
-	this->fWindow->setFramerateLimit(50);
-	this->fWidth = width;
-	this->fHeight = height;
+Window::Window(){
+	tyLib::Config *config = tyLib::Config::getInstance();
+
+	this->fWindow = new sf::RenderWindow(sf::VideoMode(config->getHeight(), config->getWidth()),config->getName());
+	this->fWindow->setFramerateLimit(config->getFrameratelimit());
+	this->fWidth = config->getWidth();
+	this->fHeight = config->getHeight();
 	this->fBackGroundColor = sf::Color::Black;
+
+	std::cout << config->getHeight() << config->getHeight() << config->getName() << config->getFrameratelimit() << std::endl;
 }
 
 

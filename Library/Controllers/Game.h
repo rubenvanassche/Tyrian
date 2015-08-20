@@ -15,6 +15,7 @@
 #include "../Models/World.h"
 #include "../Lib/Bridge.h"
 #include "../Lib/Highscores.h"
+#include "../Lib/Config.h"
 #include "HAL9000.h"
 
 namespace tyLib{

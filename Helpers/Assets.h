@@ -12,6 +12,7 @@
 #include <string>
 #include <stdexcept>
 #include <map>
+#include "../Library/Lib/Config.h"
 
 namespace tySFML{
 
