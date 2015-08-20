@@ -8,9 +8,11 @@ Entity::Entity() {
 }
 
 void Entity::addTexture(XMLTextureBlueprint const blueprint){
+	this->fTexture.filename = blueprint.filename;
 	this->fTexture.ticks = blueprint.ticks;
 	this->fTexture.offset = blueprint.offset;
 	this->fTexture.tickOffset = blueprint.tickOffset;
+	this->fTextured = true;
 }
 
 Vector Entity::getLocation() const{
@@ -50,6 +52,14 @@ void Entity::setType(std::string type){
 
 ::std::string Entity::getType(){
 	return this->fType;
+}
+
+Texture Entity::getTexture() const{
+	if(this->fTextured == false){
+		std::runtime_error("No texture set");
+	}
+
+	return this->fTexture;
 }
 
 void Entity::hide(){

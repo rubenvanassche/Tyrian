@@ -14,6 +14,7 @@
 namespace tyLib{
 
 struct Texture{
+	std::string filename;
 	int ticks;
 	Vector offset;
 	Vector tickOffset;
@@ -48,6 +49,11 @@ public:
 	 * @brief Get the Size of an Entity
 	 */
 	Size getSize() const;
+
+	/**
+	 * @brief Get the Texture of the Entity
+	 */
+	Texture getTexture() const;
 
 	/**
 	 * @brief Check if an Entity collides with this entity
@@ -95,6 +101,10 @@ protected:
 	 * @brief Texture for the entity
 	 */
     Texture fTexture;
+		/**
+		 * @brief Does the entity have an texture
+		 */
+		bool fTextured = false;
 
     Size fSize;
     std::string fType;

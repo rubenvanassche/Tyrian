@@ -62,6 +62,7 @@ struct XMLLevel{
  * @brief Structure representing a texture
  */
 struct XMLTextureBlueprint{
+	std::string filename;
 	int ticks;
 	Vector offset;
 	Vector tickOffset;

@@ -11,6 +11,7 @@
 	<health>10</health>
 	<gun>basic</gun>
 	<texture>
+		<file>fighter.png</file>
 		<ticks>0</ticks>
 		<x>0</x>
 		<y>0</y>

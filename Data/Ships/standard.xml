@@ -6,11 +6,12 @@
 	</size>
 	<velocity>
 		<x>50</x>
-		<y>50</y>	
+		<y>50</y>
 	</velocity>
 	<health>2</health>
 	<gun>basic</gun>
 	<texture>
+		<file>ships2.png</file>
 		<ticks>7</ticks>
 		<x>1</x>
 		<y>171</y>

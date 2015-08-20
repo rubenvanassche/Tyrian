@@ -10,6 +10,7 @@
 	</velocity>
 	<damage>10</damage>
 	<texture>
+		<file>bullets.png</file>
 		<ticks>0</ticks>
 		<x>0</x>
 		<y>0</y>

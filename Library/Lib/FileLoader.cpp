@@ -206,6 +206,7 @@ std::map<std::string, XMLShipBlueprint> FileLoader::getShipBlueprints(){
 
 			// The texture
 			XMLTextureBlueprint texture;
+			texture.filename = tree.get<std::string>("ship.texture.file");
 			texture.ticks = tree.get<int>("ship.texture.ticks");
 			Vector offset;
 			offset.x = tree.get<int>("ship.texture.x");
@@ -271,6 +272,7 @@ std::map<std::string, XMLBulletBlueprint> FileLoader::getBulletBlueprints(){
 
 			// The texture
 			XMLTextureBlueprint texture;
+			texture.filename = tree.get<std::string>("ship.texture.file");
 			texture.ticks = tree.get<int>("bullet.texture.ticks");
 			Vector offset;
 			offset.x = tree.get<int>("bullet.texture.x");
