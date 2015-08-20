@@ -26,14 +26,16 @@ std::vector<Level> FileLoader::getLevels(std::string const directory){
 	    tinydir_file file;
 	    tinydir_readfile(&dir, &file);
 
+			std::string filename = file.name;
+
 	    // Remove some unneeded things in the directory
-	    if(file.name == ".." or file.name == "." or file.is_dir){
+	    if(filename == ".." or filename == "." or file.is_dir){
 	    	tinydir_next(&dir);
 	    	continue;
 	    }
 
 	    // Make a level;
-	    Level level = this->getLevel(file.name, directory);
+	    Level level = this->getLevel(filename, directory);
 	    levels.push_back(level);
 
 	    tinydir_next(&dir);
