@@ -62,6 +62,10 @@ Texture Entity::getTexture() const{
 	return this->fTexture;
 }
 
+bool Entity::isTextured() const{
+	return this->fTextured;
+}
+
 void Entity::hide(){
 	this->fVisible = false;
 }

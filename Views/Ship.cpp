@@ -19,61 +19,26 @@ void Ship::draw(){
 		return;
 	}
 
-	if(this->fShip->getType() == "fighter"){
-		this->drawFighter();
-		return;
-	}
+	if(this->fShip->isTextured()){
+		tyLib::Texture texture = this->fShip->getTexture();
+		if(this->fTick > texture.ticks){
+			this->fTick = 0;
+		}
 
-	if(this->fShip->getType() == "standard"){
-		this->drawStandard();
-		return;
-	}
+		int x = texture.offset.x + this->fTick*texture.tickOffset.x;
+		int y = texture.offset.y;
 
-	if(this->fShip->getType() == "longue"){
-		this->drawLongue();
-		return;
-	}
+		this->drawSprite(texture.filename, this->fShip->getLocation(), this->fShip->getSize(), x, y);
 
-	sf::RectangleShape rectangle(toVector2(this->fShip->getSize()));
-	rectangle.setPosition(toVector2(this->fShip->getLocation()));
-	rectangle.setFillColor(sf::Color::Green);
+		this->fTick++;
+	}else{
+		sf::RectangleShape rectangle(toVector2(this->fShip->getSize()));
+		rectangle.setPosition(toVector2(this->fShip->getLocation()));
+		rectangle.setFillColor(sf::Color::Green);
 
-	if(this->fShip->isVisible()){
 		this->fWindow->draw(rectangle);
 	}
-}
 
-void Ship::drawFighter(){
-	int textureOffsetX = 0;
-	int textureOffsetY = 0;
-
-	this->drawSprite("fighter.png", this->fShip->getLocation(), this->fShip->getSize(), textureOffsetX, textureOffsetY);
-}
-
-void Ship::drawStandard(){
-	if(this->fTick > 7){
-		this->fTick = 0;
-	}
-
-	int textureOffsetX = 1 + this->fTick*24;
-	int textureOffsetY = 171;
-
-	this->drawSprite("ships2.png", this->fShip->getLocation(), this->fShip->getSize(), textureOffsetX, textureOffsetY);
-
-	this->fTick++;
-}
-
-void Ship::drawLongue(){
-	if(this->fTick > 7){
-		this->fTick = 0;
-	}
-
-	int textureOffsetX = 4 + this->fTick*25;
-	int textureOffsetY = 140;
-
-	this->drawSprite("ships2.png", this->fShip->getLocation(), this->fShip->getSize(), textureOffsetX, textureOffsetY);
-
-	this->fTick++;
 }
 
 bool Ship::is(tyLib::Ship* ship){

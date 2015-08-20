@@ -19,8 +19,6 @@ public:
 
 	void draw();
 
-	void drawBlue();
-
 	bool is(tyLib::Bullet* ship);
 private:
 	tyLib::Bullet* fBullet;

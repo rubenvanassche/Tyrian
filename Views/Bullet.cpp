@@ -19,23 +19,17 @@ void Bullet::draw(){
 		return;
 	}
 
-	if(this->fBullet->getType() == "basic"){
-		this->drawBlue();
-		return;
+	if(this->fBullet->isTextured()){
+		tyLib::Texture texture = this->fBullet->getTexture();
+		this->drawSprite(texture.filename, this->fBullet->getLocation(), this->fBullet->getSize(), texture.offset.x, texture.offset.y);
+	}else{
+		sf::RectangleShape rectangle(toVector2(this->fBullet->getSize()));
+		rectangle.setPosition(toVector2(this->fBullet->getLocation()));
+		rectangle.setFillColor(sf::Color::Red);
+
+		this->fWindow->draw(rectangle);
 	}
 
-	sf::RectangleShape rectangle(toVector2(this->fBullet->getSize()));
-	rectangle.setPosition(toVector2(this->fBullet->getLocation()));
-	rectangle.setFillColor(sf::Color::Red);
-
-	this->fWindow->draw(rectangle);
-}
-
-void Bullet::drawBlue(){
-	int textureOffsetX = 4;
-	int textureOffsetY = 43;
-
-	this->drawSprite("bullets.png", this->fBullet->getLocation(), this->fBullet->getSize(), textureOffsetX, textureOffsetY);
 }
 
 bool Bullet::is(tyLib::Bullet* bullet){

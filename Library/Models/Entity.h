@@ -56,6 +56,11 @@ public:
 	Texture getTexture() const;
 
 	/**
+	 * @brief Checks if an texture exists for the entity
+	 */
+	 bool isTextured() const;
+
+	/**
 	 * @brief Check if an Entity collides with this entity
 	 */
 	bool collides(Entity* entity);

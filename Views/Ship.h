@@ -19,12 +19,6 @@ public:
 
 	void draw();
 
-	void drawFighter();
-
-	void drawStandard();
-
-	void drawLongue();
-
 	bool is(tyLib::Ship* ship);
 private:
 	tyLib::Ship* fShip;
