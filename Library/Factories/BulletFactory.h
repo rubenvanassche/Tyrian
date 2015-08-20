@@ -10,6 +10,7 @@
 
 #include "../Models/World.h"
 #include "../Models/Bullet.h"
+#include "../Lib/FileLoader.h"
 
 
 namespace tyLib{
@@ -26,18 +27,20 @@ public:
 	/**
 	 * @brief Construct a BulletFactory
 	 */
-	BulletFactory(World* worldPtr, Ship* from);
+	BulletFactory(World* worldPtr, Ship* from, std::string bulletType);
 
 	/**
 	 * @brief Build a blue bullet
 	 */
-	Bullet* blue(Vector location);
+	Bullet* build(Vector location);
 
 	virtual ~BulletFactory();
 private:
 	World* fWorld;
 
 	Ship* fFrom;
+
+	XMLBulletBlueprint fBlueprint;
 };
 
 }

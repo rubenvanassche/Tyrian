@@ -9,11 +9,12 @@
 
 namespace tyLib{
 
-Gun::Gun(Ship* ship, Direction& direction, BulletFactory* bulletFactory) : fDirection(direction) {
+Gun::Gun(Ship* ship, Direction& direction, BulletFactory* bulletFactory, XMLGunBlueprint const blueprint) : fFrom(ship), fDirection(direction) {
 	this->fLocation = Vector(0,0);
 	this->fSize = Size(0,0);
-	this->fFrom = ship;
+	//this->fFrom = ship;
 	this->fBulletFactory = bulletFactory;
+	this->fType = blueprint.type;
 }
 
 void Gun::shoot(){
@@ -43,7 +44,7 @@ void Gun::shoot(){
 		gunPoint.y = shipLocation.y + shipSize.height/2;
 	}
 
-	this->fBulletFactory->blue(gunPoint);
+	this->fBulletFactory->build(gunPoint);
 }
 
 

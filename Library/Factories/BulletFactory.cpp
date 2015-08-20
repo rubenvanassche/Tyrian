@@ -8,20 +8,25 @@
 #include "BulletFactory.h"
 namespace tyLib{
 
-BulletFactory::BulletFactory(World* worldPtr, Ship* from) {
+BulletFactory::BulletFactory(World* worldPtr, Ship* from, std::string bulletType) {
 	this->fWorld = worldPtr;
 	this->fFrom = from;
+
+	// Generate the blueprint
+	FileLoader loader;
+	std::map<std::string, XMLBulletBlueprint> blueprints = loader.getBulletBlueprints();
+
+	if (blueprints.find(bulletType) == blueprints.end()) {
+		std::runtime_error("Not an valid gun type");
+	}
+	this->fBlueprint = blueprints[bulletType];
 }
 
-Bullet* BulletFactory::blue(Vector location){
-	Size size(4,7);
-	Vector velocity = Vector(75,75);
-	Bullet* bullet = new Bullet(location, size, velocity, 10, this->fFrom);
-	bullet->setType("blue");
-
+Bullet* BulletFactory::build(Vector location){
+	Bullet* bullet = new Bullet(location, this->fFrom, this->fBlueprint);
 	this->fWorld->addBullet(bullet);
-
 	return bullet;
+
 }
 
 BulletFactory::~BulletFactory() {

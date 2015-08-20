@@ -13,6 +13,7 @@
 #include "../Models/Gun.h"
 #include "BulletFactory.h"
 #include "../Lib/Direction.h"
+#include "../Lib/FileLoader.h"
 
 namespace tyLib{
 
@@ -27,14 +28,9 @@ public:
 	GunFactory(World* worldPtr);
 
 	/**
-	 * Build a basic gun
+	 * Build a gun based upon an given name and Point and if it's the player
 	 */
-	Gun* basic(Ship* ship);
-
-	/**
-	 * Build a gun based upon an given name and Point
-	 */
-	Gun* build(std::string, Ship* ship);
+	Gun* build(std::string, Ship* ship, bool isPlayer);
 
 	virtual ~GunFactory();
 private:

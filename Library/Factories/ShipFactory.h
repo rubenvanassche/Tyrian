@@ -28,22 +28,9 @@ public:
 	/**
 	 * @brief Build the ships based upon an xml stage
 	 */
-	void build(XMLStage stage);
+	void buildStage(XMLStage stage);
 
-	/**
-	 * @brief build a standard ship with a given Point and guntype
-	 */
-	Ship* standard(Vector location, std::string guntype);
-
-	/**
-	 * @brief Build a fighter ship
-	 */
-	Ship* fighter(Vector location, std::string guntype);
-
-	/**
-	 * @brief Build a longue ship
-	 */
-	Ship* longue(Vector location, std::string guntype);
+	Ship* buildShip(Vector const location, XMLShipBlueprint const blueprint, bool const isPlayer);
 
 	virtual ~ShipFactory();
 private:

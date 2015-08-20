@@ -9,13 +9,17 @@
 
 namespace tyLib{
 
-Ship::Ship(Vector location, Size size, Vector velocity, double health) {
+
+Ship::Ship(Vector location, XMLShipBlueprint blueprint){
 	this->fLocation = location;
-	this->fSize = size;
-	this->fVelocity = velocity;
+	this->fSize = blueprint.size;
+	this->fVelocity = blueprint.velocity;
 	this->fGun = nullptr;
-	this->fHealth = health;
+	this->fHealth = blueprint.health;
+	this->fType = blueprint.type;
 	this->fScore = 0;
+
+	this->addTexture(blueprint.texture);
 }
 
 void Ship::move(Direction const direction, double const delta){

@@ -10,6 +10,7 @@
 
 #include "Entity.h"
 #include "Ship.h"
+#include "../Lib/FileLoader.h"
 
 namespace tyLib{
 
@@ -23,7 +24,7 @@ public:
 	/**
 	 * @brief Construct a Bullet
 	 */
-	Bullet(Vector location, Size size, Vector velocity, double damage, Ship* from);
+	Bullet(Vector location, Ship* from, XMLBulletBlueprint const blueprint);
 
 	/**
 	 * @brief Moves a Bullet to a certain Direction

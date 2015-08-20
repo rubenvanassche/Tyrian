@@ -13,6 +13,7 @@
 #include "../Factories/BulletFactory.h"
 #include "Ship.h"
 #include "../Lib/Direction.h"
+#include "../Lib/FileLoader.h"
 
 
 namespace tyLib{
@@ -29,7 +30,7 @@ public:
 	/**
 	 * Construct a Gun with a given Direction as location and a Bulletfactory for shooting bullets
 	 */
-	Gun(Ship* ship, Direction& direction,  BulletFactory* bulletFactory);
+	Gun(Ship* ship, Direction& direction,  BulletFactory* bulletFactory, XMLGunBlueprint const blueprint);
 
 	virtual void move(Direction const direction, double const delta){};
 
@@ -41,7 +42,7 @@ public:
 	virtual ~Gun();
 private:
 	BulletFactory* fBulletFactory;
-	Ship* fFrom;
+	Ship const * const fFrom;
 	Direction fDirection;
 };
 

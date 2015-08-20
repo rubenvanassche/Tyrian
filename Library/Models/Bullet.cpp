@@ -9,12 +9,15 @@
 
 namespace tyLib{
 
-Bullet::Bullet(Vector location, Size size, Vector velocity, double damage, Ship* from) {
+Bullet::Bullet(Vector location, Ship* from, XMLBulletBlueprint const blueprint) {
 	this->fLocation = location;
-	this->fSize = size;
-	this->fVelocity = velocity;
-	this->fDamage = damage;
+	this->fSize = blueprint.size;
+	this->fVelocity = blueprint.velocity;
+	this->fDamage = blueprint.damage;
+	this->fType = blueprint.type;
 	this->fFrom = from;
+
+	this->addTexture(blueprint.texture);
 }
 
 void Bullet::move(Direction const direction, double const delta){

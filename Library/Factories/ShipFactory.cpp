@@ -15,78 +15,33 @@ ShipFactory::ShipFactory(World *worldPtr) {
 
 }
 
-void ShipFactory::build(XMLStage stage){
+void ShipFactory::buildStage(XMLStage stage){
 	if(this->fWorld == nullptr){
 		throw std::runtime_error("Can't build any ships because there is no World* avaible");
 	}
 
+	FileLoader loader;
+	std::map<std::string, XMLShipBlueprint> blueprints = loader.getShipBlueprints();
+
 	for(auto i : stage.ships){
-		Ship* ship = nullptr;
+		if ( blueprints.find(i.type) == blueprints.end()) {
+			std::runtime_error("Not an valid ship type");
+		}
+
+		XMLShipBlueprint blueprint = blueprints.at(i.type);
 		Vector location(i.x, i.y);
-		std::string guntype = i.gun;
 
-		// Find the ship we need to build and build it
-		if(i.type == "standard"){
-			ship = this->standard(location, guntype);
-		}
+		Ship* ship = this->buildShip(location, blueprint, false);
 
-		if(i.type == "fighter"){
-			ship = this->fighter(location, guntype);
-		}
-
-		if(i.type == "longue"){
-			ship = this->fighter(location, guntype);
-		}
-
-		if(ship == nullptr){
-			throw std::runtime_error("Something went wrong with the ship type, not being found");
-		}else{
-			// Add the ship to the ships list
-			this->fWorld->addShip(ship);
-		}
+		// Add the ship to the ships list
+		this->fWorld->addShip(ship);
 	}
 }
 
-Ship* ShipFactory::standard(Vector location, std::string guntype){
-	Size size(19, 21);
-	Vector velocity = Vector(50,50);
-	double health = 2;
-
-	Ship* shipPtr = new Ship(location, size, velocity, health);
-	shipPtr->setType("standard");
-
-	// Build the gun
-	shipPtr->setGun(this->fGunFactory->build(guntype, shipPtr));
-
-	return shipPtr;
-}
-
-Ship* ShipFactory::fighter(Vector location, std::string guntype){
-	Size size(21, 24);
-	Vector velocity = Vector(350,350);
-	double health = 10;
-
-	Ship* shipPtr = new Ship(location, size, velocity, health);
-	shipPtr->setType("fighter");
-
-	// Build the gun
-	shipPtr->setGun(this->fGunFactory->build(guntype, shipPtr));
-
-	return shipPtr;
-}
-
-Ship* ShipFactory::longue(Vector location, std::string guntype){
-	Size size(15, 19);
-	Vector velocity = Vector(50,50);
-	double health = 3;
-
-	Ship* shipPtr = new Ship(location, size, velocity, health);
-	shipPtr->setType("longue");
-
-	// Build the gun
-	shipPtr->setGun(this->fGunFactory->build(guntype, shipPtr));
-
-	return shipPtr;
+Ship* ShipFactory::buildShip(Vector const location, XMLShipBlueprint const blueprint, bool const isPlayer){
+	Ship* ship = new Ship(location, blueprint);
+	ship->setGun(this->fGunFactory->build(blueprint.gun, ship, isPlayer));
+	return ship;
 }
 
 

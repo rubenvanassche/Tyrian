@@ -13,40 +13,32 @@ GunFactory::GunFactory(World* worldPtr) {
 	this->fWorld = worldPtr;
 }
 
-Gun* GunFactory::basic(Ship* ship){
-	// TODO Find a better place for this
-	BulletFactory* bulletFactory = new BulletFactory(this->fWorld, ship);
+Gun* GunFactory::build(std::string gunType, Ship* ship, bool isPlayer){
+	FileLoader loader;
+	std::map<std::string, XMLGunBlueprint> blueprints = loader.getGunBlueprints();
+
+	if ( blueprints.find(gunType) == blueprints.end()) {
+		std::runtime_error("Not an valid gun type");
+	}
+
+	XMLGunBlueprint blueprint = blueprints[gunType];
+	BulletFactory* bulletFactory = new BulletFactory(this->fWorld, ship, blueprint.bullets);
+
 	Gun* gun;
 	// The direction the gun is pointed to
-	if(ship == this->fWorld->getPlayer()){
+	if(isPlayer == true){
 		// The player is up
 		Direction direction("up");
-		gun = new Gun(ship, direction,  bulletFactory);
+		gun = new Gun(ship, direction, bulletFactory, blueprint);
 	}else{
 		// Enemies are down
 		Direction direction("down");
-		gun = new Gun(ship, direction,  bulletFactory);
+		gun = new Gun(ship, direction, bulletFactory, blueprint);
 	}
-
-	// Give it a type
-	gun->setType("basic");
 
 	return gun;
 }
 
-Gun* GunFactory::build(std::string gunType, Ship* ship){
-	// First check if the player was set in the world otherwise it will be difficult in the next functions to detrmine if we're building a ship for a player or enemy
-	if(this->fWorld->getPlayer() == nullptr){
-		// No player set, because the player is always builded first asume we're building the player
-		this->fWorld->setPlayer(ship);
-	}
-
-	if(gunType == "basic"){
-		return this->basic(ship);
-	}
-
-	throw std::runtime_error("Can't build a gun with this name");
-}
 
 GunFactory::~GunFactory() {
 	// TODO Auto-generated destructor stub

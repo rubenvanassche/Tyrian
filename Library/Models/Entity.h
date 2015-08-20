@@ -8,9 +8,16 @@
 #include "../Lib/Point.h"
 #include "../Lib/Size.h"
 #include "../Lib/Direction.h"
+#include "../Lib/FileLoader.h"
 
 
 namespace tyLib{
+
+struct Texture{
+	int ticks;
+	Vector offset;
+	Vector tickOffset;
+};
 
 /**
  * @brief Model representing an Entity, something that moves on the battle field
@@ -21,6 +28,11 @@ public:
 	 * @brief Construct an Entity
 	 */
 	Entity();
+
+	/**
+	 * @brief Add an texture
+	 */
+	void addTexture(XMLTextureBlueprint const blueprint);
 
 	/**
 	 * @brief Move an Entity with a Direction, this function is pure virtual
@@ -78,6 +90,12 @@ protected:
 	 * @brief Current location of the eEtity
 	 */
     Vector fLocation;
+
+	/**
+	 * @brief Texture for the entity
+	 */
+    Texture fTexture;
+
     Size fSize;
     std::string fType;
     bool fVisible = true;

@@ -10,6 +10,7 @@
 
 #include "Entity.h"
 #include "Gun.h"
+#include "../Lib/FileLoader.h"
 
 namespace tyLib{
 
@@ -24,7 +25,7 @@ public:
 	/**
 	 * @brief Constructs a Ship
 	 */
-	Ship(Vector location, Size size, Vector veolcity, double health);
+	Ship(Vector location, XMLShipBlueprint blueprint);
 
 	/**
 	 * @brief Moves a ship to a certain Direction

@@ -27,7 +27,8 @@ Game::Game(std::string const filename, Bridge* bridge) {
 	// Build the ship of the player
 	ShipFactory factory(this->fWorld);
 	Vector startPosition(100, 100);
-	Ship* playerPtr = factory.fighter(startPosition, "basic");
+
+	Ship* playerPtr = factory.buildShip(startPosition, fileloader.getShipBlueprints()["fighter"], true);
 	this->fWorld->setPlayer(playerPtr);
 	this->fWorld->addShip(playerPtr);
 }
@@ -89,7 +90,7 @@ void Game::play(double const delta){
 
 void Game::createStage(XMLStage const &stage){
 	ShipFactory factory(this->fWorld);
-	factory.build(stage);
+	factory.buildStage(stage);
 }
 
 void Game::movePlayer(Direction direction, double const delta){
@@ -177,4 +178,3 @@ Game::~Game() {
 }
 
 }
-

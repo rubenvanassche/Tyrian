@@ -5,7 +5,12 @@ namespace tyLib{
 Entity::Entity() {
 	this->fLocation = Vector(0,0);
 	this->fVelocity = Vector(1,1);
+}
 
+void Entity::addTexture(XMLTextureBlueprint const blueprint){
+	this->fTexture.ticks = blueprint.ticks;
+	this->fTexture.offset = blueprint.offset;
+	this->fTexture.tickOffset = blueprint.tickOffset;
 }
 
 Vector Entity::getLocation() const{

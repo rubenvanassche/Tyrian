@@ -19,7 +19,7 @@ void Bullet::draw(){
 		return;
 	}
 
-	if(this->fBullet->getType() == "blue"){
+	if(this->fBullet->getType() == "basic"){
 		this->drawBlue();
 		return;
 	}
