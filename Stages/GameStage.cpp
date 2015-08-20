@@ -18,7 +18,7 @@ void GameStage::run(){
     bridge->window = this->fApp;
 
     // Create the game
-    tyLib::Game g(this->fMessage, bridge);
+    tyLib::Game g(this->fMessage, bridge, 1);
 
     // Get the background
     tySFML::Tile bg = Tile(this->fApp, g.getTile());
@@ -65,27 +65,27 @@ void GameStage::run(){
             	this->fApp->close();
 
         	if(input->spaceBar()){
-        		g.shootPlayer();
+        		g.shootPlayer(0);
         	}
 
         	if(input->keyLeft()){
         		tyLib::Direction d("left");
-        		g.movePlayer(d, stopwatch->getDelta());
+        		g.movePlayer(d, stopwatch->getDelta(), 0);
         	}
 
         	if(input->keyRight()){
         		tyLib::Direction d("right");
-        		g.movePlayer(d, stopwatch->getDelta());
+        		g.movePlayer(d, stopwatch->getDelta(), 0);
         	}
 
         	if(input->keyUp()){
         		tyLib::Direction d("up");
-        		g.movePlayer(d, stopwatch->getDelta());
+        		g.movePlayer(d, stopwatch->getDelta(), 0);
         	}
 
         	if(input->keyDown()){
         		tyLib::Direction d("down");
-        		g.movePlayer(d, stopwatch->getDelta());
+        		g.movePlayer(d, stopwatch->getDelta(), 0);
         	}
         }
 

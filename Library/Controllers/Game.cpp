@@ -9,7 +9,7 @@
 
 namespace tyLib{
 
-Game::Game(std::string const filename, Bridge* bridge) {
+Game::Game(std::string const filename, Bridge* bridge, int const amountOfPlayers) {
 	// Load the xml file
 	FileLoader fileloader;
 	XMLLevel level = fileloader.loadFile(filename);
@@ -31,16 +31,20 @@ Game::Game(std::string const filename, Bridge* bridge) {
 	ShipFactory factory(this->fWorld);
 	Vector startPosition(100, 100);
 
-	Ship* playerPtr = factory.buildShip(startPosition, fileloader.getShipBlueprints()[config->getPlayership()], true);
-	this->fWorld->setPlayer(playerPtr);
-	this->fWorld->addShip(playerPtr);
+	//Ship* playerPtr = factory.buildShip(startPosition, fileloader.getShipBlueprints()[config->getPlayership()], true);
+	//this->fWorld->setPlayer(playerPtr);
+	//this->fWorld->addShip(playerPtr);
+
+	// Build Players container
+ 	Players* players = new Players(amountOfPlayers, this->fWorld);
+	this->fWorld->setPlayers(players);
 }
 
 void Game::play(double const delta){
 	// Have we won?
 	if(this->fStages.size() == 0){
 		if(this->fWorld->getShips().size() == 1){
-			if(this->fWorld->getShips().front() == this->fWorld->getPlayer()){
+			if(this->fWorld->getPlayers()->isPlayer( this->fWorld->getShips().front() )){
 				this->fWon = true;
 				this->updateHighscores();
 				return;
@@ -53,10 +57,12 @@ void Game::play(double const delta){
 	}
 
 	// Check the Health of the player
-	if(this->fWorld->getPlayer()->isDead()){
-		this->fLose = true;
-		this->updateHighscores();
-		return;
+	for(int i = 0;i < this->fWorld->getPlayers()->size();i++){
+		if(this->fWorld->getPlayers()->at(i)->isDead()){
+			this->fLose = true;
+			this->updateHighscores();
+			return;
+		}
 	}
 
 	// Do we need to load other ships
@@ -96,16 +102,16 @@ void Game::createStage(XMLStage const &stage){
 	factory.buildStage(stage);
 }
 
-void Game::movePlayer(Direction direction, double const delta){
+void Game::movePlayer(Direction direction, double const delta, int const playerID){
 	// Check if we can move the players ship without getting out of bounds
-	if(this->fWorld->collides(this->fWorld->getPlayer()) == false){
+	if(this->fWorld->collides(this->fWorld->getPlayers()->at(playerID)) == false){
 		// Ship isn't in Game anymore
 		return;
 	}
 
 	// Check if the player isn't going out of bounds
-	Vector playerLocation = this->fWorld->getPlayer()->getLocation();
-	Size playerSize = this->fWorld->getPlayer()->getSize();
+	Vector playerLocation = this->fWorld->getPlayers()->at(playerID)->getLocation();
+	Size playerSize = this->fWorld->getPlayers()->at(playerID)->getSize();
 
 	if(playerLocation.x < 0 and direction.isLeft()){
 		return;
@@ -125,11 +131,11 @@ void Game::movePlayer(Direction direction, double const delta){
 
 
 	// Just move it
-	this->fWorld->getPlayer()->move(direction, delta);
+	this->fWorld->getPlayers()->at(playerID)->move(direction, delta);
 }
 
-void Game::shootPlayer(){
-	this->fWorld->getPlayer()->shoot();
+void Game::shootPlayer(int const playerID){
+	this->fWorld->getPlayers()->at(playerID)->shoot();
 }
 
 bool Game::won(){
@@ -142,7 +148,13 @@ bool Game::lose(){
 
 bool Game::updateHighscores() const{
 	Highscores scores;
-	return scores.add(this->fWorld->getPlayer()->getScore());
+	bool highscore = false;
+	for(int i = 0; i < this->fWorld->getPlayers()->size();i++){
+		if( scores.add(this->fWorld->getPlayers()->at(i)->getScore()) ){
+			highscore = true;
+		}
+	}
+	return highscore;
 }
 
 Tile* Game::getTile(){
@@ -150,7 +162,7 @@ Tile* Game::getTile(){
 }
 
 void Game::print(){
-
+/*
 	std::cout << "Levelname: " << this->fLevelName << std::endl;
 	std::cout << "Difficulty: " << this->fLevelDifficulty << std::endl;
 	std::cout << "Stages todo: " << this->fStages.size() << std::endl;
@@ -171,7 +183,7 @@ void Game::print(){
 			std::cout << "ENEMY: (" << i->getLocation().x << ", " << i->getLocation().y << ")" << std::endl;
 		}
 	}
-
+*/
 	//std::cout << "Stages todo: " << this->fStages.size() << "  --  Ships(" << this->fWorld->getShips().size() << ")" << std::endl;
 }
 

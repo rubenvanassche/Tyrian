@@ -15,6 +15,9 @@
 
 namespace tyLib{
 
+class World;
+class GunFactory;
+
 /**
  * @brief A factory for constructing Ships
  */

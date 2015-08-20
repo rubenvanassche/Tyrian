@@ -22,7 +22,7 @@ void HAL9000::moveShips(double const delta){
 	std::list<Ship*>::iterator it = ships.begin();
 	while(it != ships.end()){
 		// If the ship we want to move is the player's ship, we don't do anything
-		if(*it == this->fWorld->getPlayer()){
+		if(this->fWorld->getPlayers()->isPlayer(*it)){
 			it++;
 		}
 
@@ -67,7 +67,7 @@ void HAL9000::moveBullets(double const delta){
 	while(it != bullets.end()){
 		// Move it down when enemy and move up when player
 		// TODO find some better algorithm
-		if((*it)->getFrom() == this->fWorld->getPlayer()){
+		if(this->fWorld->getPlayers()->isPlayer( (*it)->getFrom() )){
 			Direction direction("up");
 			(*it)->move(direction, delta);
 		}else{
@@ -93,13 +93,20 @@ void HAL9000::moveBullets(double const delta){
 
 void HAL9000::shipCollisionDetection(){
 	for(auto i : this->fWorld->getShips()){
-		if(i == this->fWorld->getPlayer()){
+		if(this->fWorld->getPlayers()->isPlayer(i)){
 			// I'm Sorry bit the player can't hit enemies, life isn't fair
 			continue;
 		}
 
-		if(i->collides(this->fWorld->getPlayer())){
-			this->fWorld->getPlayer()->reduceHealth(1);
+		//if(i->collides(this->fWorld->getPlayer())){
+		//	this->fWorld->getPlayer()->reduceHealth(1);
+		//}
+
+		for(int j = 0; j < this->fWorld->getPlayers()->size();j++){
+			Ship* player = this->fWorld->getPlayers()->at(j);
+			if(i->collides(player)){
+				player->reduceHealth(1);
+			}
 		}
 	}
 }
@@ -115,7 +122,7 @@ void HAL9000::bulletCollisionDetection(){
 			// Check collision
 			if(ship->collides(bullet) == true){
 				// if an enemy hits another enemy, do nothing
-				if(bullet->getFrom() != this->fWorld->getPlayer() and ship != this->fWorld->getPlayer()){
+				if(!this->fWorld->getPlayers()->isPlayer(bullet->getFrom()) and !this->fWorld->getPlayers()->isPlayer(ship)){
 					continue;
 				}
 
@@ -199,7 +206,7 @@ void HAL9000::shootBullets(bool pass){
 			it++;
 		}
 
-		if(*it == this->fWorld->getPlayer()){
+		if(this->fWorld->getPlayers()->isPlayer(*it)){
 			this->shootBullets(true);
 		}else{
 			(*it)->shoot();

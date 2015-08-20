@@ -20,6 +20,7 @@
 namespace tyLib{
 
 class Bridge;
+class Players;
 
 /**
  * @brief The world class, containing the whole battlefield(all the Entities)
@@ -58,12 +59,22 @@ public:
 	/**
 	 * @brief Get the player's Ship
 	 */
-	Ship* getPlayer();
+	//Ship* getPlayer();
 
 	/**
 	 * @brief Set the player's Ship
 	 */
-	void setPlayer(Ship* player);
+	//void setPlayer(Ship* player);
+
+	/**
+	 * @brief Set the players Container
+	 */
+	void setPlayers(Players* players);
+
+	/**
+	 * @brief get the players Container
+	 */
+	Players* getPlayers();
 
 	/**
 	 * @brief get The width of the World
@@ -110,11 +121,12 @@ private:
 	/**
 	 * @brief The ship of the player
 	 */
-	Ship* player = nullptr;
+	//Ship* player = nullptr;
 
 	/**
 	 * @brief Container representing the player(s)
 	 */
+	Players* players = nullptr;
 
 	/**
 	 * @brief The Tile at the background

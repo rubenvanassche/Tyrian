@@ -25,7 +25,7 @@ namespace tyLib{
  */
 class Game {
 public:
-	Game(std::string const filename, Bridge* bridge);
+	Game(std::string const filename, Bridge* bridge, int const amountOfPlayers);
 
 	/**
 	 * @brief Play one iteration with a given delta(seconds between frames)
@@ -40,12 +40,12 @@ public:
 	/**
 	 * @brief Move the player with a certain delta
 	 */
-	void movePlayer(Direction direction, double const delta);
+	void movePlayer(Direction direction, double const delta, int const playerID);
 
 	/**
 	 * @brief Shoot a bullet out of the gun of the player
 	 */
-	void shootPlayer();
+	void shootPlayer(int const playerID);
 
 	/**
 	 * @brief returns true if the player has won the game

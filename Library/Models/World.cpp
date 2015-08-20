@@ -38,12 +38,22 @@ void World::removeBullet(Bullet* bullet){
 
 }
 
+/*
 Ship* World::getPlayer(){
 	return this->player;
 }
 
 void World::setPlayer(Ship* player){
 	this->player = player;
+}
+*/
+
+void World::setPlayers(Players* players){
+	this->players = players;
+}
+
+Players* World::getPlayers(){
+	return this->players;
 }
 
 int World::getWidth(){
