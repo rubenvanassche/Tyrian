@@ -11,7 +11,7 @@
 #include "../Helpers/Stage.h"
 #include <iostream>
 #include "../Helpers/Button.h"
-#include <Tylib/Lib/FileLoader.h>
+#include "../Library/Lib/FileLoader.h"
 
 namespace tySFML {
 

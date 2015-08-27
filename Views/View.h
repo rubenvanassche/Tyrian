@@ -8,7 +8,7 @@
 #ifndef VIEWS_VIEW_H_
 #define VIEWS_VIEW_H_
 
-#include <TyLib/Models/Entity.h>
+#include "../Library/Models/Entity.h"
 #include "../Helpers/Helpers.h"
 #include "../Helpers/Window.h"
 #include "../Helpers/Assets.h"
