@@ -199,7 +199,6 @@ std::map<std::string, XMLShipBlueprint> FileLoader::getShipBlueprints(){
 
 				pt::read_xml("Data/Ships/" + filename, tree);
 
-				std::cout << filename << std::endl;
 
 				// Create The blueprint
 				XMLShipBlueprint blueprint;

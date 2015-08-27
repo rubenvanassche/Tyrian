@@ -10,7 +10,6 @@
 namespace tyLib{
 
 Highscores::Highscores() {
-	std::cout << "test" << std::endl;
     pt::ptree tree;
 
     // Parse the XML into the property tree.
@@ -66,7 +65,6 @@ void Highscores::print() const{
 }
 
 Highscores::~Highscores() {
-	std::cout << "destruct" << std::endl;
     // Create an empty property tree object.
     pt::ptree tree;
 

@@ -83,7 +83,6 @@ void SelectLevelStage::run(){
 					for(auto i : buttons){
 						if(i.isButtonClicked(localPosition)){
 							// Now by the counter we can check which file to load and start the next stage
-							std::cout << "level: " << levels[counter].path << std::endl;
 							this->fStages->game->setMessage(levels[counter].path);
 							this->fStages->game->run();
 						}

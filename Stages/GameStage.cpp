@@ -11,8 +11,6 @@
 namespace tySFML {
 
 void GameStage::run(){
-		std::cout << this->fMessage << std::endl;
-
     // Create the bridge between SFML and tyLib
     tySFML::SFMLBridge* bridge = new tySFML::SFMLBridge;
     bridge->window = this->fApp;
