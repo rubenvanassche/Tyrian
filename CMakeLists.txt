@@ -17,7 +17,6 @@ set(SOURCE_FILES main.cpp)
 
 INCLUDE_DIRECTORIES(${SFML_INCLUDE_DIR} ${Boost_INCLUDE_DIR} "${PROJECT_SOURCE_DIR}/Lib/")
 
-target_include_directories(Tyrian PUBLIC ${SFML_INCLUDE_DIR} ${Boost_INCLUDE_DIR} "${PROJECT_SOURCE_DIR}/Lib/")
 
 
 add_subdirectory(Lib/TyLib)
@@ -25,3 +24,5 @@ add_subdirectory(Lib/TyLib)
 add_executable(Tyrian ${SOURCE_FILES} ${VIEWS} ${HELPERS} ${STAGES})
 
 TARGET_LINK_LIBRARIES(Tyrian ${SFML_LIBRARIES} ${Boost_LIBRARIES} Ty)
+
+target_include_directories(Tyrian PUBLIC ${SFML_INCLUDE_DIR} ${Boost_INCLUDE_DIR} "${PROJECT_SOURCE_DIR}/Lib/")
