@@ -25,6 +25,7 @@
 #include <set>
 #include <map>
 #include <exception>
+#include <assert.h>
 namespace pt = boost::property_tree;
 
 namespace tyLib{

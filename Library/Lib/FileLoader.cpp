@@ -52,6 +52,7 @@ Level FileLoader::getLevel(std::string const filename, std::string directory){
 	level.directory = directory;
 	level.path = directory + "/" + filename;
 
+
 	// Now get the difficulty and name
 	pugi::xml_document doc;
 	pugi::xml_parse_result result = doc.load_file(level.path.c_str());
@@ -64,60 +65,67 @@ Level FileLoader::getLevel(std::string const filename, std::string directory){
 		throw std::runtime_error("Couldn't open the xml file");
 	}
 
+
 	return level;
 }
 
 XMLLevel FileLoader::loadFile(std::string const filename){
-	// Load the xml File
-	pt::ptree tree;
-	pt::read_xml(filename, tree);
+	try{
+		// Load the xml File
+		pt::ptree tree;
+		pt::read_xml(filename, tree);
 
-	// Create The Level
-	XMLLevel level;
-	level.name = tree.get<std::string>("level.name");
-	level.difficulty = tree.get<int>("level.difficulty");
+		// Create The Level
+		XMLLevel level;
+		level.name = tree.get<std::string>("level.name");
+		level.difficulty = tree.get<int>("level.difficulty");
 
-	// Process the Stages
-	for(const auto& stageNode : tree.get_child("level.stages")){
-		if(stageNode.first == "stage"){
-			pt::ptree stageTree = stageNode.second;
-			// Create a stage
-			XMLStage stage;
-			stage.start = stageTree.get<int>("start");
+		// Process the Stages
+		for(const auto& stageNode : tree.get_child("level.stages")){
+			if(stageNode.first == "stage"){
+				pt::ptree stageTree = stageNode.second;
+				// Create a stage
+				XMLStage stage;
+				stage.start = stageTree.get<int>("start");
 
-			for(const auto& shipNode : stageTree.get_child("ships")){
-				if(shipNode.first == "ship"){
-				pt::ptree shipTree = shipNode.second;
-        		// Create a ship
-        		XMLShip ship;
+				for(const auto& shipNode : stageTree.get_child("ships")){
+					if(shipNode.first == "ship"){
+					pt::ptree shipTree = shipNode.second;
+	        		// Create a ship
+	        		XMLShip ship;
 
-        		ship.type = shipTree.get<std::string>("type");
-        		ship.gun = shipTree.get<std::string>("gun");
-        		ship.x = shipTree.get<int>("x");
-        		ship.y = shipTree.get<int>("y");
+	        		ship.type = shipTree.get<std::string>("type");
+	        		ship.gun = shipTree.get<std::string>("gun");
+	        		ship.x = shipTree.get<int>("x");
+	        		ship.y = shipTree.get<int>("y");
 
-        		// Convert the type and gun to lowercase
-        		std::transform(ship.type.begin(), ship.type.end(), ship.type.begin(), ::tolower);
-        		std::transform(ship.gun.begin(), ship.gun.end(), ship.gun.begin(), ::tolower);
+	        		// Convert the type and gun to lowercase
+	        		std::transform(ship.type.begin(), ship.type.end(), ship.type.begin(), ::tolower);
+	        		std::transform(ship.gun.begin(), ship.gun.end(), ship.gun.begin(), ::tolower);
 
 
-        		stage.ships.push_back(ship);
-				}else{
-					// Not valid xml node
+	        		stage.ships.push_back(ship);
+					}else{
+						// Not valid xml node
+					}
 				}
+				level.stages.push_back(stage);
+			}else{
+				// Not valid xml node
 			}
-			level.stages.push_back(stage);
-		}else{
-			// Not valid xml node
+	    }
+
+	    //Check if the data is valid
+		if(this->checkData(level) == false){
+			throw std::runtime_error("Something is wrong with the XML data");
 		}
-    }
 
-    //Check if the data is valid
-	if(this->checkData(level) == false){
-		throw std::runtime_error("Something is wrong with the XML data");
+		return level;
+
+	}catch(const boost::property_tree::xml_parser::xml_parser_error& ex){
+		std::cout << "error in file " << ex.filename()  << std::endl;
+		assert(0);
 	}
-
-	return level;
 }
 
 
@@ -165,72 +173,79 @@ bool FileLoader::checkData(XMLLevel &level){
 }
 
 std::map<std::string, XMLShipBlueprint> FileLoader::getShipBlueprints(){
-	std::string filepath = "Data/Ships";
+	try{
 
-	// System for reading directory
-	tinydir_dir dir;
-	tinydir_open(&dir, filepath.c_str());
+		std::string filepath = "Data/Ships";
 
-	std::map<std::string, XMLShipBlueprint> blueprints;
+		// System for reading directory
+		tinydir_dir dir;
+		tinydir_open(&dir, filepath.c_str());
 
-	while (dir.has_next){
-	    tinydir_file file;
-	    tinydir_readfile(&dir, &file);
+		std::map<std::string, XMLShipBlueprint> blueprints;
 
-			std::string filename = file.name;
-	    // Remove some unneeded things in the directory
-	    if(filename == ".." or filename == "." or file.is_dir){
-	    	tinydir_next(&dir);
-	    	continue;
-	    }
+		while (dir.has_next){
+		    tinydir_file file;
+		    tinydir_readfile(&dir, &file);
 
-	    // Make a blueprint;
-			pt::ptree tree;
+				std::string filename = file.name;
+		    // Remove some unneeded things in the directory
+		    if(filename == ".." or filename == "." or file.is_dir){
+		    	tinydir_next(&dir);
+		    	continue;
+		    }
 
-			pt::read_xml("Data/Ships/" + filename, tree);
+		    // Make a blueprint;
+				pt::ptree tree;
 
-			std::cout << filename << std::endl;
+				pt::read_xml("Data/Ships/" + filename, tree);
 
-			// Create The blueprint
-			XMLShipBlueprint blueprint;
-			blueprint.type = tree.get<std::string>("ship.type");
+				std::cout << filename << std::endl;
 
-			Size size;
-			size.width = tree.get<int>("ship.size.x");
-			size.height = tree.get<int>("ship.size.y");
-			blueprint.size = size;
+				// Create The blueprint
+				XMLShipBlueprint blueprint;
+				blueprint.type = tree.get<std::string>("ship.type");
 
-			Vector velocity;
-			velocity.x = tree.get<int>("ship.velocity.x");
-			velocity.y = tree.get<int>("ship.velocity.y");
-			blueprint.velocity = velocity;
+				Size size;
+				size.width = tree.get<int>("ship.size.x");
+				size.height = tree.get<int>("ship.size.y");
+				blueprint.size = size;
 
-			blueprint.health = tree.get<int>("ship.health");
-			blueprint.gun = tree.get<std::string>("ship.gun");
+				Vector velocity;
+				velocity.x = tree.get<int>("ship.velocity.x");
+				velocity.y = tree.get<int>("ship.velocity.y");
+				blueprint.velocity = velocity;
 
-			// The texture
-			XMLTextureBlueprint texture;
-			texture.filename = tree.get<std::string>("ship.texture.file");
-			texture.ticks = tree.get<int>("ship.texture.ticks");
-			Vector offset;
-			offset.x = tree.get<int>("ship.texture.x");
-			offset.y = tree.get<int>("ship.texture.y");
-			texture.offset = offset;
-			Vector tickOffset;
-			tickOffset.x = tree.get<int>("ship.texture.tickx");
-			tickOffset.y = tree.get<int>("ship.texture.ticky");
-			texture.tickOffset = tickOffset;
+				blueprint.health = tree.get<int>("ship.health");
+				blueprint.gun = tree.get<std::string>("ship.gun");
 
-			blueprint.texture = texture;
+				// The texture
+				XMLTextureBlueprint texture;
+				texture.filename = tree.get<std::string>("ship.texture.file");
+				texture.ticks = tree.get<int>("ship.texture.ticks");
+				Vector offset;
+				offset.x = tree.get<int>("ship.texture.x");
+				offset.y = tree.get<int>("ship.texture.y");
+				texture.offset = offset;
+				Vector tickOffset;
+				tickOffset.x = tree.get<int>("ship.texture.tickx");
+				tickOffset.y = tree.get<int>("ship.texture.ticky");
+				texture.tickOffset = tickOffset;
 
-			blueprints[blueprint.type] = blueprint;
+				blueprint.texture = texture;
 
-	    tinydir_next(&dir);
+				blueprints[blueprint.type] = blueprint;
+
+		    tinydir_next(&dir);
+		}
+
+		tinydir_close(&dir);
+
+		return blueprints;
+
+	}catch(const boost::property_tree::xml_parser::xml_parser_error& ex){
+		std::cout << "error in file " << ex.filename()  << std::endl;
+		assert(0);
 	}
-
-	tinydir_close(&dir);
-
-	return blueprints;
 }
 
 std::map<std::string, XMLBulletBlueprint> FileLoader::getBulletBlueprints(){
@@ -254,42 +269,49 @@ std::map<std::string, XMLBulletBlueprint> FileLoader::getBulletBlueprints(){
 	    }
 
 	    // Make a blueprint;
-			pt::ptree tree;
+	    try{
 
-			pt::read_xml("Data/Bullets/" + filename, tree);
+				pt::ptree tree;
 
-			// Create The blueprint
-			XMLBulletBlueprint blueprint;
-			blueprint.type = tree.get<std::string>("bullet.type");
+				pt::read_xml("Data/Bullets/" + filename, tree);
 
-			Size size;
-			size.width = tree.get<int>("bullet.size.x");
-			size.height = tree.get<int>("bullet.size.y");
-			blueprint.size = size;
+				// Create The blueprint
+				XMLBulletBlueprint blueprint;
+				blueprint.type = tree.get<std::string>("bullet.type");
 
-			Vector velocity;
-			velocity.x = tree.get<int>("bullet.velocity.x");
-			velocity.y = tree.get<int>("bullet.velocity.y");
-			blueprint.velocity = velocity;
+				Size size;
+				size.width = tree.get<int>("bullet.size.x");
+				size.height = tree.get<int>("bullet.size.y");
+				blueprint.size = size;
 
-			blueprint.damage = tree.get<int>("bullet.damage");
+				Vector velocity;
+				velocity.x = tree.get<int>("bullet.velocity.x");
+				velocity.y = tree.get<int>("bullet.velocity.y");
+				blueprint.velocity = velocity;
 
-			// The texture
-			XMLTextureBlueprint texture;
-			texture.filename = tree.get<std::string>("bullet.texture.file");
-			texture.ticks = tree.get<int>("bullet.texture.ticks");
-			Vector offset;
-			offset.x = tree.get<int>("bullet.texture.x");
-			offset.y = tree.get<int>("bullet.texture.y");
-			texture.offset = offset;
-			Vector tickOffset;
-			tickOffset.x = tree.get<int>("bullet.texture.tickx");
-			tickOffset.y = tree.get<int>("bullet.texture.ticky");
-			texture.tickOffset = tickOffset;
+				blueprint.damage = tree.get<int>("bullet.damage");
 
-			blueprint.texture = texture;
+				// The texture
+				XMLTextureBlueprint texture;
+				texture.filename = tree.get<std::string>("bullet.texture.file");
+				texture.ticks = tree.get<int>("bullet.texture.ticks");
+				Vector offset;
+				offset.x = tree.get<int>("bullet.texture.x");
+				offset.y = tree.get<int>("bullet.texture.y");
+				texture.offset = offset;
+				Vector tickOffset;
+				tickOffset.x = tree.get<int>("bullet.texture.tickx");
+				tickOffset.y = tree.get<int>("bullet.texture.ticky");
+				texture.tickOffset = tickOffset;
 
-			blueprints[blueprint.type] = blueprint;
+				blueprint.texture = texture;
+
+				blueprints[blueprint.type] = blueprint;
+
+			}catch(const boost::property_tree::xml_parser::xml_parser_error& ex){
+				std::cout << "error in file " << ex.filename()  << std::endl;
+				assert(0);
+			}
 
 	    tinydir_next(&dir);
 	}
@@ -320,15 +342,21 @@ std::map<std::string, XMLGunBlueprint> FileLoader::getGunBlueprints(){
 	    }
 
 	    // Make a blueprint;
-			pt::ptree tree;
+	    try{
+				pt::ptree tree;
 
-			pt::read_xml("Data/Guns/" + filename, tree);
+				pt::read_xml("Data/Guns/" + filename, tree);
 
-			// Create The blueprint
-			XMLGunBlueprint blueprint;
-			blueprint.type = tree.get<std::string>("gun.type");
-			blueprint.bullets = tree.get<std::string>("gun.bullets");
-			blueprints[blueprint.type] = blueprint;
+				// Create The blueprint
+				XMLGunBlueprint blueprint;
+				blueprint.type = tree.get<std::string>("gun.type");
+				blueprint.bullets = tree.get<std::string>("gun.bullets");
+				blueprints[blueprint.type] = blueprint;
+
+			}catch(const boost::property_tree::xml_parser::xml_parser_error& ex){
+				std::cout << "error in file " << ex.filename()  << std::endl;
+				assert(0);
+			}
 
 	    tinydir_next(&dir);
 	}
