@@ -8,10 +8,10 @@
 #ifndef HELPERS_SFMLBRIDGE_H_
 #define HELPERS_SFMLBRIDGE_H_
 
-#include "../Library/Controllers/Game.h"
 #include "../Views/Bullet.h"
 #include "../Views/Ship.h"
 #include "Window.h"
+#include <Tylib/Controllers/Game.h>
 
 namespace tySFML {
 

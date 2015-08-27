@@ -13,12 +13,13 @@
 #include <string>
 #include "../Helpers/Button.h"
 #include <SFML/Graphics.hpp>
-#include "../Library/Controllers/Game.h"
+#include <Tylib/Controllers/Game.h>
 #include "../Helpers/SFMLBridge.h"
 #include "../Helpers/Stopwatch.h"
 #include "../Helpers/Input.h"
 #include "../Views/Tile.h"
-#include "../Library/Lib/FileLoader.h"
+#include <Tylib/Lib/FileLoader.h>
+#include <Tylib/Lib/Highscores.h>
 
 namespace tySFML {
 

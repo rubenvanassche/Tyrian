@@ -8,8 +8,8 @@
 #ifndef HELPERS_HELPERS_H_
 #define HELPERS_HELPERS_H_
 
-#include "../Library/Lib/Point.h"
-#include "../Library/Lib/Size.h"
+#include <Tylib/Lib/Point.h>
+#include <Tylib/Lib/Size.h>
 #include <SFML/Graphics.hpp>
 
 namespace tySFML {

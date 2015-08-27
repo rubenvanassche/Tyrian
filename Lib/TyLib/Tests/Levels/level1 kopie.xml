@@ -1,0 +1,85 @@
+<level>
+	<name>Blabla</name>
+	<difficulty>1</difficulty>
+	
+	<!-- A level is divided in different stages  -->
+	<stages>
+		<!-- A single stage -->
+		<stage>
+			<!-- When(after how many seconds) does this stage start after all the ships from the previous one are dead -->
+			<start>5</start>
+			
+			<!-- Which ships show up in this stage -->
+			<ships>
+				<ship>
+					<!-- Type of the ship -->
+					<type>Standard</type>
+					<!-- The X position of the ship -->
+					<x>10</x>
+					<!-- The Y position of the ship -->
+					<y>320</y>
+					<!-- The type of the ship's gun -->
+					<gun>Basic</gun>
+				</ship>
+				<ship>
+					<type>Standard</type>
+					<x>120</x>
+					<y>320</y>
+					<gun>Basic</gun>
+				</ship>
+				<ship>
+					<type>Standard</type>
+					<x>200</x>
+					<y>320</y>
+					<gun>Basic</gun>
+				</ship>								
+			</ships>
+		</stage>
+		<stage>
+			<start>5</start>
+			<ships>
+				<ship>
+					<type>Standard</type>
+					<x>10</x>
+					<y>320</y>
+					<gun>Basic</gun>
+				</ship>
+				<ship>
+					<type>Standard</type>
+					<x>120</x>
+					<y>320</y>
+					<gun>Basic</gun>
+				</ship>
+				<ship>
+					<type>Standard</type>
+					<x>200</x>
+					<y>320</y>
+					<gun>Basic</gun>
+				</ship>								
+			</ships>
+		</stage>
+		<stage>
+			<start>5</start>
+			<ships>
+				<ship>
+					<type>Standard</type>
+					<x>10</x>
+					<y>320</y>
+					<gun>Basic</gun>
+				</ship>
+				<ship>
+					<type>Standard</type>
+					<x>120</x>
+					<y>320</y>
+					<gun>Basic</gun>
+				</ship>
+				<ship>
+					<type>Standard</type>
+					<x>200</x>
+					<y>320</y>
+					<gun>Basic</gun>
+				</ship>								
+			</ships>
+		</stage>
+	</stages>
+</level>

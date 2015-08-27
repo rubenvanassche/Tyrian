@@ -9,7 +9,7 @@
 #define VIEWS_SHIP_H_
 
 #include "View.h"
-#include "../Library/Models/Ship.h"
+#include <Tylib/Models/Ship.h>
 
 namespace tySFML {
 

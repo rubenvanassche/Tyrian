@@ -9,7 +9,7 @@
 #define VIEWS_TILE_H_
 
 #include "View.h"
-#include "../Library/Models/Tile.h"
+#include <Tylib/Models/Tile.h>
 
 namespace tySFML {
 

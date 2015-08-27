@@ -15,10 +15,10 @@ set(STAGES Stages/IntroStage.cpp Stages/GameStage.cpp Stages/SelectLevelStage.cp
 
 set(SOURCE_FILES main.cpp)
 
-INCLUDE_DIRECTORIES(${SFML_INCLUDE_DIR} ${Boost_INCLUDE_DIR})
+INCLUDE_DIRECTORIES(${SFML_INCLUDE_DIR} ${Boost_INCLUDE_DIR} "${PROJECT_SOURCE_DIR}/Lib/")
 
 
-add_subdirectory(Library)
+add_subdirectory(Lib/TyLib)
 
 add_executable(Tyrian ${SOURCE_FILES} ${VIEWS} ${HELPERS} ${STAGES})
 

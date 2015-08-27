@@ -11,6 +11,9 @@
 #include "../Helpers/Stage.h"
 #include "../Helpers/Button.h"
 #include <iostream>
+#include <Tylib/Lib/Highscores.h>
+#include <map>
+#include <string>
 
 namespace tySFML {
 

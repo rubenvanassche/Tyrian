@@ -6,9 +6,6 @@
  */
 
 #include "HighscoresStage.h"
-#include "../Library/Lib/Highscores.h"
-#include <map>
-#include <string>
 
 namespace tySFML {
 

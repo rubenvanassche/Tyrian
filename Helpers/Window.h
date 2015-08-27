@@ -11,7 +11,7 @@
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
-#include "../Library/Lib/Config.h"
+#include <TyLib/Lib/Config.h>
 #include <iostream>
 
 namespace tySFML {

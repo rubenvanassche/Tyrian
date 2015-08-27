@@ -9,7 +9,7 @@
 #define VIEWS_BULLET_H_
 
 #include "View.h"
-#include "../Library/Models/Bullet.h"
+#include <Tylib/Models/Bullet.h>
 
 namespace tySFML {
 
