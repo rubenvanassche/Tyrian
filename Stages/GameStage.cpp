@@ -24,7 +24,7 @@ void GameStage::run(){
     tyLib::Game g(this->fMessage, bridge, amountOfPlayers);
 
     // Get the background
-    tySFML::Tile bg = Tile(this->fApp, g.getTile());
+    tySFML::Tile bg = Tile(this->fApp);
 
     // Create an assets library
     tySFML::Assets *assets = tySFML::Assets::getInstance();
@@ -127,9 +127,9 @@ void GameStage::run(){
 
 
         // Clear screen
-		this->fApp->clear();
+				this->fApp->clear();
 
-		bg.draw();
+				bg.drawGrass();
 
         for(auto i : bridge->ships){
         	i->draw();

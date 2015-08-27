@@ -17,18 +17,15 @@ using namespace tyLib::te;
 
 class Tile : public View {
 public:
-	Tile(Window* window, tyLib::Tile* ship);
-
-	void draw();
+	Tile(Window* window);
 
 	/**
 	 * @brief Draw a Grass tile
 	 */
-	void drawGrass(Entity*);
+	void drawGrass();
 
-	bool is(tyLib::Tile* tile);
 private:
-	tyLib::Tile* fTile;
+	int fHeightAchieved;
 };
 
 } /* namespace tySFML */

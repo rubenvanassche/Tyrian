@@ -9,36 +9,36 @@
 
 namespace tySFML {
 
-Tile::Tile(Window* window, tyLib::Tile* tile) : View(window){
-	this->fTile = tile;
+Tile::Tile(Window* window) : View(window){
+	this->fHeightAchieved = 0;
 }
 
-void Tile::draw(){
-	// First draw the background
-	for(auto i : *this->fTile->getBackground()){
-		if(i->name == "Grass"){
-			this->drawGrass(i);
-		}
-	}
-}
 
-void Tile::drawGrass(Entity* entity){
+void Tile::drawGrass(){
 	int textureOffsetX = 0;
 	int textureOffsetY = 0;
 
-	sf::Texture texture = *this->fAssets->getTexture("grass.png");
+	sf::Texture texture = *this->fAssets->getTexture("grass2.jpg");
 
-	sf::Sprite sprite;
-	//sprite.setScale(toVector2(entity->size));
-	sprite.setPosition(toVector2(entity->location));
-	sprite.setTexture(texture);
-	sprite.setTextureRect(sf::IntRect(textureOffsetX, textureOffsetY, entity->size.width, entity->size.height));
+	sf::Sprite sprite1;
+	sprite1.setPosition(sf::Vector2f(0,320 - this->fHeightAchieved));
+	sprite1.setTexture(texture);
+	sprite1.setTextureRect(sf::IntRect(0, 0, 320, 320));
 
-	this->fWindow->draw(sprite);
+	sf::Sprite sprite2;
+	sprite2.setPosition(sf::Vector2f(0,320*2 - this->fHeightAchieved));
+	sprite2.setTexture(texture);
+	sprite2.setTextureRect(sf::IntRect(0, 0, 320, 320));
+
+	if(this->fHeightAchieved == 320){
+		this->fHeightAchieved = 0;
+	}else{
+		this->fHeightAchieved++;
+	}
+
+	this->fWindow->draw(sprite1);
+	this->fWindow->draw(sprite2);
 }
 
-bool Tile::is(tyLib::Tile* tile){
-	return this->fTile == tile;
-}
 
 } /* namespace tySFML */
