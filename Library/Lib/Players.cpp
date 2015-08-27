@@ -53,7 +53,15 @@ int Players::size() const{
 
 
 Players::~Players() {
-	// TODO Auto-generated destructor stub
+  if(this->fPlayers.size() == 1){
+    this->fWorld->bridge->removeShip(this->at(0));
+  }else if(this->fPlayers.size() == 2){
+    this->fWorld->bridge->removeShip(this->at(0));
+    this->fWorld->bridge->removeShip(this->at(1));
+  }else{
+
+  }
+
 }
 
 }

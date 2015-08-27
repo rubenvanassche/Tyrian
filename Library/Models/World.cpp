@@ -92,7 +92,8 @@ Tile* World::getTile(){
 
 
 World::~World() {
-	// TODO Auto-generated destructor stub
+		delete this->players;
+		delete this->tile;
 }
 
 }

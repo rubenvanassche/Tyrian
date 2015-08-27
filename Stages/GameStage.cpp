@@ -49,15 +49,22 @@ void GameStage::run(){
 		// Update the stopwatch so all our entities run equal on each device.
     	stopwatch->update();
 
-    	if(g.won() == true){
-    		this->fStages->message->setMessage("You Win!");
-    		this->fStages->message->run();
-    	}
+			if(g.won() == true or g.lose() == true){
+				delete stopwatch;
+				delete input;
 
-    	if(g.lose() == true){
-    		this->fStages->message->setMessage("You Lose!");
-    		this->fStages->message->run();
-    	}
+				if(g.won() == true){
+					this->fStages->message->setMessage("You Win!");
+					this->fStages->message->run();
+				}
+
+				if(g.lose() == true){
+					this->fStages->message->setMessage("You Lose!");
+					this->fStages->message->run();
+				}
+			}
+
+
 
         // Process events
         sf::Event event;
@@ -146,7 +153,6 @@ void GameStage::run(){
 }
 
 GameStage::~GameStage() {
-	// TODO Auto-generated destructor stub
 }
 
 } /* namespace tySFML */

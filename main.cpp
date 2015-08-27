@@ -39,4 +39,8 @@ int main(){
 
 	// Start by running our intro stage
 	introStage.run();
+
+	// End of all things
+	delete config;
+	delete assets;
 }
