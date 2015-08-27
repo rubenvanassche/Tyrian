@@ -17,6 +17,8 @@ set(SOURCE_FILES main.cpp)
 
 INCLUDE_DIRECTORIES(${SFML_INCLUDE_DIR} ${Boost_INCLUDE_DIR} "${PROJECT_SOURCE_DIR}/Lib/")
 
+target_include_directories(Tyrian PUBLIC ${SFML_INCLUDE_DIR} ${Boost_INCLUDE_DIR} "${PROJECT_SOURCE_DIR}/Lib/")
+
 
 add_subdirectory(Lib/TyLib)
 
