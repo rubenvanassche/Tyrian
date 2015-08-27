@@ -31,11 +31,12 @@ Players::Players(int const amount, World* world){
 }
 
 bool Players::isPlayer(Ship* const ship) const{
-  if(std::find(this->fPlayers.begin(), this->fPlayers.end(), ship) == this->fPlayers.end()){
-    return false;
-  }else{
+  if(std::find(this->fPlayers.begin(), this->fPlayers.end(), ship) != this->fPlayers.end()){
     return true;
+  }else{
+    return false;
   }
+
 }
 
 Ship* Players::at(int i){

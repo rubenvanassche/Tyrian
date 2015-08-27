@@ -80,6 +80,56 @@ bool Input::keyRight(){
 	}
 }
 
+bool Input::keyI(){
+	if(!this->wasKeyPressed()){return false;}
+
+	if(this->fEvent.key.code == sf::Keyboard::I){
+		return true;
+	}else{
+		return false;
+	}
+}
+
+bool Input::keyL(){
+	if(!this->wasKeyPressed()){return false;}
+
+	if(this->fEvent.key.code == sf::Keyboard::L){
+		return true;
+	}else{
+		return false;
+	}
+}
+
+bool Input::keyK(){
+	if(!this->wasKeyPressed()){return false;}
+
+	if(this->fEvent.key.code == sf::Keyboard::K){
+		return true;
+	}else{
+		return false;
+	}
+}
+
+bool Input::keyJ(){
+	if(!this->wasKeyPressed()){return false;}
+
+	if(this->fEvent.key.code == sf::Keyboard::J){
+		return true;
+	}else{
+		return false;
+	}
+}
+
+bool Input::keyH(){
+	if(!this->wasKeyPressed()){return false;}
+
+	if(this->fEvent.key.code == sf::Keyboard::H){
+		return true;
+	}else{
+		return false;
+	}
+}
+
 bool Input::spaceBar(){
 	if(!this->wasKeyPressed()){return false;}
 

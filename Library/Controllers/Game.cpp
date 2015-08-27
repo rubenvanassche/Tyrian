@@ -31,10 +31,6 @@ Game::Game(std::string const filename, Bridge* bridge, int const amountOfPlayers
 	ShipFactory factory(this->fWorld);
 	Vector startPosition(100, 100);
 
-	//Ship* playerPtr = factory.buildShip(startPosition, fileloader.getShipBlueprints()[config->getPlayership()], true);
-	//this->fWorld->setPlayer(playerPtr);
-	//this->fWorld->addShip(playerPtr);
-
 	// Build Players container
  	Players* players = new Players(amountOfPlayers, this->fWorld);
 	this->fWorld->setPlayers(players);
@@ -43,7 +39,7 @@ Game::Game(std::string const filename, Bridge* bridge, int const amountOfPlayers
 void Game::play(double const delta){
 	// Have we won?
 	if(this->fStages.size() == 0){
-		if(this->fWorld->getShips().size() == 1){
+		if(this->fWorld->onlyPlayers()){
 			if(this->fWorld->getPlayers()->isPlayer( this->fWorld->getShips().front() )){
 				this->fWon = true;
 				this->updateHighscores();
@@ -65,8 +61,8 @@ void Game::play(double const delta){
 		}
 	}
 
-	// Do we need to load other ships
-	if(this->fWorld->getShips().size() == 1){
+	// Do we need to load other ships, only if there are only players
+	if(this->fWorld->onlyPlayers()){
 		this->createStage(this->fStages.front());
 		this->fStages.pop_front();
 	}
@@ -159,32 +155,6 @@ bool Game::updateHighscores() const{
 
 Tile* Game::getTile(){
 	return this->fWorld->getTile();
-}
-
-void Game::print(){
-/*
-	std::cout << "Levelname: " << this->fLevelName << std::endl;
-	std::cout << "Difficulty: " << this->fLevelDifficulty << std::endl;
-	std::cout << "Stages todo: " << this->fStages.size() << std::endl;
-	std::cout << "World(" << this->fWorld->getWidth() << ", " << this->fWorld->getHeight() << ")" << std::endl;
-	std::cout << "--------------" << std::endl << "Ships(" << this->fWorld->getShips().size() << ")"<< std::endl << "----------------" << std::endl;
-	for(auto i : this->fWorld->getShips()){
-		if(i == this->fWorld->getPlayer()){
-			std::cout << "PLAYER: (" << i->getLocation().x << ", " << i->getLocation().y << ")" << std::endl;
-		}else{
-			std::cout << "ENEMY: (" << i->getLocation().x << ", " << i->getLocation().y << ")" << std::endl;
-		}
-	}
-	std::cout << "--------------" << std::endl << "Bullets(" << this->fWorld->getBullets().size() << ")"<< std::endl << "----------------" << std::endl;
-	for(auto i : this->fWorld->getBullets()){
-		if(i->getFrom() == this->fWorld->getPlayer()){
-			std::cout << "PLAYER: (" << i->getLocation().x << ", " << i->getLocation().y << ")" << std::endl;
-		}else{
-			std::cout << "ENEMY: (" << i->getLocation().x << ", " << i->getLocation().y << ")" << std::endl;
-		}
-	}
-*/
-	//std::cout << "Stages todo: " << this->fStages.size() << "  --  Ships(" << this->fWorld->getShips().size() << ")" << std::endl;
 }
 
 Game::~Game() {

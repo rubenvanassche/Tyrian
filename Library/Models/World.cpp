@@ -52,6 +52,20 @@ void World::setPlayers(Players* players){
 	this->players = players;
 }
 
+bool World::onlyPlayers(){
+
+
+	for(auto ship : this->ships){
+		if(this->players->isPlayer(ship)){
+			continue;
+		}else{
+			return false;
+		}
+	}
+
+	return true;
+}
+
 Players* World::getPlayers(){
 	return this->players;
 }

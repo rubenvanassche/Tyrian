@@ -23,36 +23,37 @@ void HAL9000::moveShips(double const delta){
 	while(it != ships.end()){
 		// If the ship we want to move is the player's ship, we don't do anything
 		if(this->fWorld->getPlayers()->isPlayer(*it)){
-			it++;
-		}
 
-		// Move it down
-		// TODO find some better algorithm
-		Direction direction("down");
-		(*it)->move(direction, delta);
+		}else{
+				// Move it down
+				// TODO find some better algorithm
+				Direction direction("down");
+				(*it)->move(direction, delta);
 
-		// Check if the ship is out of the world
-		if(this->fWorld->collides(*it) == false){
-			// hide it because it's dead
-			(*it)->hide();
+				// Check if the ship is out of the world
+				if(this->fWorld->collides(*it) == false){
+					// hide it because it's dead
+					(*it)->hide();
 
-			// Ok, it is out check if there are any bullets of the ship still flying because of Bullet pointers to ships we can't remove a ship before all bullets are removed
-			bool wait = false;
-			for(auto bullet : this->fWorld->getBullets()){
-				if(bullet->getFrom() == *it){
-					wait = true;
-					break;
+					// Ok, it is out check if there are any bullets of the ship still flying because of Bullet pointers to ships we can't remove a ship before all bullets are removed
+					bool wait = false;
+					for(auto bullet : this->fWorld->getBullets()){
+						if(bullet->getFrom() == *it){
+							wait = true;
+							break;
+						}
+					}
+
+					// No Bullet's anymore so die!
+					if(wait == false){
+						// First send a message to the Bridge
+						this->fWorld->bridge->removeShip(*it);
+						// Now remove it
+						ships.erase(it++);
+					}
 				}
-			}
-
-			// No Bullet's anymore so die!
-			if(wait == false){
-				// First send a message to the Bridge
-				this->fWorld->bridge->removeShip(*it);
-				// Now remove it
-				ships.erase(it++);
-			}
 		}
+
 
 		// Becouse we remove some ships from the list we need to check if we haven't reached the end of the list otherwise we might use memory that isn't ours
 		if(it != ships.end()){
@@ -187,7 +188,12 @@ void HAL9000::checkForDeadBullets(){
 }
 
 void HAL9000::shootBullets(bool pass){
-	if(this->fWorld->getShips().size() == 1){
+	//if(this->fWorld->getShips().size() == 1 or this->fWorld->getShips().size() == 2){
+		// Only the player is still there
+		//return;
+	//}
+
+	if(this->fWorld->onlyPlayers()){
 		// Only the player is still there
 		return;
 	}

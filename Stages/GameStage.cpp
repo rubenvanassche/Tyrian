@@ -11,14 +11,17 @@
 namespace tySFML {
 
 void GameStage::run(){
-	std::cout << this->fMessage << std::endl;
+		std::cout << this->fMessage << std::endl;
 
     // Create the bridge between SFML and tyLib
     tySFML::SFMLBridge* bridge = new tySFML::SFMLBridge;
     bridge->window = this->fApp;
 
+		// Get if we're playing single or multiplayer
+		int amountOfPlayers = this->fPlayersAmount;
+
     // Create the game
-    tyLib::Game g(this->fMessage, bridge, 1);
+    tyLib::Game g(this->fMessage, bridge, amountOfPlayers);
 
     // Get the background
     tySFML::Tile bg = Tile(this->fApp, g.getTile());
@@ -39,6 +42,8 @@ void GameStage::run(){
 
 	// Set the color of the Window
 	this->fApp->setBackGroundColor(sf::Color::Black);
+
+
 
 	while(this->fApp->isOpen()){
 		// Update the stopwatch so all our entities run equal on each device.
@@ -87,6 +92,34 @@ void GameStage::run(){
         		tyLib::Direction d("down");
         		g.movePlayer(d, stopwatch->getDelta(), 0);
         	}
+
+					// Multiplayer mappings
+					if(amountOfPlayers == 2){
+						if(input->keyH()){
+	        		g.shootPlayer(1);
+	        	}
+
+	        	if(input->keyL()){
+	        		tyLib::Direction d("left");
+	        		g.movePlayer(d, stopwatch->getDelta(), 1);
+	        	}
+
+	        	if(input->keyJ()){
+	        		tyLib::Direction d("right");
+	        		g.movePlayer(d, stopwatch->getDelta(), 1);
+	        	}
+
+	        	if(input->keyI()){
+	        		tyLib::Direction d("up");
+	        		g.movePlayer(d, stopwatch->getDelta(), 1);
+	        	}
+
+	        	if(input->keyK()){
+	        		tyLib::Direction d("down");
+	        		g.movePlayer(d, stopwatch->getDelta(), 1);
+	        	}
+
+					}
         }
 
         // Play one iteration of the game.

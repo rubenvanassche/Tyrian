@@ -60,6 +60,31 @@ public:
     bool keyRight();
 
     /**
+     * @brief Check if the i key was pressed
+     */
+    bool keyI();
+
+    /**
+     * @brief Check if the l key was pressed
+     */
+    bool keyL();
+
+    /**
+     * @brief Check if the k key was pressed
+     */
+    bool keyK();
+
+    /**
+     * @brief Check if the j key was pressed
+     */
+    bool keyJ();
+
+    /**
+     * @brief Check if the h key was pressed
+     */
+    bool keyH();
+
+    /**
      * @brief Check if the spacebar key was pressed
      */
     bool spaceBar();

@@ -13,10 +13,15 @@ namespace tySFML {
 void IntroStage::run(){
 	sf::Font* font = this->fAssets->getFont("stark.otf");
 
-	Button button(sf::Vector2f(83,200), sf::Vector2f(154, 30), sf::Color(0,140,158));
-	button.setText("Click Here To Start",sf::Color(52,56,56),  font);
-	button.setLine(1, sf::Color(249,212,35));
-	button.setPadding(7);
+	Button singleplayer(sf::Vector2f(105,150), sf::Vector2f(106, 30), sf::Color(0,140,158));
+	singleplayer.setText("Singleplayer",sf::Color(52,56,56),  font);
+	singleplayer.setLine(1, sf::Color(249,212,35));
+	singleplayer.setPadding(7);
+
+	Button multiplayer(sf::Vector2f(109,200), sf::Vector2f(98, 30), sf::Color(0,140,158));
+	multiplayer.setText("Multiplayer",sf::Color(52,56,56),  font);
+	multiplayer.setLine(1, sf::Color(249,212,35));
+	multiplayer.setPadding(7);
 
 	Button highscores(sf::Vector2f(110,250), sf::Vector2f(96, 30), sf::Color(0,140,158));
 	highscores.setText("HighScores",sf::Color(52,56,56),  font);
@@ -47,8 +52,15 @@ void IntroStage::run(){
             	if (sf::Mouse::isButtonPressed(sf::Mouse::Left)){
 					sf::Vector2i localPosition = sf::Mouse::getPosition(*(this->fApp->getWindow()));
 
-					if(button.isButtonClicked(localPosition)){
+					if(singleplayer.isButtonClicked(localPosition)){
 						// Yes we did  click the button so go the select level stage
+						this->fStages->game->setPlayersAmount(1);
+						this->fStages->selectLevel->run();
+					}
+
+					if(multiplayer.isButtonClicked(localPosition)){
+						// Yes we did  click the button so go the select level stage
+						this->fStages->game->setPlayersAmount(2);
 						this->fStages->selectLevel->run();
 					}
 
@@ -62,7 +74,8 @@ void IntroStage::run(){
 
 
 		this->fApp->clear();
-		this->fApp->draw(button);
+		this->fApp->draw(singleplayer);
+		this->fApp->draw(multiplayer);
 		this->fApp->draw(highscores);
 		this->fApp->draw(text);
 		this->fApp->display();

@@ -67,8 +67,6 @@ public:
 	 */
 	Tile* getTile();
 
-	void print();
-
 	virtual ~Game();
 private:
 	// Initial XML Stuff

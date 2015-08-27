@@ -72,6 +72,11 @@ public:
 	void setPlayers(Players* players);
 
 	/**
+	 * @brief Check if there are only players in The world
+	 */
+	bool onlyPlayers();
+
+	/**
 	 * @brief get the players Container
 	 */
 	Players* getPlayers();
