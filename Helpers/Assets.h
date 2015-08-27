@@ -33,7 +33,7 @@ public:
 	 *
 	 * @return A pointer to a texture
 	 */
-	sf::Texture* getTexture(std::string file);
+	sf::Texture* getTexture(std::string const file);
 
 	/**
 	 * @brief get a font
@@ -42,7 +42,7 @@ public:
 	 *
 	 * @return A pointer to a font
 	 */
-	sf::Font* getFont(std::string file);
+	sf::Font* getFont(std::string const file);
 
 	/**
 	 * @brief Set the font path

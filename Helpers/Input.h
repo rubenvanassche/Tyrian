@@ -37,67 +37,67 @@ public:
     /**
      * @brief Execute an Event
      */
-    void executeEvent(sf::Event& event);
+    void executeEvent(sf::Event&  event);
 
     /**
      * @brief Check if the up key was pressed
      */
-    bool keyUp();
+    bool keyUp() ;
 
     /**
      * @brief Check if the down key was pressed
      */
-    bool keyDown();
+    bool keyDown() ;
 
     /**
      * @brief Check if the left key was pressed
      */
-    bool keyLeft();
+    bool keyLeft() ;
 
     /**
      * @brief Check if the right key was pressed
      */
-    bool keyRight();
+    bool keyRight() ;
 
     /**
      * @brief Check if the i key was pressed
      */
-    bool keyI();
+    bool keyI() ;
 
     /**
      * @brief Check if the l key was pressed
      */
-    bool keyL();
+    bool keyL() ;
 
     /**
      * @brief Check if the k key was pressed
      */
-    bool keyK();
+    bool keyK() ;
 
     /**
      * @brief Check if the j key was pressed
      */
-    bool keyJ();
+    bool keyJ() ;
 
     /**
      * @brief Check if the h key was pressed
      */
-    bool keyH();
+    bool keyH() ;
 
     /**
      * @brief Check if the spacebar key was pressed
      */
-    bool spaceBar();
+    bool spaceBar() ;
 
     /**
      * @brief Check if the enter key was pressed
      */
-    bool enter();
+    bool enter() ;
 
     /**
      * @brief Check if the escape key was pressed
      */
-    bool escape();
+    bool escape() ;
     ~Input();
 };
 

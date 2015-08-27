@@ -69,7 +69,7 @@ void Ship::reduceHealth(double points){
 	this->fHealth -= points;
 }
 
-bool Ship::isDead(){
+bool Ship::isDead() const{
 	if(this->fHealth <= 0){
 		return true;
 	}else{

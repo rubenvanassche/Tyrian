@@ -9,7 +9,7 @@
 
 namespace tySFML {
 
-Button::Button(sf::Vector2f location, sf::Vector2f size, sf::Color backGroundColor){
+Button::Button(sf::Vector2f const location, sf::Vector2f const size, sf::Color const backGroundColor){
 	this->fLocation = location;
 	this->fSize = size;
 	this->fBackGroundColor = backGroundColor;
@@ -21,22 +21,22 @@ Button::Button(sf::Vector2f location, sf::Vector2f size, sf::Color backGroundCol
 	this->fFont = nullptr;
 }
 
-void Button::setLine(int thickness, sf::Color color){
+void Button::setLine(int const thickness, sf::Color const color){
 	this->fLineThickness = thickness;
 	this->flineColor = color;
 }
 
-void Button::setText(std::string text, sf::Color textcolor,  sf::Font* font){
+void Button::setText(std::string const text, sf::Color const textcolor,  sf::Font* const font){
 	this->fText = text;
 	this->fFont = font;
 	this->fTextColor = textcolor;
 }
 
-void Button::setPadding(int padding){
+void Button::setPadding(int const padding){
 	this->fPadding = padding;
 }
 
-bool Button::isButtonClicked(sf::Vector2i point){
+bool Button::isButtonClicked(sf::Vector2i const point) const{
 	if(this->fLocation.x <= point.x and (this->fLocation.x + this->fSize.x) >= point.x){
 		if(this->fLocation.y <= point.y and (this->fLocation.y + this->fSize.y) >= point.y){
 			return true;

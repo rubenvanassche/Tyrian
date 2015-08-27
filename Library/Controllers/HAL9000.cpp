@@ -187,7 +187,7 @@ void HAL9000::checkForDeadBullets(){
 	}
 }
 
-void HAL9000::shootBullets(bool pass){
+void HAL9000::shootBullets(bool const pass){
 	//if(this->fWorld->getShips().size() == 1 or this->fWorld->getShips().size() == 2){
 		// Only the player is still there
 		//return;

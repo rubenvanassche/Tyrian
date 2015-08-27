@@ -33,7 +33,7 @@ public:
 	 * @param offsetX the offset x needed in the file to find the sprite
 	 * yparam offsetX the offset x needed in the file to find the sprite
 	 */
-	sf::Sprite drawSprite(const std::string& file, const tyLib::Vector&  location, const tyLib::Size& size, const int offsetX, const int offsetY);
+	sf::Sprite drawSprite(std::string const file,  tyLib::Vector  const location, tyLib::Size const size, int const offsetX, int const offsetY);
 
 
 	virtual ~View();

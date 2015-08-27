@@ -36,11 +36,11 @@ Input* Input::getInstance(){
     }
 }
 
-void Input::executeEvent(sf::Event& event){
+void Input::executeEvent(sf::Event&  event){
 	this->fEvent = event;
 }
 
-bool Input::keyUp(){
+bool Input::keyUp() {
 	if(!this->wasKeyPressed()){return false;}
 
 	if(this->fEvent.key.code == sf::Keyboard::Up){
@@ -50,7 +50,7 @@ bool Input::keyUp(){
 	}
 }
 
-bool Input::keyDown(){
+bool Input::keyDown() {
 	if(!this->wasKeyPressed()){return false;}
 
 	if(this->fEvent.key.code == sf::Keyboard::Down){
@@ -60,7 +60,7 @@ bool Input::keyDown(){
 	}
 }
 
-bool Input::keyLeft(){
+bool Input::keyLeft() {
 	if(!this->wasKeyPressed()){return false;}
 
 	if(this->fEvent.key.code == sf::Keyboard::Left){
@@ -70,7 +70,7 @@ bool Input::keyLeft(){
 	}
 }
 
-bool Input::keyRight(){
+bool Input::keyRight() {
 	if(!this->wasKeyPressed()){return false;}
 
 	if(this->fEvent.key.code == sf::Keyboard::Right){
@@ -80,7 +80,7 @@ bool Input::keyRight(){
 	}
 }
 
-bool Input::keyI(){
+bool Input::keyI() {
 	if(!this->wasKeyPressed()){return false;}
 
 	if(this->fEvent.key.code == sf::Keyboard::I){
@@ -90,7 +90,7 @@ bool Input::keyI(){
 	}
 }
 
-bool Input::keyL(){
+bool Input::keyL() {
 	if(!this->wasKeyPressed()){return false;}
 
 	if(this->fEvent.key.code == sf::Keyboard::L){
@@ -100,7 +100,7 @@ bool Input::keyL(){
 	}
 }
 
-bool Input::keyK(){
+bool Input::keyK() {
 	if(!this->wasKeyPressed()){return false;}
 
 	if(this->fEvent.key.code == sf::Keyboard::K){
@@ -110,7 +110,7 @@ bool Input::keyK(){
 	}
 }
 
-bool Input::keyJ(){
+bool Input::keyJ() {
 	if(!this->wasKeyPressed()){return false;}
 
 	if(this->fEvent.key.code == sf::Keyboard::J){
@@ -120,7 +120,7 @@ bool Input::keyJ(){
 	}
 }
 
-bool Input::keyH(){
+bool Input::keyH() {
 	if(!this->wasKeyPressed()){return false;}
 
 	if(this->fEvent.key.code == sf::Keyboard::H){
@@ -130,7 +130,7 @@ bool Input::keyH(){
 	}
 }
 
-bool Input::spaceBar(){
+bool Input::spaceBar() {
 	if(!this->wasKeyPressed()){return false;}
 
 	if(this->fEvent.key.code == sf::Keyboard::Space){
@@ -140,7 +140,7 @@ bool Input::spaceBar(){
 	}
 }
 
-bool Input::enter(){
+bool Input::enter() {
 	if(!this->wasKeyPressed()){return false;}
 
 	if(this->fEvent.key.code == sf::Keyboard::BackSpace){
@@ -150,7 +150,7 @@ bool Input::enter(){
 	}
 }
 
-bool Input::escape(){
+bool Input::escape() {
 	if(!this->wasKeyPressed()){return false;}
 
 	if(this->fEvent.key.code == sf::Keyboard::Escape){

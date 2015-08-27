@@ -13,7 +13,7 @@ GunFactory::GunFactory(World* worldPtr) {
 	this->fWorld = worldPtr;
 }
 
-Gun* GunFactory::build(std::string gunType, Ship* ship, bool isPlayer){
+Gun* GunFactory::build(std::string const gunType, Ship* const ship, bool const isPlayer){
 	FileLoader loader;
 	std::map<std::string, XMLGunBlueprint> blueprints = loader.getGunBlueprints();
 

@@ -9,7 +9,7 @@
 
 namespace tySFML {
 
-Ship::Ship(Window* window, tyLib::Ship* ship) : View(window){
+Ship::Ship(Window* window, tyLib::Ship* const ship) : View(window){
 	this->fShip = ship;
 }
 
@@ -41,7 +41,7 @@ void Ship::draw(){
 
 }
 
-bool Ship::is(tyLib::Ship* ship){
+bool Ship::is(tyLib::Ship* const ship) const{
 	return this->fShip == ship;
 }
 

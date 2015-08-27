@@ -50,12 +50,12 @@ public:
 	/**
 	 * @brief returns true if the player has won the game
 	 */
-	bool won();
+	bool won() const;
 
 	/**
 	 * @brief returns true if the player has lost the game
 	 */
-	bool lose();
+	bool lose() const;
 
 	/**
 	 * @brief Update the highscores

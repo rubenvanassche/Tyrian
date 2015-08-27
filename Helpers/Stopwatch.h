@@ -46,7 +46,7 @@ public:
     /**
      * Get the framerate per second
      */
-    int getFPS();
+    int getFPS() const;
     ~Stopwatch();
 };
 

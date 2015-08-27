@@ -61,4 +61,3 @@ Direction::~Direction() {
 }
 
 }
-

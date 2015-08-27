@@ -12,7 +12,7 @@ namespace tyLib{
 class Size {
 public:
 	Size();
-	Size(int width, int height);
+	Size(int const width, int const height);
 	virtual ~Size();
 
 	int width;

@@ -15,11 +15,11 @@ namespace tySFML {
 
 class Ship : public View {
 public:
-	Ship(Window* window, tyLib::Ship* ship);
+	Ship(Window* window, tyLib::Ship* const ship);
 
 	void draw();
 
-	bool is(tyLib::Ship* ship);
+	bool is(tyLib::Ship* const ship) const;
 private:
 	tyLib::Ship* fShip;
 	int fTick = 0;

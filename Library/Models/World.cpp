@@ -52,7 +52,7 @@ void World::setPlayers(Players* players){
 	this->players = players;
 }
 
-bool World::onlyPlayers(){
+bool World::onlyPlayers() const{
 
 
 	for(auto ship : this->ships){
@@ -70,11 +70,11 @@ Players* World::getPlayers(){
 	return this->players;
 }
 
-int World::getWidth(){
+int World::getWidth() const{
 	return this->width;
 }
 
-int World::getHeight(){
+int World::getHeight() const{
 	return this->height;
 }
 

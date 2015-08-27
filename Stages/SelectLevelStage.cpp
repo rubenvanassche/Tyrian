@@ -9,7 +9,7 @@
 
 namespace tySFML {
 
-void SelectLevelStage::run (){
+void SelectLevelStage::run(){
 	sf::Font* font = this->fAssets->getFont("stark.otf");
 	// Build the select a level text
 	sf::Text text;

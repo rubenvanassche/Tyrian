@@ -62,7 +62,7 @@ public:
 	/**
 	 * @brief Let's enemies shoot bullets, if pass is true, there wil be fired a bullet imediatly without randomness
 	 */
-	void shootBullets(bool pass);
+	void shootBullets(bool const pass);
 
 
 	virtual ~HAL9000();

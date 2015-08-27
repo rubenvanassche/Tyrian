@@ -42,14 +42,14 @@ public:
 	 * @param  i
 	 * @return   ship from the player
 	 */
-	Ship* operator[](int i);
+	Ship* operator[](int const i);
 
 	/**
 	 * Get a player
 	 * @param  i
 	 * @return   ship from the player
 	 */
-	Ship* at(int i);
+	Ship* at(int const i);
 
 	/**
 	 * The amount of players in the container

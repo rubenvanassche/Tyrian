@@ -27,7 +27,7 @@ public:
 	/**
 	 * @brief Construct a BulletFactory
 	 */
-	BulletFactory(World* worldPtr, Ship* from, std::string bulletType);
+	BulletFactory(World* worldPtr, Ship* const from, std::string const bulletType);
 
 	/**
 	 * @brief Build a blue bullet

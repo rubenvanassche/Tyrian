@@ -34,7 +34,7 @@ public:
 	/**
 	 * @brief Get a pointer to the ship where this Bullet was shot from
 	 */
-	Ship* getFrom();
+	Ship* getFrom() const;
 
 	/**
 	 * @brief Damage a ship

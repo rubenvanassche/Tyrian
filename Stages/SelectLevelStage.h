@@ -19,7 +19,7 @@ namespace tySFML {
 class SelectLevelStage : public Stage {
 public:
 	using Stage::Stage;
-	virtual void run ();
+	virtual void run();
 	virtual ~SelectLevelStage();
 };
 

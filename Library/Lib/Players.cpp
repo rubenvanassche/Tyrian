@@ -39,11 +39,11 @@ bool Players::isPlayer(Ship* const ship) const{
 
 }
 
-Ship* Players::at(int i){
+Ship* Players::at(int const i){
   return this->fPlayers.at(i);
 }
 
-Ship* Players::operator[](int i){
+Ship* Players::operator[](int const i){
   return this->fPlayers.at(i);
 }
 

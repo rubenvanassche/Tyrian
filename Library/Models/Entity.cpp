@@ -50,7 +50,7 @@ void Entity::setType(std::string type){
 	this->fType = type;
 }
 
-::std::string Entity::getType(){
+::std::string Entity::getType() const{
 	return this->fType;
 }
 
@@ -74,7 +74,7 @@ void Entity::show(){
 	this->fVisible = true;
 }
 
-bool Entity::isVisible(){
+bool Entity::isVisible() const{
 	return this->fVisible;
 }
 

@@ -9,7 +9,7 @@
 
 namespace tySFML {
 
-Bullet::Bullet(Window* window, tyLib::Bullet* bullet) : View(window){
+Bullet::Bullet(Window* window, tyLib::Bullet* const bullet) : View(window){
 	this->fBullet = bullet;
 }
 
@@ -32,7 +32,7 @@ void Bullet::draw(){
 
 }
 
-bool Bullet::is(tyLib::Bullet* bullet){
+bool Bullet::is(tyLib::Bullet* const bullet) const{
 	return this->fBullet == bullet;
 }
 

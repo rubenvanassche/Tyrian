@@ -60,7 +60,7 @@ public:
 	/**
 	 * @brief Returns a boolean telling if the ship is dead
 	 */
-	bool isDead();
+	bool isDead() const;
 
 	virtual ~Ship();
 private:

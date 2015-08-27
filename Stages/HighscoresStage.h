@@ -18,7 +18,7 @@ namespace tySFML {
 class HighscoresStage : public Stage {
 public:
 	using Stage::Stage;
-	virtual void run ();
+	virtual void run();
 	virtual ~HighscoresStage();
 };
 

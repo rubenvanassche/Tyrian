@@ -33,7 +33,7 @@ public:
 	/**
 	 * Build a gun based upon an given name and Point and if it's the player
 	 */
-	Gun* build(std::string, Ship* ship, bool isPlayer);
+	Gun* build(std::string const, Ship*  const ship, bool const isPlayer);
 
 	virtual ~GunFactory();
 private:

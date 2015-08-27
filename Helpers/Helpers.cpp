@@ -9,7 +9,7 @@
 
 namespace tySFML {
 
-sf::Vector2f toVector2(tyLib::Size size){
+sf::Vector2f toVector2(tyLib::Size const size){
 	sf::Vector2f vector;
 	vector.x = size.width;
 	vector.y = size.height;
@@ -17,7 +17,7 @@ sf::Vector2f toVector2(tyLib::Size size){
 	return vector;
 }
 
-sf::Vector2f toVector2(tyLib::Vector point){
+sf::Vector2f toVector2(tyLib::Vector const point){
 	sf::Vector2f vector;
 	vector.x = point.x;
 	vector.y = point.y;

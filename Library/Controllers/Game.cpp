@@ -134,11 +134,11 @@ void Game::shootPlayer(int const playerID){
 	this->fWorld->getPlayers()->at(playerID)->shoot();
 }
 
-bool Game::won(){
+bool Game::won() const{
 	return this->fWon;
 }
 
-bool Game::lose(){
+bool Game::lose() const{
 	return this->fLose;
 }
 

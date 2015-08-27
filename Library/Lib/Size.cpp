@@ -14,7 +14,7 @@ Size::Size() {
 
 }
 
-Size::Size(int width, int height){
+Size::Size(int const width, int const height){
 	this->width = width;
 	this->height = height;
 }
@@ -24,4 +24,3 @@ Size::~Size() {
 }
 
 }
-

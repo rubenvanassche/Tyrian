@@ -13,16 +13,16 @@ namespace tyLib{
 class Vector {
 public:
 	Vector();
-	Vector(double x, double y);
-	Vector operator+(Vector other);
-	Vector operator/(Vector other);
-	Vector operator-(Vector other);
-	Vector operator*(Vector other);
-	Vector operator*(double scalar);
-	Vector operator*(int scalar);
-	bool operator==(Vector other);
-	bool operator>(Vector other);
-	bool operator<(Vector other);
+	Vector(double const x, double const y);
+	Vector operator+(Vector const other);
+	Vector operator/(Vector const other);
+	Vector operator-(Vector const other);
+	Vector operator*(Vector const other);
+	Vector operator*(double const scalar);
+	Vector operator*(int const scalar);
+	bool operator==(Vector const other) const;
+	bool operator>(Vector const other) const;
+	bool operator<(Vector const other) const;
 	virtual ~Vector();
 
 	double x;

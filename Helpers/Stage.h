@@ -22,9 +22,9 @@ class Stage {
 public:
 	Stage(Window* app, Stages* stages);
 	virtual void run ()=0;
-	void setMessage(std::string message){this->fMessage  = message;};
+	void setMessage(std::string const message){this->fMessage  = message;};
 	void setPlayersAmount(int const amount){this->fPlayersAmount = amount;};
-	std::string getMessage(){return this->fMessage;};
+	std::string getMessage() const {return this->fMessage;};
 	int getPlayersAmount() const {return this->fPlayersAmount;};
 	virtual ~Stage();
 protected:

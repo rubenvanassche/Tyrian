@@ -18,7 +18,7 @@ namespace tySFML {
 class MessageStage : public Stage {
 public:
 	using Stage::Stage;
-	virtual void run ();
+	virtual void run();
 	virtual ~MessageStage();
 };
 

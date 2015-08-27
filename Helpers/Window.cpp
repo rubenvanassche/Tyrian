@@ -56,7 +56,7 @@ bool Window::pollEvent (sf::Event &event){
 }
 
 
-bool Window::isOpen(){
+bool Window::isOpen() const{
 	return this->fWindow->isOpen();
 }
 

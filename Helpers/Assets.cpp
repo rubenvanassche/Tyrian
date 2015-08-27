@@ -25,7 +25,7 @@ Assets* Assets::getInstance(){
     }
 }
 
-sf::Texture* Assets::getTexture(std::string file){
+sf::Texture* Assets::getTexture(std::string const file){
 	// Is the texure already loaded
 	if(this->fTextures.find(file) == this->fTextures.end()){
 		// Nope so try to add it
@@ -41,7 +41,7 @@ sf::Texture* Assets::getTexture(std::string file){
 	}
 }
 
-sf::Font* Assets::getFont(std::string file){
+sf::Font* Assets::getFont(std::string const file){
 	// Is the font already loaded
 	if(this->fFonts.find(file) == this->fFonts.end()){
 		// Nope so try to add it

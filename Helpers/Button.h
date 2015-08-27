@@ -28,23 +28,23 @@ public:
 	/**
 	 * @brief Add a line surrounding the button with a certain thickness and color
 	 */
-	void setLine(int thickness, sf::Color color);
+	void setLine(int const thickness, sf::Color const color);
 
 	/**
 	 * @brief Set the text for the button
 	 */
-	void setText(std::string text, sf::Color textcolor, sf::Font* font);
+	void setText(std::string const text, sf::Color const textcolor, sf::Font* const font);
 
 
 	/**
 	 * @brief Change the padding in the Button(normal: 2)
 	 */
-	void setPadding(int padding);
+	void setPadding(int const padding);
 
 	/**
 	 * @brief Check if a certain point lies in the button to check if it has been clicked
 	 */
-	bool isButtonClicked(sf::Vector2i point);
+	bool isButtonClicked(sf::Vector2i const point) const;
 
 	/**
 	 * @brief Enable SFML to draw this immediately

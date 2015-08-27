@@ -74,7 +74,7 @@ public:
 	/**
 	 * @brief Check if there are only players in The world
 	 */
-	bool onlyPlayers();
+	bool onlyPlayers() const;
 
 	/**
 	 * @brief get the players Container
@@ -84,12 +84,12 @@ public:
 	/**
 	 * @brief get The width of the World
 	 */
-	int getWidth();
+	int getWidth() const;
 
 	/**
 	 * @brief get The width of the World
 	 */
-	int getHeight();
+	int getHeight() const;
 
 	/**
 	 * @brief Get all the Ships in the World

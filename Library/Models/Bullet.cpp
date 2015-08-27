@@ -38,7 +38,7 @@ void Bullet::move(Direction const direction, double const delta){
 	}
 }
 
-Ship* Bullet::getFrom(){
+Ship* Bullet::getFrom() const{
 	return this->fFrom;
 }
 

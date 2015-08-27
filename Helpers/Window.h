@@ -59,7 +59,7 @@ public:
 	/**
 	 * @brief Returns true if the Window is open
 	 */
-	bool isOpen();
+	bool isOpen() const;
 
 	/**
 	 * @brief Display the window
@@ -75,7 +75,7 @@ public:
 	/**
 	 * @brief Get the pointer to the Window
 	 */
-	sf::RenderWindow* getWindow(){return this->fWindow;};
+	sf::RenderWindow* getWindow() const {return this->fWindow;};
 
 	virtual ~Window();
 private:

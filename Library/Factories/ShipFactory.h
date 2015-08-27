@@ -31,7 +31,7 @@ public:
 	/**
 	 * @brief Build the ships based upon an xml stage
 	 */
-	void buildStage(XMLStage stage);
+	void buildStage(XMLStage const stage);
 
 	Ship* buildShip(Vector const location, XMLShipBlueprint const blueprint, bool const isPlayer);
 

@@ -29,7 +29,7 @@ public:
 	/**
 	 * @brief Set the name of the level we're going to play
 	 */
-	void setFileName(std::string fileName){this->fFileName  = fileName;};
+	void setFileName(std::string const fileName){this->fFileName  = fileName;};
 	virtual void run();
 	virtual ~GameStage();
 private:

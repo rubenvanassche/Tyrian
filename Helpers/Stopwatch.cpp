@@ -39,7 +39,7 @@ void Stopwatch::update(){
 }
 
 
-int Stopwatch::getFPS(){
+int Stopwatch::getFPS() const{
 	return this->fFps;
 }
 

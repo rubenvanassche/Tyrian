@@ -26,22 +26,22 @@ public:
 	/**
 	 * @brief this function get's called when a new Ship is created
 	 */
-	virtual void createShip(Ship* shipPtr)=0;
+	virtual void createShip(Ship* const shipPtr)=0;
 
 	/**
 	 * @brief this function get's called when a new Bullet is created
 	 */
-	virtual void createBullet(Bullet* shipPtr)=0;
+	virtual void createBullet(Bullet* const shipPtr)=0;
 
 	/**
 	 * @brief this function get's called when a  Ship is removed
 	 */
-	virtual void removeShip(Ship* shipPtr)=0;
+	virtual void removeShip(Ship* const shipPtr)=0;
 
 	/**
 	 * @brief this function get's called when a  Bullet is removed
 	 */
-	virtual void removeBullet(Bullet* shipPtr)=0;
+	virtual void removeBullet(Bullet* const shipPtr)=0;
 
 	virtual ~Bridge();
 };

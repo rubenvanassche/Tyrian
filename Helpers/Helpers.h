@@ -16,12 +16,12 @@ namespace tySFML {
 	/**
 	 * @brief Convert a tyLib Size to an SFML Vector2
 	 */
-	sf::Vector2f toVector2(tyLib::Size size);
+	sf::Vector2f toVector2(tyLib::Size const size);
 
 	/**
 	 * @brief Convert a tyLib Point to an SFML Vector2
 	 */
-	sf::Vector2f toVector2(tyLib::Vector point);
+	sf::Vector2f toVector2(tyLib::Vector const point);
 
 } /* namespace tySFML */
 

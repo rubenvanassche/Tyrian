@@ -73,7 +73,7 @@ public:
 	/**
 	 * @brief Get the type of this entity
 	 */
-	virtual std::string getType();
+	virtual std::string getType() const;
 
 	/**
 	 * @brief hide the Entity
@@ -88,7 +88,7 @@ public:
 	/**
 	 * @brief is the Entity visible
 	 */
-	bool isVisible();
+	bool isVisible() const;
 
 	virtual ~Entity();
 protected:

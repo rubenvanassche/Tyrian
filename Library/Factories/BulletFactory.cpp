@@ -8,7 +8,7 @@
 #include "BulletFactory.h"
 namespace tyLib{
 
-BulletFactory::BulletFactory(World* worldPtr, Ship* from, std::string bulletType) {
+BulletFactory::BulletFactory(World* worldPtr, Ship* const from, std::string const bulletType) {
 	this->fWorld = worldPtr;
 	this->fFrom = from;
 

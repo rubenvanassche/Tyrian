@@ -23,7 +23,7 @@ public:
 	/**
 	 * @brief Constructor for Direction
 	 */
-	Direction(std::string direction);
+	Direction(std::string const direction);
 
 	/**
 	 * @brief checks if the direction is left

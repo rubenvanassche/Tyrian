@@ -17,13 +17,13 @@ namespace tySFML {
 
 class SFMLBridge : public tyLib::Bridge {
 public:
-	virtual void createShip(tyLib::Ship* shipPtr);
+	virtual void createShip(tyLib::Ship* const shipPtr);
 
-	virtual void createBullet(tyLib::Bullet* bulletPtr);
+	virtual void createBullet(tyLib::Bullet* const bulletPtr);
 
-	virtual void removeShip(tyLib::Ship* shipPtr);
+	virtual void removeShip(tyLib::Ship* const shipPtr);
 
-	virtual void removeBullet(tyLib::Bullet* bulletPtr);
+	virtual void removeBullet(tyLib::Bullet* const bulletPtr);
 
 	std::list<tySFML::Ship*> ships;
 	std::list<tySFML::Bullet*> bullets;
